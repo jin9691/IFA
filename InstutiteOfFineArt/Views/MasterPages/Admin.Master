@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="InstutiteOfFineArt.Views.MasterPages.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/bootstrap.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/jquery-ui.css" />
+    <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="../StaticPages/Home.aspx" class="navbar-brand">
+                    <img src="../../Assets/Images/Pages/logo.png" class="logo"></a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" id="menu-header-bar" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="nav" style="display: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="../Users/Index.aspx" class="btn btn-success btn-lg" role="button">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <br>
+                        Users
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-info btn-lg" role="button">
+                        <span class="glyphicon glyphicon-bookmark"></span>
+                        <br>
+                        Exhibitions
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-warning btn-lg" role="button">
+                        <span class="glyphicon glyphicon-picture"></span>
+                        <br>
+                        Competitons
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-default btn-lg" role="button">
+                        <span class="glyphicon glyphicon-gift"></span>
+                        <br>
+                        Adwards
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-primary btn-lg" role="button">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <br>
+                        Paintings
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-danger btn-lg" role="button">
+                        <span class="glyphicon glyphicon-phone-alt"></span>
+                        <br>
+                        Customers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+    <div>
+        <asp:ContentPlaceHolder ID="ContentSite" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+<script type="text/javascript">
+    $("#to-top").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 700);
+    })
+
+    $(window).scroll(function () {
+        var height = $(window).scrollTop();
+        if (height > 0) {
+            $("#to-top").fadeIn(200)
+        }
+        else {
+            $("#to-top").fadeOut(200)
+        }
+    });
+
+    var check_click_header_bar = false
+    $("#menu-header-bar").click(function () {
+        if (!check_click_header_bar) {
+            $("#nav").slideDown(100);
+            $(".management-main").css("margin-top", "150px")
+            check_click_header_bar = true;
+        }
+        else {
+            $("#nav").slideUp(100);
+            $(".management-main").css("margin-top", "10px")
+            check_click_header_bar = false;
+        }
+    });
+
+    $(function () {
+        $('#nav').affix({
+            offset: { top: $('#nav').offset().top - 10 }
+        });
+    });
+
+</script>
+</html>

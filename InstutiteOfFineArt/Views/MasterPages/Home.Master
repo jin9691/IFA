@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="InstutiteOfFineArt.Views.MasterPages.Home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/bootstrap.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
+    <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">
+                    <img src="../../Assets/Images/Pages/logo.png" class="logo"></a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Exhibitions</a>
+                    </li>
+                    <li>
+                        <a href="#">Competitions</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">Awards</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" id="menu-header-bar" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
