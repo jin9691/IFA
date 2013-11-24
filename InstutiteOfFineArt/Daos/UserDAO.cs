@@ -30,20 +30,24 @@ namespace InstutiteOfFineArt.Daos
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.SelectCommand.Parameters.AddWithValue("@Id", Id);
             adap.Fill(dt);
-            User u = new User();
-            u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-            u.Name = dt.Rows[0]["Name"].ToString();
-            u.Username = dt.Rows[0]["Username"].ToString();
-            u.Email = dt.Rows[0]["Email"].ToString();
-            u.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
-            u.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
-            u.Address = dt.Rows[0]["Address"].ToString();
-            u.Phone = dt.Rows[0]["Phone"].ToString();
-            u.Permission = Convert.ToInt32(dt.Rows[0]["Permission"].ToString());
-            return u;
+            if (dt.Rows.Count > 0)
+            {
+                User u = new User();
+                u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+                u.Name = dt.Rows[0]["Name"].ToString();
+                u.Username = dt.Rows[0]["Username"].ToString();
+                u.Email = dt.Rows[0]["Email"].ToString();
+                u.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
+                u.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
+                u.Address = dt.Rows[0]["Address"].ToString();
+                u.Phone = dt.Rows[0]["Phone"].ToString();
+                u.Permission = Convert.ToInt32(dt.Rows[0]["Permission"].ToString());
+                return u;
+            }
+            return null;
         }
 
-        public static DataTable Where(Dictionary<string, string> query)
+        public static User Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -54,7 +58,7 @@ namespace InstutiteOfFineArt.Daos
                 if (i < query.Count)
                     sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, i);
+                    sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;
@@ -65,7 +69,21 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            return dt;
+            if (dt.Rows.Count > 0)
+            {
+                User u = new User();
+                u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+                u.Name = dt.Rows[0]["Name"].ToString();
+                u.Username = dt.Rows[0]["Username"].ToString();
+                u.Email = dt.Rows[0]["Email"].ToString();
+                u.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
+                u.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
+                u.Address = dt.Rows[0]["Address"].ToString();
+                u.Phone = dt.Rows[0]["Phone"].ToString();
+                u.Permission = Convert.ToInt32(dt.Rows[0]["Permission"].ToString());
+                return u;
+            }
+            return null;
         }
 
         public static DataTable Search(List<string> query)
