@@ -11,7 +11,6 @@ namespace InstutiteOfFineArt.Views.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

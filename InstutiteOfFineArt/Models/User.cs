@@ -17,6 +17,5 @@ namespace InstutiteOfFineArt.Models
         public DateTime Birthday { get; set; }
         public string Phone { get; set; }
         public int Permission { get; set; }
-        public bool Active { get; set; }
     }
 }

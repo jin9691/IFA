@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="InstutiteOfFineArt.Views.Users.New" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Create User
 </asp:Content>
@@ -10,11 +9,11 @@
         </h1>
         <hr />
         <div style="padding: 50px">
-            <form action="/" method="post" runat="server">
+            <form method="post" runat="server">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th colspan="3">Create new user</th>
+                            <th colspan="3"><span style="float:left">Create new user</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +25,7 @@
                                 <asp:TextBox runat="server" ID="txtFullname" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbFullnameErr" Text="" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbFullnameErr" Text="*" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -37,7 +36,7 @@
                                 <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbUsernameErr" Text="16 characters maximum" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbUsernameErr" Text="Must be between 5 and 16 characters" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -48,7 +47,7 @@
                                 <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbPasswordErr" Text="8 characters maximum" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbPasswordErr" Text="Must be between 6 and 10 characters" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -70,7 +69,7 @@
                                 <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbEmailErr" Text="" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbEmailErr" Text="*" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -92,7 +91,7 @@
                                 <asp:TextBox runat="server" ID="txtBirthday" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbBirthdayErr" Text="" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbBirthdayErr" Text="*" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -133,11 +132,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-md-2">
-                            </td>
-                            <td colspan="2" style="padding-top:20px;padding-bottom:20px">
-                                <asp:Button ID="btnAccept" Text="Accept" runat="server" CssClass="btn btn-primary btn-lg" /><span style="padding-right:5px"></span>
-                                <asp:Button ID="btnReset"  Text="Reset" runat="server" CssClass="btn btn-default btn-lg" />
+                            <td class="col-md-2"></td>
+                            <td colspan="2" style="padding-top: 20px; padding-bottom: 20px">
+                                <asp:Button ID="btnAccept" Text="Accept" runat="server" CssClass="btn btn-danger" OnClick="btnAccept_Click" /><span style="padding-right: 5px"></span>
+                                <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default " CausesValidation="False" />
                             </td>
                         </tr>
                     </tbody>

@@ -1,98 +1,141 @@
-﻿body {
-	background-image: url('../Images/Pages/background.jpg');
+﻿body
+{
+    background-image: url('../Images/Pages/background.jpg');
 }
 
 
-hr{
-	border-style: dashed;
-	border-color: #000;	
+hr
+{
+    border-style: dashed;
+    border-color: #000;
 }
 
 /* Overwrite Bootstrap */
-.navbar-brand {
-	float: left;
-	padding: 5px 5px;
-	font-size: 18px;
-	line-height: 20px;
+.navbar-brand
+{
+    float: left;
+    padding: 5px 5px;
+    font-size: 18px;
+    line-height: 20px;
 }
 
-.table{
-	background-color: #fff;
+.table
+{
+    background-color: #fff;
 }
 
-.pagination a{
-	color: #d9534f;
-	font-size: 16px;
+.pagination a
+{
+    color: #d9534f;
+    font-size: 16px;
 }
 
 /* Page */
-#to-top{
-	cursor:pointer;
-	margin-top:300px;
-	display:none
+#to-top
+{
+    cursor: pointer;
+    margin-top: 300px;
+    display: none;
 }
 
 /*Headder Style*/
 .logo
 {
-	height: 40px;
+    height: 40px;
 }
 
-#nav{
-	height:150px;
-	padding:15px;
-	background-color: rgba(0,0,0,.70);
-	border-bottom:1px solid #D6D6D6;
-	border-top:1px solid #D6D6D6;
-}
-
-#nav.affix {
-	z-index: 1030;
-	position: fixed;
-	width: 100%;
-}
-
-#nav .btn:not(.btn-block) 
+#nav
 {
-	margin-top: 10px;
-	width: 190px;
-	height: 100px;
-	margin-bottom:10px;
+    height: 150px;
+    padding: 15px;
+    background-color: rgba(0,0,0,.70);
+    border-bottom: 1px solid #D6D6D6;
+    border-top: 1px solid #D6D6D6;
+}
+
+#nav.affix
+{
+    z-index: 1030;
+    position: fixed;
+    width: 100%;
+}
+
+#nav .btn:not(.btn-block)
+{
+    margin-top: 10px;
+    width: 190px;
+    height: 100px;
+    margin-bottom: 10px;
 }
 
 #nav .btn:not(.btn-block) .glyphicon
 {
-	margin-top: 5px;
-	margin-bottom: 10px;
-	font-size: 45px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 45px;
 }
 
 h1 .glyphicon
 {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 #nav .btn:not(.btn-block) .management
 {
-	margin-top: 25px;
+    margin-top: 25px;
 }
 
 /* Admin Page */
-.management-main{
-	margin-top: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
+.management-main
+{
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.management-main h1{
-	font-size: 40px;
-	color: #d9534f;
+.management-main h1
+{
+    font-size: 40px;
+    color: #d9534f;
 }
 
-.table thead{
-	font-size: 17px;
-	color: #fff;
-	background-color: #d9534f;
+.table thead
+{
+    font-size: 20px;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.gridview
+{
+    background-color: #fff !important;
+    padding: 2px;
+}
+
+.gridview a
+{
+    margin-right: 10px;
+    padding: 5px 10px 5px 10px;
+    color: #2a6496 !important;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.gridview a:hover
+{
+    background-color: #2a6496;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
+
+.gridview span
+{
+    margin-right: 10px;
+    background-color: #2a6496;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px 5px 10px;
 }
 
 /*CSS LOGIN*/

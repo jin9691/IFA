@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="InstutiteOfFineArt.Views.MasterPages.Admin" %>
 
+<%@ Import Namespace="InstutiteOfFineArt.Codes" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,6 +83,15 @@
         </div>
     </div>
     <!-- navbar -->
+    <br />
+    <% if (Flash.dictFlash != null) %>
+    <% foreach (var key in Flash.dictFlash.Keys)
+       { %>
+    <div class="container alert alert-<%= key %>" style="padding:30px">
+        <%= Flash.dictFlash[key] %>
+    </div>
+    <% } %>
+    <% Flash.dictFlash.Clear(); %>
     <div>
         <asp:ContentPlaceHolder ID="ContentSite" runat="server">
         </asp:ContentPlaceHolder>

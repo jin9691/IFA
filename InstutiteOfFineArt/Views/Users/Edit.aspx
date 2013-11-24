@@ -10,7 +10,7 @@
         </h1>
         <hr />
         <div style="padding: 50px">
-            <form id="Form1" action="/" method="post" runat="server">
+            <form method="post" runat="server">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -37,7 +37,7 @@
                                 <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbUsernameErr" Text="16 characters maximum" runat="server" ForeColor="#A73333" />
+                                <asp:Label ID="lbUsernameErr" Text="" runat="server" ForeColor="#A73333" />
                             </td>
                         </tr>
                         <tr>
@@ -45,21 +45,7 @@
                                 <asp:Label ID="lbPassword" Text="Password:" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                                <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" />
-                            </td>
-                            <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbPasswordErr" Text="8 characters maximum" runat="server" ForeColor="#A73333" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-2" style="padding: 15px">
-                                <asp:Label ID="lbConfirm" Text="Confirm Password:" CssClass="pull-right" runat="server" Font-Bold="true" />
-                            </td>
-                            <td class="col-md-6">
-                                <asp:TextBox runat="server" ID="txtConfirm" TextMode="Password" CssClass="form-control" />
-                            </td>
-                            <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbConfirmErr" Text="" runat="server" ForeColor="#A73333" />
+                                <a href="#">Đổi mật khẩu</a>
                             </td>
                         </tr>
                         <tr>
@@ -135,7 +121,7 @@
                         <tr>
                             <td class="col-md-2"></td>
                             <td colspan="2" style="padding-top: 20px; padding-bottom: 20px">
-                                <asp:Button ID="btnAccept" Text="Accept" runat="server" CssClass="btn btn-primary btn-lg" /><span style="padding-right: 5px"></span>
+                                <asp:Button ID="btnAccept" Text="Accept" runat="server" OnClick="btnAccept_Click" CssClass="btn btn-primary btn-lg" /><span style="padding-right: 5px"></span>
                                 <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default btn-lg" />
                             </td>
                         </tr>

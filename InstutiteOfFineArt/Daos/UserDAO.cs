@@ -5,6 +5,8 @@ using System.Web;
 using InstutiteOfFineArt.Models;
 using System.Data.SqlClient;
 using System.Data;
+using InstutiteOfFineArt.Codes;
+using System.Reflection;
 
 namespace InstutiteOfFineArt.Daos
 {
@@ -12,6 +14,7 @@ namespace InstutiteOfFineArt.Daos
     {
         public static DataTable All()
         {
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
             string sql = "Select * from Users order by Id desc";
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
@@ -19,29 +22,68 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
-        public static DataTable Find(int Id)
+        public static User Find(int Id)
         {
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
             string sql = "Select * from Users where Id = @Id";
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.SelectCommand.Parameters.AddWithValue("@Id", Id);
             adap.Fill(dt);
-            return dt;
+            User u = new User();
+            u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+            u.Name = dt.Rows[0]["Name"].ToString();
+            u.Username = dt.Rows[0]["Username"].ToString();
+            u.Email = dt.Rows[0]["Email"].ToString();
+            u.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
+            u.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
+            u.Address = dt.Rows[0]["Address"].ToString();
+            u.Phone = dt.Rows[0]["Phone"].ToString();
+            u.Permission = Convert.ToInt32(dt.Rows[0]["Permission"].ToString());
+            return u;
         }
 
         public static DataTable Where(Dictionary<string, string> query)
         {
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
             string sql = "Select * from Users where ";
             int i = 1;
             foreach (var item in query)
             {
                 if (i < query.Count)
-                    sql += String.Format("{0} = {1} and ", item.Key, item.Value);
+                    sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, item.Value);
+                    sql += String.Format("{0} = {1}", item.Key, i);
+                i++;
+            }
+            i = 1;
+            SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+            foreach (var item in query)
+            {
+                adap.SelectCommand.Parameters.AddWithValue("@" + i, item.Value);
+                i++;
+            }
+            adap.Fill(dt);
+            return dt;
+        }
+
+        public static DataTable Search(List<string> query)
+        {
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
+            DataTable dt = new DataTable();
+            string sql = "Select * from Users where ";
+            int i = 1;
+            foreach (var item in query)
+            {
+                if (i < query.Count)
+                    sql += String.Format("{0} or ", item);
+                else
+                    sql += String.Format("{0} order by Id desc", item);
+                i++;
             }
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+            adap.Fill(dt);
             return dt;
         }
 
@@ -72,7 +114,7 @@ namespace InstutiteOfFineArt.Daos
             }
             finally
             {
-                DBUtilities.CloseConnection();
+                DBUtilities.Close_Connection();
             }
         }
 
@@ -81,30 +123,55 @@ namespace InstutiteOfFineArt.Daos
             DBUtilities.Connection();
             try
             {
-                string sql = "Update Users set Username = @1,Password = @2,Email = @3,Name = @4,Address = @5,Gender = @6,Birthday = @7,";
-                sql += "Phone = @8,Permission = @9 where Id = @10";
+                string sql = "Update Users set ";
+                Type myType = u.GetType();
+                IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+                int i = 1;
+                int j = 1;
+                foreach (PropertyInfo prop in props)
+                {
+                    object propValue = prop.GetValue(u, null);
+                    if (propValue != null && prop.Name != "Id")
+                    {
+                        if (j < props.Count)
+                            sql += String.Format("{0} = @{1} ,", prop.Name, i);
+                        else
+                            sql += String.Format("{0} = @{1} where ID= @{2}", prop.Name, i, i + 1);
+                        i++;
+                    }
+                    j++;
+                }
+                i = 1;
+                j = 1;
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
-                cmd.Parameters.AddWithValue("@1", u.Username);
-                cmd.Parameters.AddWithValue("@2", u.Password);
-                cmd.Parameters.AddWithValue("@3", u.Email);
-                cmd.Parameters.AddWithValue("@4", u.Name);
-                cmd.Parameters.AddWithValue("@5", u.Address);
-                cmd.Parameters.AddWithValue("@6", u.Gender);
-                cmd.Parameters.AddWithValue("@7", u.Birthday);
-                cmd.Parameters.AddWithValue("@8", u.Phone);
-                cmd.Parameters.AddWithValue("@9", u.Permission);
-                cmd.Parameters.AddWithValue("@10", u.Id);
+                foreach (PropertyInfo prop in props)
+                {
+                    object propValue = prop.GetValue(u, null);
+                    if (propValue != null && prop.Name != "Id")
+                    {
+                        if (j < props.Count)
+                            cmd.Parameters.AddWithValue(String.Format("@{0}",i), propValue);
+                        else
+                        {
+                            cmd.Parameters.AddWithValue(String.Format("@{0}", i), propValue);
+                            cmd.Parameters.AddWithValue(String.Format("@{0}", i + 1), u.Id);
+                        }
+                        i++;
+                    }
+                    j++;
+                }
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return true;
             }
             catch (Exception)
             {
+                throw;
                 return false;
             }
             finally
             {
-                DBUtilities.CloseConnection();
+                DBUtilities.Close_Connection();
             }
         }
 
@@ -126,7 +193,7 @@ namespace InstutiteOfFineArt.Daos
             }
             finally
             {
-                DBUtilities.CloseConnection();
+                DBUtilities.Close_Connection();
             }
         }
     }

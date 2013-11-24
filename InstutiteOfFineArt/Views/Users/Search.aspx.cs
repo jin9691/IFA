@@ -6,33 +6,53 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using InstutiteOfFineArt.Codes;
-using InstutiteOfFineArt.Daos;
 using InstutiteOfFineArt.Models;
+using InstutiteOfFineArt.Daos;
 
 namespace InstutiteOfFineArt.Views.Users
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Search : System.Web.UI.Page
     {
+        private string search_query;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Load_Data();
+                if (Request.Form["txtSearch"] != null && Request.Form["txtSearch"] != "")
+                {
+                    Session["search_query"] = Request.Form["txtSearch"];
+                    Load_Data();
+                }
+                else
+                {
+                    Flash.dictFlash.Add("danger", "Query string cannot be blank");
+                }
             }
         }
 
         private void Load_Data()
         {
-            DataTable dtUsers = UserDAO.All();
-            gdvUsers.DataSource = dtUsers;
-            gdvUsers.DataBind();
-            lbCountUsers.Text = dtUsers.Rows.Count.ToString();
+                List<string> query = new List<string>();
+                query.Add(String.Format("Username like '%{0}%'", Session["search_query"]));
+                query.Add(String.Format("Email like '%{0}%'", Session["search_query"]));
+                DataTable dtUsers = UserDAO.Search(query);
+                if (dtUsers.Rows.Count > 0)
+                {
+                    Flash.dictFlash.Add("success", String.Format("Found <b>{0} user</b> matched '<b>{1}</b>'", dtUsers.Rows.Count, Session["search_query"]));
+                    gdvUsers.DataSource = dtUsers;
+                    gdvUsers.DataBind();
+                }
+                else
+                {
+                    Flash.dictFlash.Add("warning","No data match found");
+                }
+            
         }
 
         public string Permission_Label(object permission)
         {
             int val = Convert.ToInt32(permission.ToString());
-            if(val == 0)
+            if (val == 0)
                 return "<span class='label label-danger'>Admin</span>"; //Is admin
             else if (val == 1)
                 return "<span class='label label-primary'>Staff</span>"; //Is Staff
@@ -62,6 +82,7 @@ namespace InstutiteOfFineArt.Views.Users
         {
             gdvUsers.PageIndex = e.NewPageIndex;
             Load_Data();
+            Flash.dictFlash.Clear();
         }
     }
 }

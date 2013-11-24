@@ -61,6 +61,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Users\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Users\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\custom.css" />
     <Content Include="Assets\Css\docs.css" />
@@ -74,7 +81,9 @@
     <Content Include="Views\StaticPages\Home.aspx" />
     <Content Include="Views\Users\Edit.aspx" />
     <Content Include="Views\Users\Index.aspx" />
+    <Compile Include="Codes\Flash.cs" />
     <Content Include="Views\Users\New.aspx" />
+    <Content Include="Views\Users\Search.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -84,7 +93,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DBUtilities.cs" />
+    <Compile Include="Codes\DBUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Codes\Md5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Codes\ValidateClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Daos\UserDAO.cs" />
     <Compile Include="Views\MasterPages\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
@@ -159,7 +176,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59396</DevelopmentServerPort>
+          <DevelopmentServerPort>61615</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
