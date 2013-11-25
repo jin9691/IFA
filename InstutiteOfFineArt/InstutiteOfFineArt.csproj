@@ -119,6 +119,8 @@
     <Content Include="Assets\Js\bootstrap.min.js" />
     <Content Include="Assets\Js\classie.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
+    <Content Include="Assets\Js\jquery-animate-css-rotate-scale.js" />
+    <Content Include="Assets\Js\jquery-css-transform.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />

@@ -46,7 +46,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-        public Competition Where(Dictionary<string, object> query)
+        public DataTable Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -68,20 +68,7 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                Competition c = new Competition();
-                c.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                c.StaffId = Convert.ToInt32(dt.Rows[0]["StaffId"]);
-                c.Topic = dt.Rows[0]["Topic"].ToString();
-                c.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
-                c.DueDate = Convert.ToDateTime(dt.Rows[0]["DueDate"]);
-                c.CompetitionDescription = dt.Rows[0]["CompetitionDescription"].ToString();
-                c.Condition = dt.Rows[0]["Condition"].ToString();
-                c.Remark = dt.Rows[0]["Remark"].ToString();
-                return c;
-            }
-            return null;
+            return dt;
         }
         public DataTable Search(List<string> query)
         {

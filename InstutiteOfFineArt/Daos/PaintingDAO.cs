@@ -51,7 +51,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
 
         }
-        public static Painting Where(Dictionary<string, object> query)
+        public static DataTable Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -73,27 +73,7 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            adap.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                Painting p = new Painting();
-                p.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                p.PaintingDescription = dt.Rows[0]["PaintingDescription"].ToString();
-                p.PaintingURL = dt.Rows[0]["PaintingURL"].ToString();
-                p.Mark = Convert.ToInt32(dt.Rows[0]["Mark"]);
-                p.UploadDate = Convert.ToDateTime(dt.Rows[0]["UploadDate"]);
-                p.LastModify = Convert.ToDateTime(dt.Rows[0]["LastModify"]);
-                p.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
-                p.StudentId = Convert.ToInt32(dt.Rows[0]["StudentId"]);
-                p.ExhibitionId = Convert.ToInt32(dt.Rows[0]["ExhibitionId"]);
-                p.CustomerId = Convert.ToInt32(dt.Rows[0]["CustomerId"]);
-                p.Comment = dt.Rows[0]["Comment"].ToString();
-                p.IsExhibited = Convert.ToBoolean(dt.Rows[0]["IsExhibited"]);
-                p.Price = Convert.ToInt32(dt.Rows[0]["Price"]);
-                p.IsPaid = p.IsExhibited = Convert.ToBoolean(dt.Rows[0]["IsPaid"]);
-                return p;
-            }
-            return null;
+            return dt;
         }
 
         public static DataTable Search(Dictionary<string, string> query) 

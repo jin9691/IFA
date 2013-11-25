@@ -45,7 +45,7 @@ namespace InstutiteOfFineArt.Daos
 
         }
 
-        public static Award Where(Dictionary<string, object> query) 
+        public static DataTable Where(Dictionary<string, object> query) 
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -67,19 +67,7 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            adap.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                Award a = new Award();
-                a.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                a.AdwardName = dt.Rows[0]["AwardName"].ToString();
-                a.AdwardRank = dt.Rows[0]["AdwardRank"].ToString();
-                a.AwardDescription = dt.Rows[0]["AwardDescription"].ToString();
-                a.PaintingId = Convert.ToInt32(dt.Rows[0]["PaintingId"]);
-                a.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
-                return a;
-            }
-            return null;
+            return dt;
         }
 
         public static DataTable Search(List<String> query)

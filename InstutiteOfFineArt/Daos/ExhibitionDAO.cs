@@ -44,7 +44,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-        public static Exhibition WHERE(Dictionary<string, object> query)
+        public static DataTable WHERE(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -66,18 +66,7 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                Exhibition e = new Exhibition();
-                e.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                e.ManagerId = Convert.ToInt32(dt.Rows[0]["ManagerId"]);
-                e.ExhibitionName = dt.Rows[0]["ExhibitionName"].ToString();
-                e.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
-                e.EndDate = Convert.ToDateTime(dt.Rows[0]["EndDate"]);
-                e.ExhibitionDescription = dt.Rows[0]["ExhibitionDescription"].ToString();
-                return e;
-            }
-            return null;
+            return dt;
         }
 
         public static DataTable Search(List<string> query)

@@ -16,57 +16,82 @@
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/classie.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery-animate-css-rotate-scale.js"></script>
+    
     <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
 </head>
-<body class="<asp:ContentPlaceHolder ID="BodyClass" runat="server">
+<body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'>
         </asp:ContentPlaceHolder>">
-    <% if(current_user != null){ %>
+    <% if (current_user != null)
+       { %>
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
         <h3><i class="glyphicon glyphicon-user" style="margin-right: 10px"></i><b><%= current_user.Name %></b></h3>
         <div class="menu">
             <a href="#"><i class="glyphicon glyphicon-pencil" style="margin-right: 10px"></i>User Infomation</a>
-            <% if(current_user.Permission == 0){ %>
+            <% if (current_user.Permission == 0)
+               { %>
                 <a href="../Users/Index.aspx"><i class="glyphicon glyphicon-cog" style="margin-right: 10px"></i>Administrator Page</a>
             <% } %>
             <a href="#"><i class='glyphicon glyphicon-off' style='margin-right:10px'></i>Sign out</a>
             </div>
     </nav>
     <% } %>
-    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand">
-                    <img src="../../Assets/Images/Pages/logo.png" class="logo"></a>
+    <div class="menu">
+            <div class="item">
+                <a class="link icon_mail" id="showRightPush"></a>
+                <div class="item_content">
+                    <h2>Contact us</h2>
+                    <p>
+                        <a href="mailto:info@tympanus.net">eMail</a>
+                        <a href="http://www.twitter.com/codrops/">Twitter</a>
+                        <a href="http://www.facebook.com/pages/Codrops/159107397912">Facebook</a>
+                    </p>
+                </div>
             </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Exhibitions</a>
-                    </li>
-                    <li>
-                        <a href="#">Competitions</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Awards</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <% if (current_user == null)
-                       { %>
-                    <li>
-                        <a href="../Sessions/New.aspx">Sign In</a>
-                    </li>
-                    <%}
-                       else
-                       { %>
-                    <li>
-                        <button type="button" id="showRightPush" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
-                    </li>
-                    <% } %>
-                </ul>
-            </nav>
+            <div class="item item-rotate">
+                <a class="link icon_help"></a>
+                <div class="item_content">
+                    <h2>Help</h2>
+                    <p>
+                        <a href="#">FAQ</a>
+                        <a href="#">Live Support</a>
+                        <a href="#">Tickets</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item item-rotate">
+                <a class="link icon_find"></a>
+                <div class="item_content">
+                    <h2>Search</h2>
+                    <p>
+                        <input type="text"></input>
+                        <a href="">Go</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item item-rotate">
+                <a class="link icon_photos"></a>
+                <div class="item_content">
+                    <h2>Image Gallery</h2>
+                    <p>
+                        <a href="#">Categories</a>
+                        <a href="#">Archives</a>
+                        <a href="#">Featured</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item item-rotate">
+                <a class="link icon_home"></a>
+                <div class="item_content">
+                    <h2>Start from here</h2>
+                    <p>
+                        <a href="http://www.tympanus.net/">Services</a>
+                        <a href="http://www.tympanus.net/">Portfolio</a>
+                        <a href="http://www.tympanus.net/">Pricing</a>
+                    </p>
+                </div>
+            </div>
         </div>
-    </header>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentSite" runat="server">
@@ -89,6 +114,44 @@
             if (button !== 'showRightPush') {
                 classie.toggle(showRightPush, 'disabled');
             }
+        }
+        $('.item-rotate').hover(
+                function () {
+                    var $this = $(this);
+                    expand($this);
+                },
+                function () {
+                    var $this = $(this);
+                    collapse($this);
+                }
+            );
+        function expand($elem) {
+            var angle = 0;
+            var t = setInterval(function () {
+                if (angle == 1440) {
+                    clearInterval(t);
+                    return;
+                }
+                angle += 40;
+                $('.link', $elem).stop().animate({ rotate: '+=-40deg' }, 0);
+            }, 10);
+            $elem.stop().animate({ width: '268px' }, 500)
+            .find('.item_content').fadeIn(400, function () {
+                $(this).find('p').stop(true, true).fadeIn(600);
+            });
+        }
+        function collapse($elem) {
+            var angle = 1440;
+            var t = setInterval(function () {
+                if (angle == 0) {
+                    clearInterval(t);
+                    return;
+                }
+                angle -= 40;
+                $('.link', $elem).stop().animate({ rotate: '+=40deg' }, 0);
+            }, 10);
+            $elem.stop().animate({ width: '52px' }, 500)
+            .find('.item_content').stop(true, true).fadeOut().find('p').stop(true, true).fadeOut();
         }
 		</script>
 </body>
