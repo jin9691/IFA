@@ -29,11 +29,7 @@ CREATE TABLE [Exhibitions]
 (
     [Id] INT IDENTITY(1, 1) PRIMARY KEY,
     [ManagerId] INT FOREIGN KEY([ManagerId]) REFERENCES [Users]([Id]),
-<<<<<<< HEAD
-    [Name] NVARCHAR(50) UNIQUE ,
-=======
-    [ExhibitionName] NVARCHAR(50) ,
->>>>>>> master
+    [ExhibitionName] NVARCHAR(50) UNIQUE ,
     [StartDate] DATETIME ,
     [EndDate] DATETIME ,
     [ExhibitionDescription] NTEXT ,
@@ -85,15 +81,9 @@ GO
 CREATE  TABLE [Awards]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
-<<<<<<< HEAD
-    [AwardName] NVARCHAR(50) UNIQUE,
-    [AwardRank] NVARCHAR(100) UNIQUE,
-    [Description] NTEXT , 
-=======
     [AwardName] NVARCHAR(50),
     [AwardRank] NVARCHAR(100),
     [AwardDescription] NTEXT , 
->>>>>>> master
     [PaintingId] INT FOREIGN KEY([PaintingId]) REFERENCES [Paintings]([Id]), -- which is winner
     [CompetitionId] INT FOREIGN KEY([CompetitionId]) REFERENCES [Competitions]([Id])
 )
