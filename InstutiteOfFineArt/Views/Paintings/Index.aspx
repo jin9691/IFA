@@ -1,43 +1,39 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="InstutiteOfFineArt.Views.Users.Index" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="InstutiteOfFineArt.Views.Paintings.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    Users management
+    Paintings management
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
-        <h1>Paintings managerment<strong><small>(<asp:Label Text="0" ID="lbCountPaintings" runat="server" />)</small></strong>
+        <h1>Paintings management <strong><small>(<asp:Label Text="0" ID="lbCountUsers" runat="server" />)</small></strong>
             <a href="New.aspx" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-plus-sign"></span>Create new</a>
         </h1>
-        <hr>
+        <hr/>
         <div class="row">
-            <form method="Post" action="Search.aspx">
+            <form method="post" action="Search.aspx">
                 <div class="col-md-4 pull-right">
                     <div class="input-group">
-                        <input type="text" name="txtSearch" class="form-control" placeholder="Insert name or email here...">
+                        <input type="text" name="txtSearch" class="form-control" placeholder="Insert name or authors here..."/>
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
+                        
                         <!-- /btn-group -->
                     </div>
                 </div>
             </form>
         </div>
-        <br>
+        <br/>
         <div>
-            <form runat="server" method="post">
-                <asp:GridView ID="gdvUsers" runat="server" CssClass="table table-striped" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gdvUsers_PageIndexChanging" PageSize="10">
+            <form id="Form1" runat="server" method="post">
+                <asp:GridView ID="gdvUsers" runat="server" CssClass="table table-striped" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gdvUsers_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" />
-                        <asp:BoundField DataField="Name" HeaderText="Full Name" />
-                        <asp:BoundField DataField="Username" HeaderText="Username" />
-                        <asp:BoundField DataField="Email" HeaderText="Email" />
-                        <asp:BoundField DataField="Birthday" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Birthday" />
-                        <asp:TemplateField HeaderText="Permission">
-                            <ItemTemplate>
-                                <asp:Label ID="Permission" runat="server" Text='<%# Permission_Label(Eval("Permission"))%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="PaintingDescription" HeaderText="Description" />
+                        <asp:TemplateField HeaderText="Image"></asp:TemplateField>
+                        <asp:BoundField DataField="Mark" HeaderText="Mark" />
+                        <asp:BoundField DataField="Upload Date" HeaderText="Upload Date" />
+                        <asp:BoundField DataField="LastModify" HeaderText="Last Modify" />
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
                                 <div class="btn-group">

@@ -8,7 +8,7 @@ namespace InstutiteOfFineArt.Models
     public class Painting
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+        public string PaintingDescription { get; set; }
         public string PaintingURL { get; set; }
         public int Mark { get; set; }
         public DateTime UploadDate { get; set; }

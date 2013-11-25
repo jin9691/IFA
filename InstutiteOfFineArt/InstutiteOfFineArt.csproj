@@ -61,6 +61,39 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Daos\AwardDAO.cs" />
+    <Compile Include="Daos\CompetitionDAO.cs" />
+    <Compile Include="Daos\CustomerDAO.cs" />
+    <Compile Include="Daos\ExhibitionDAO.cs" />
+    <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Views\Paintings\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Paintings\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Paintings\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Paintings\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Paintings\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Paintings\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Paintings\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Paintings\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Users\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -78,6 +111,10 @@
     <Content Include="Assets\Js\bootstrap.min.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Views\Paintings\Edit.aspx" />
+    <Content Include="Views\Paintings\Index.aspx" />
+    <Content Include="Views\Paintings\New.aspx" />
+    <Content Include="Views\Paintings\Search.aspx" />
     <Content Include="Views\StaticPages\Home.aspx" />
     <Content Include="Views\Users\Edit.aspx" />
     <Content Include="Views\Users\Index.aspx" />

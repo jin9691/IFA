@@ -1,6 +1,10 @@
 USE MASTER
 GO
 
+IF EXISTS (SELECT name FROM sysdatabases  WHERE name = N'INSTITUTE_OF_FINE_ART')
+DROP DATABASE INSTITUTE_OF_FINE_ART
+GO
+
 CREATE DATABASE INSTITUTE_OF_FINE_ART
 GO
 
@@ -9,9 +13,9 @@ GO
 
 CREATE TABLE [Users](
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[Username] VARCHAR(30) ,
-	[Password] VARCHAR(30) ,
-	[Email] VARCHAR(50) ,
+	[Username] VARCHAR(30) UNIQUE ,
+	[Password] VARCHAR(50),
+	[Email] VARCHAR(50) UNIQUE ,
 	[Name] NVARCHAR(50),
 	[Address] NVARCHAR(50),
 	[Gender] BIT DEFAULT 0,
@@ -25,7 +29,7 @@ CREATE TABLE [Exhibitions]
 (
     [Id] INT IDENTITY(1, 1) PRIMARY KEY,
     [ManagerId] INT FOREIGN KEY([ManagerId]) REFERENCES [Users]([Id]),
-    [Name] NVARCHAR(50) ,
+    [Name] NVARCHAR(50) UNIQUE ,
     [StartDate] DATETIME ,
     [EndDate] DATETIME ,
     [Description] NTEXT ,
@@ -36,7 +40,7 @@ CREATE TABLE [Competitions]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
     [StaffId] INT FOREIGN KEY([StaffId]) REFERENCES [Users]([Id]),
-    [Topic] NVARCHAR(200),
+    [Topic] NVARCHAR(200) UNIQUE,
     [StartDate] DATETIME,
     [DueDate] DATETIME, 
     [Description] NTEXT, -- gioi thieu ve cuoc thi
@@ -77,8 +81,8 @@ GO
 CREATE  TABLE [Awards]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
-    [AwardName] NVARCHAR(50),
-    [AwardRank] NVARCHAR(100),
+    [AwardName] NVARCHAR(50) UNIQUE,
+    [AwardRank] NVARCHAR(100) UNIQUE,
     [Description] NTEXT , 
     [PaintingId] INT FOREIGN KEY([PaintingId]) REFERENCES [Paintings]([Id]), -- which is winner
     [CompetitionId] INT FOREIGN KEY([CompetitionId]) REFERENCES [Competitions]([Id])

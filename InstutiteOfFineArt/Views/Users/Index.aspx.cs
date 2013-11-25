@@ -26,7 +26,7 @@ namespace InstutiteOfFineArt.Views.Users
             DataTable dtUsers = UserDAO.All();
             gdvUsers.DataSource = dtUsers;
             gdvUsers.DataBind();
-            lbCountUsers.Text = dtUsers.Rows.Count.ToString();
+            lbCountPaintings.Text = dtUsers.Rows.Count.ToString();
         }
 
         public string Permission_Label(object permission)
