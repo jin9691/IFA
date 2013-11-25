@@ -80,10 +80,8 @@
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\jquery-ui.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Assets\Images\FrontPages\frontpage.jpg" />
     <Content Include="Assets\Images\Pages\logo.png" />
     <Content Include="Assets\Images\Pages\logo_2.png" />
-    <Content Include="Assets\Images\Pages\signin.png" />
     <Content Include="Assets\Js\bootstrap.js" />
     <Content Include="Assets\Js\bootstrap.min.js" />
     <Content Include="Assets\Js\classie.js" />

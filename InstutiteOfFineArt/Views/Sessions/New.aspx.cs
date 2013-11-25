@@ -33,7 +33,7 @@ namespace InstutiteOfFineArt.Views.Sessions
             }
             else
             {
-                Flash.dictFlash.Add("danger", "Wrong Username Or Password");
+                Flash.dictFlash.Add("danger", "Wrong <b>Username</b> Or <b>Password</b>");
             }
         }
     }

@@ -12,7 +12,7 @@ namespace InstutiteOfFineArt.Models
         public string Topic { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
-        public string Description { get; set; }
+        public string CompetitionDescription { get; set; }
         public string Condition { get; set; }
         public string Remark { get; set; }
     }
