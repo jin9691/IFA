@@ -38,7 +38,7 @@ namespace InstutiteOfFineArt.Daos
                 c.Topic = dt.Rows[0]["Topic"].ToString();
                 c.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
                 c.DueDate = Convert.ToDateTime(dt.Rows[0]["DueDate"]);
-                c.Description = dt.Rows[0]["Description"].ToString();
+                c.CompetitionDescription = dt.Rows[0]["CompetitionDescription"].ToString();
                 c.Condition = dt.Rows[0]["Condition"].ToString();
                 c.Remark = dt.Rows[0]["Remark"].ToString();
                 return c;
@@ -76,7 +76,7 @@ namespace InstutiteOfFineArt.Daos
                 c.Topic = dt.Rows[0]["Topic"].ToString();
                 c.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
                 c.DueDate = Convert.ToDateTime(dt.Rows[0]["DueDate"]);
-                c.Description = dt.Rows[0]["Description"].ToString();
+                c.CompetitionDescription = dt.Rows[0]["CompetitionDescription"].ToString();
                 c.Condition = dt.Rows[0]["Condition"].ToString();
                 c.Remark = dt.Rows[0]["Remark"].ToString();
                 return c;
@@ -115,7 +115,7 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Parameters.AddWithValue("@2", c.Topic);
                 cmd.Parameters.AddWithValue("@3", c.StartDate);
                 cmd.Parameters.AddWithValue("@4", c.DueDate);
-                cmd.Parameters.AddWithValue("@5", c.Description);
+                cmd.Parameters.AddWithValue("@5", c.CompetitionDescription);
                 cmd.Parameters.AddWithValue("@6", c.Condition);
                 cmd.Parameters.AddWithValue("@7", c.Remark);
                 cmd.ExecuteNonQuery();

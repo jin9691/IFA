@@ -35,10 +35,10 @@ namespace InstutiteOfFineArt.Daos
                 Exhibition e = new Exhibition();
                 e.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 e.ManagerId = Convert.ToInt32(dt.Rows[0]["ManagerId"]);
-                e.Name = dt.Rows[0]["Name"].ToString();
+                e.ExhibitionName = dt.Rows[0]["ExhibitionName"].ToString();
                 e.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
                 e.EndDate = Convert.ToDateTime(dt.Rows[0]["EndDate"]);
-                e.Description = dt.Rows[0]["Desription"].ToString();
+                e.ExhibitionDescription = dt.Rows[0]["ExhibitionName"].ToString();
                 return e;
             }
             return null;
@@ -71,10 +71,10 @@ namespace InstutiteOfFineArt.Daos
                 Exhibition e = new Exhibition();
                 e.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 e.ManagerId = Convert.ToInt32(dt.Rows[0]["ManagerId"]);
-                e.Name = dt.Rows[0]["Name"].ToString();
+                e.ExhibitionName = dt.Rows[0]["ExhibitionName"].ToString();
                 e.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
                 e.EndDate = Convert.ToDateTime(dt.Rows[0]["EndDate"]);
-                e.Description = dt.Rows[0]["Desription"].ToString();
+                e.ExhibitionDescription = dt.Rows[0]["ExhibitionDescription"].ToString();
                 return e;
             }
             return null;
@@ -106,11 +106,11 @@ namespace InstutiteOfFineArt.Daos
                 string sql = "Insert into [Exhibitions] (Name,ManagerId,StartDate,EndDate,Description)";
                 sql += " values (@1,@2,@3,@4,@5)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
-                cmd.Parameters.AddWithValue("@1",e.Name);
+                cmd.Parameters.AddWithValue("@1",e.ExhibitionName);
                 cmd.Parameters.AddWithValue("@2", e.ManagerId);
                 cmd.Parameters.AddWithValue("@3", e.StartDate);
                 cmd.Parameters.AddWithValue("@4", e.EndDate);
-                cmd.Parameters.AddWithValue("@5", e.Description);
+                cmd.Parameters.AddWithValue("@5", e.ExhibitionDescription);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return true;

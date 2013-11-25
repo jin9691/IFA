@@ -36,7 +36,7 @@ namespace InstutiteOfFineArt.Daos
                 a.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 a.AdwardName = dt.Rows[0]["AwardName"].ToString();
                 a.AdwardRank = dt.Rows[0]["AdwardRank"].ToString();
-                a.Description = dt.Rows[0]["Description"].ToString();
+                a.AwardDescription = dt.Rows[0]["AwardDescription"].ToString();
                 a.PaintingId = Convert.ToInt32(dt.Rows[0]["PaintingId"]);
                 a.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
                 return a;
@@ -74,7 +74,7 @@ namespace InstutiteOfFineArt.Daos
                 a.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 a.AdwardName = dt.Rows[0]["AwardName"].ToString();
                 a.AdwardRank = dt.Rows[0]["AdwardRank"].ToString();
-                a.Description = dt.Rows[0]["Description"].ToString();
+                a.AwardDescription = dt.Rows[0]["AwardDescription"].ToString();
                 a.PaintingId = Convert.ToInt32(dt.Rows[0]["PaintingId"]);
                 a.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
                 return a;
@@ -114,7 +114,7 @@ namespace InstutiteOfFineArt.Daos
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
                 cmd.Parameters.AddWithValue("@1", a.AdwardName);
                 cmd.Parameters.AddWithValue("@2", a.AdwardRank);
-                cmd.Parameters.AddWithValue("@3", a.Description);
+                cmd.Parameters.AddWithValue("@3", a.AwardDescription);
                 cmd.Parameters.AddWithValue("@4", a.PaintingId);
                 cmd.Parameters.AddWithValue("@5", a.CompetitionId);
                 cmd.ExecuteNonQuery();

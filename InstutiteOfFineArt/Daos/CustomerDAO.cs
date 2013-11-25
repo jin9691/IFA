@@ -34,12 +34,12 @@ namespace InstutiteOfFineArt.Daos
             {
                 Customer c = new Customer();
                 c.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                c.Name = dt.Rows[0]["Name"].ToString();
-                c.Email = dt.Rows[0]["Email"].ToString();
-                c.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
-                c.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
-                c.Address = dt.Rows[0]["Address"].ToString();
-                c.Phone = dt.Rows[0]["Phone"].ToString();
+                c.CustomerName = dt.Rows[0]["CustomerName"].ToString();
+                c.CustomerEmail = dt.Rows[0]["CustomerEmail"].ToString();
+                c.CustomerGender = bool.Parse(dt.Rows[0]["CustomerGender"].ToString());
+                c.CustomerBirthday = DateTime.Parse(dt.Rows[0]["CustomerBirthday"].ToString());
+                c.CustomerAddress = dt.Rows[0]["CustomerAddress"].ToString();
+                c.CustomerPhone = dt.Rows[0]["CustomerPhone"].ToString();
                 return c;
             }
             return null;
@@ -71,12 +71,12 @@ namespace InstutiteOfFineArt.Daos
             {
                 Customer u = new Customer();
                 u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                u.Name = dt.Rows[0]["Name"].ToString();
-                u.Email = dt.Rows[0]["Email"].ToString();
-                u.Gender = bool.Parse(dt.Rows[0]["Gender"].ToString());
-                u.Birthday = DateTime.Parse(dt.Rows[0]["Birthday"].ToString());
-                u.Address = dt.Rows[0]["Address"].ToString();
-                u.Phone = dt.Rows[0]["Phone"].ToString();
+                u.CustomerName = dt.Rows[0]["CustomerName"].ToString();
+                u.CustomerEmail = dt.Rows[0]["CustomerEmail"].ToString();
+                u.CustomerGender = bool.Parse(dt.Rows[0]["CustomerGender"].ToString());
+                u.CustomerBirthday = DateTime.Parse(dt.Rows[0]["CustomerBirthday"].ToString());
+                u.CustomerAddress = dt.Rows[0]["CustomerAddress"].ToString();
+                u.CustomerPhone = dt.Rows[0]["CustomerPhone"].ToString();
                 return u;
             }
             return null;
@@ -109,12 +109,12 @@ namespace InstutiteOfFineArt.Daos
                 string sql = "Insert into Customers (Email,Name,Address,Gender,Birthday,Phone)";
                 sql += " values (@1,@2,@3,@4,@5,@6)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
-                cmd.Parameters.AddWithValue("@1", u.Email);
-                cmd.Parameters.AddWithValue("@2", u.Name);
-                cmd.Parameters.AddWithValue("@3", u.Address);
-                cmd.Parameters.AddWithValue("@4", u.Gender);
-                cmd.Parameters.AddWithValue("@5", u.Birthday);
-                cmd.Parameters.AddWithValue("@6", u.Phone);
+                cmd.Parameters.AddWithValue("@1", u.CustomerEmail);
+                cmd.Parameters.AddWithValue("@2", u.CustomerName);
+                cmd.Parameters.AddWithValue("@3", u.CustomerAddress);
+                cmd.Parameters.AddWithValue("@4", u.CustomerGender);
+                cmd.Parameters.AddWithValue("@5", u.CustomerBirthday);
+                cmd.Parameters.AddWithValue("@6", u.CustomerPhone);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return true;
