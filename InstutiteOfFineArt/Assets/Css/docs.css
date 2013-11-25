@@ -112,7 +112,7 @@ body {
 .bs-docs-nav .navbar-nav > .active > a,
 .bs-docs-nav .navbar-nav > .active > a:hover {
   color: #fff;
-  background-color: #A73333;
+  background-color: #B93F3F;
 }
 .bs-docs-nav .navbar-toggle {
   border-color: #563d7c;
@@ -1198,3 +1198,4 @@ h1[id] {
   margin-top: 15px;
   margin-bottom: 5px;
 }
+

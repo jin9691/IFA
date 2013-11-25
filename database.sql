@@ -29,10 +29,14 @@ CREATE TABLE [Exhibitions]
 (
     [Id] INT IDENTITY(1, 1) PRIMARY KEY,
     [ManagerId] INT FOREIGN KEY([ManagerId]) REFERENCES [Users]([Id]),
+<<<<<<< HEAD
     [Name] NVARCHAR(50) UNIQUE ,
+=======
+    [ExhibitionName] NVARCHAR(50) ,
+>>>>>>> master
     [StartDate] DATETIME ,
     [EndDate] DATETIME ,
-    [Description] NTEXT ,
+    [ExhibitionDescription] NTEXT ,
 )
 GO
 
@@ -43,7 +47,7 @@ CREATE TABLE [Competitions]
     [Topic] NVARCHAR(200) UNIQUE,
     [StartDate] DATETIME,
     [DueDate] DATETIME, 
-    [Description] NTEXT, -- gioi thieu ve cuoc thi
+    [CompetitionDescription] NTEXT, -- gioi thieu ve cuoc thi
     [Condition] NTEXT, -- dieu kien de tham gia cuoc thi nay
     [Remark] NTEXT, -- danh gia cua ban to chuc ve cuoc thi
 )
@@ -51,18 +55,18 @@ GO
 
 CREATE TABLE [Customers](
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[Email] VARCHAR(50),
-	[Name] NVARCHAR(50),
-	[Address] NVARCHAR(50),
-	[Gender] BIT DEFAULT 0,
-	[Birthday] DATETIME,
-	[Phone] VARCHAR(15),
+	[CustomerEmail] VARCHAR(50),
+	[CustomerName] NVARCHAR(50),
+	[CustomerAddress] NVARCHAR(50),
+	[CustomerGender] BIT DEFAULT 0,
+	[CustomerBirthday] DATETIME,
+	[CustomerPhone] VARCHAR(15),
 )
 
 CREATE  TABLE   [Paintings]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
-    [Description] NTEXT,
+    [PaintingDescription] NTEXT,
     [PaintingURL] NVARCHAR(100),
 	[Mark] TINYINT,
     [UploadDate] DATETIME DEFAULT GETDATE(),
@@ -81,9 +85,15 @@ GO
 CREATE  TABLE [Awards]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
+<<<<<<< HEAD
     [AwardName] NVARCHAR(50) UNIQUE,
     [AwardRank] NVARCHAR(100) UNIQUE,
     [Description] NTEXT , 
+=======
+    [AwardName] NVARCHAR(50),
+    [AwardRank] NVARCHAR(100),
+    [AwardDescription] NTEXT , 
+>>>>>>> master
     [PaintingId] INT FOREIGN KEY([PaintingId]) REFERENCES [Paintings]([Id]), -- which is winner
     [CompetitionId] INT FOREIGN KEY([CompetitionId]) REFERENCES [Competitions]([Id])
 )

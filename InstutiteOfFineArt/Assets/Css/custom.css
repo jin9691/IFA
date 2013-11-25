@@ -1,8 +1,13 @@
-﻿body
+﻿/* HOME */
+.page
 {
     background-image: url('../Images/Pages/background.jpg');
 }
 
+.home
+{
+    background-color: rgba(0,0,0,.90);
+}
 
 hr
 {
@@ -53,27 +58,27 @@ hr
     border-top: 1px solid #D6D6D6;
 }
 
-#nav.affix
-{
-    z-index: 1030;
-    position: fixed;
-    width: 100%;
-}
+    #nav.affix
+    {
+        z-index: 1030;
+        position: fixed;
+        width: 100%;
+    }
 
-#nav .btn:not(.btn-block)
-{
-    margin-top: 10px;
-    width: 190px;
-    height: 100px;
-    margin-bottom: 10px;
-}
+    #nav .btn:not(.btn-block)
+    {
+        margin-top: 10px;
+        width: 190px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
 
-#nav .btn:not(.btn-block) .glyphicon
-{
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 45px;
-}
+        #nav .btn:not(.btn-block) .glyphicon
+        {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: 45px;
+        }
 
 h1 .glyphicon
 {
@@ -93,11 +98,11 @@ h1 .glyphicon
     padding-right: 20px;
 }
 
-.management-main h1
-{
-    font-size: 40px;
-    color: #d9534f;
-}
+    .management-main h1
+    {
+        font-size: 40px;
+        color: #d9534f;
+    }
 
 .table thead
 {
@@ -112,30 +117,247 @@ h1 .glyphicon
     padding: 2px;
 }
 
-.gridview a
-{
-    margin-right: 10px;
-    padding: 5px 10px 5px 10px;
-    color: #2a6496 !important;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-}
+    .gridview a
+    {
+        margin-right: 10px;
+        padding: 5px 10px 5px 10px;
+        color: #2a6496 !important;
+        text-decoration: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
 
-.gridview a:hover
-{
-    background-color: #2a6496;
-    color: #fff !important;
-    border: 1px solid #fff;
-}
+        .gridview a:hover
+        {
+            background-color: #2a6496;
+            color: #fff !important;
+            border: 1px solid #fff;
+        }
 
-.gridview span
-{
-    margin-right: 10px;
-    background-color: #2a6496;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 5px 10px 5px 10px;
-}
+    .gridview span
+    {
+        margin-right: 10px;
+        background-color: #2a6496;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 5px 10px 5px 10px;
+    }
 
 /*CSS LOGIN*/
+
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.account-wall .alert
+{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    .form-signin .form-control:focus
+    {
+        z-index: 2;
+    }
+
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 60px 0px;
+    background-color: #f7f7f7;
+    border: 1px solid #cecece;
+    border-top: 5px solid #d9534f;
+    -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+.profile-img
+{
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/* Push Menu */
+/* General styles for all menus */
+.cbp-spmenu
+{
+    padding-top: 51px;
+    background-color: #484848;
+    position: fixed;
+    border-left: 1px solid #fff;
+}
+
+    .cbp-spmenu h3
+    {
+        color: #fff;
+        font-size: 1.3em;
+        padding-left: 15px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0 !important;
+        font-weight: 300;
+        background: #373737;
+        border-bottom: 1px solid #5E5E5E;
+    }
+
+    .cbp-spmenu .menu a
+    {
+        display: block;
+        text-decoration: none;
+        color: #d9d9d9;
+        font-size: 1.1em;
+        font-weight: 300;
+    }
+
+        .cbp-spmenu .menu a:hover
+        {
+            background: #5E5E5E;
+            color: #fff;
+        }
+
+    .cbp-spmenu .menu .active
+    {
+        background: #5E5E5E;
+        color: #fff;
+    }
+
+    .cbp-spmenu .menu a:active
+    {
+        background: #5E5E5E;
+        color: #fff;
+    }
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical
+{
+    width: 240px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+    .cbp-spmenu-vertical a
+    {
+        border-bottom: 1px solid #5E5E5E;
+        padding: 1em;
+    }
+
+/* ;
+	padding: 1em;
+}
+
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-right
+{
+    right: -240px;
+}
+
+    .cbp-spmenu-right.cbp-spmenu-open
+    {
+        right: 0px;
+    }
+
+/* Push classes applied to the body */
+
+.cbp-spmenu-push
+{
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+}
+
+.cbp-spmenu-push-toleft
+{
+    left: -240px;
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push
+{
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Example media queries */
+
+@media screen and (max-height: 26.375em)
+{
+
+    .cbp-spmenu-vertical
+    {
+        font-size: 90%;
+        width: 190px;
+    }
+
+    .cbp-spmenu-left,
+    .cbp-spmenu-push-toleft
+    {
+        left: -190px;
+    }
+
+    .cbp-spmenu-right
+    {
+        right: -190px;
+    }
+
+    .cbp-spmenu-push-toright
+    {
+        left: 190px;
+    }
+}

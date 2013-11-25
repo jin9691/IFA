@@ -94,6 +94,13 @@
     <Compile Include="Views\Paintings\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Sessions\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Sessions\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Users\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,14 +114,18 @@
     <Content Include="Assets\Css\jquery-ui.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\Pages\logo.png" />
+    <Content Include="Assets\Images\Pages\logo_2.png" />
     <Content Include="Assets\Js\bootstrap.js" />
     <Content Include="Assets\Js\bootstrap.min.js" />
+    <Content Include="Assets\Js\classie.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
     <Content Include="Views\Paintings\Search.aspx" />
+    <Content Include="Assets\Js\modernizr.custom.js" />
+    <Content Include="Views\Sessions\New.aspx" />
     <Content Include="Views\StaticPages\Home.aspx" />
     <Content Include="Views\Users\Edit.aspx" />
     <Content Include="Views\Users\Index.aspx" />
@@ -192,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Images\Paintings\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\glyphicons-halflings-regular.eot" />

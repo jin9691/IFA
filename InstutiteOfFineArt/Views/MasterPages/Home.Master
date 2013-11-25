@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="InstutiteOfFineArt.Views.MasterPages.Home" %>
 
+<%@ Import Namespace="InstutiteOfFineArt.Models" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,8 +15,23 @@
     <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/classie.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
 </head>
-<body>
+<body class="<asp:ContentPlaceHolder ID="BodyClass" runat="server">
+        </asp:ContentPlaceHolder>">
+    <% if(current_user != null){ %>
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <h3><i class="glyphicon glyphicon-user" style="margin-right: 10px"></i><b><%= current_user.Name %></b></h3>
+        <div class="menu">
+            <a href="#"><i class="glyphicon glyphicon-pencil" style="margin-right: 10px"></i>User Infomation</a>
+            <% if(current_user.Permission == 0){ %>
+                <a href="../Users/Index.aspx"><i class="glyphicon glyphicon-cog" style="margin-right: 10px"></i>Administrator Page</a>
+            <% } %>
+            <a href="#"><i class='glyphicon glyphicon-off' style='margin-right:10px'></i>Sign out</a>
+            </div>
+    </nav>
+    <% } %>
     <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -35,18 +51,45 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <% if (current_user == null)
+                       { %>
                     <li>
-                        <button type="button" id="menu-header-bar" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+                        <a href="../Sessions/New.aspx">Sign In</a>
                     </li>
+                    <%}
+                       else
+                       { %>
+                    <li>
+                        <button type="button" id="showRightPush" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+                    </li>
+                    <% } %>
                 </ul>
             </nav>
         </div>
     </header>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentSite" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <script>
+        var menuRight = document.getElementById('cbp-spmenu-s2'),
+            showRightPush = document.getElementById('showRightPush'),
+            body = document.body;
+
+        showRightPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toleft');
+            classie.toggle(menuRight, 'cbp-spmenu-open');
+            disableOther('showRightPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showRightPush') {
+                classie.toggle(showRightPush, 'disabled');
+            }
+        }
+		</script>
 </body>
 </html>
