@@ -66,6 +66,20 @@
     <Compile Include="Daos\CustomerDAO.cs" />
     <Compile Include="Daos\ExhibitionDAO.cs" />
     <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Views\Customer\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Paintings\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,6 +134,8 @@
     <Content Include="Assets\Js\classie.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Views\Customer\Index.aspx" />
+    <Content Include="Views\Customer\Search.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
@@ -132,7 +148,9 @@
     <Compile Include="Codes\Flash.cs" />
     <Content Include="Views\Users\New.aspx" />
     <Content Include="Views\Users\Search.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
