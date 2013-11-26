@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="page">
     <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -46,21 +46,21 @@
                 </div>
                 <div class="col-md-2">
                     <a href="#" class="btn btn-info btn-lg" role="button">
-                        <span class="glyphicon glyphicon-bookmark"></span>
+                        <span class="glyphicon glyphicon-picture"></span>
                         <br>
                         Exhibitions
                     </a>
                 </div>
                 <div class="col-md-2">
                     <a href="#" class="btn btn-warning btn-lg" role="button">
-                        <span class="glyphicon glyphicon-picture"></span>
+                        <span class="glyphicon glyphicon-calendar"></span>
                         <br>
                         Competitons
                     </a>
                 </div>
                 <div class="col-md-2">
                     <a href="#" class="btn btn-default btn-lg" role="button">
-                        <span class="glyphicon glyphicon-gift"></span>
+                        <span class="glyphicon glyphicon-certificate"></span>
                         <br>
                         Adwards
                     </a>

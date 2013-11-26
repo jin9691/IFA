@@ -12,84 +12,124 @@
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/bootstrap.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/elastislide.css" />
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/jquery-ui.css" />
     <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/classie.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.17475.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquerypp.custom.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery.elastislide.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery-animate-css-rotate-scale.js"></script>
     <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
 </head>
-<body class="<asp:ContentPlaceHolder ID="BodyClass" runat="server">
+<body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'>
         </asp:ContentPlaceHolder>">
-    <% if(current_user != null){ %>
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+    <% if (current_user != null)
+       { %>
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2">
         <h3><i class="glyphicon glyphicon-user" style="margin-right: 10px"></i><b><%= current_user.Name %></b></h3>
         <div class="menu">
             <a href="#"><i class="glyphicon glyphicon-pencil" style="margin-right: 10px"></i>User Infomation</a>
-            <% if(current_user.Permission == 0){ %>
-                <a href="../Users/Index.aspx"><i class="glyphicon glyphicon-cog" style="margin-right: 10px"></i>Administrator Page</a>
+            <% if (current_user.Permission == 0)
+               { %>
+            <a href="../Users/Index.aspx"><i class="glyphicon glyphicon-cog" style="margin-right: 10px"></i>Administrator Page</a>
             <% } %>
-            <a href="#"><i class='glyphicon glyphicon-off' style='margin-right:10px'></i>Sign out</a>
-            </div>
+            <a href="#"><i class='glyphicon glyphicon-off' style='margin-right: 10px'></i>Sign out</a>
+        </div>
     </nav>
     <% } %>
-    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand">
-                    <img src="../../Assets/Images/Pages/logo.png" class="logo"></a>
+    <div class="cbp-spmenu-push" style="position: fixed" id="menu">
+        <div class="item item-rotate item-primary">
+            <a class="link" href="#">
+                <center><span class="glyphicon glyphicon-home"></span></center>
+            </a>
+            <div class="item_content">
+                <h2>Home</h2>
             </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Exhibitions</a>
-                    </li>
-                    <li>
-                        <a href="#">Competitions</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Awards</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <% if (current_user == null)
-                       { %>
-                    <li>
-                        <a href="../Sessions/New.aspx">Sign In</a>
-                    </li>
-                    <%}
-                       else
-                       { %>
-                    <li>
-                        <button type="button" id="showRightPush" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
-                    </li>
-                    <% } %>
-                </ul>
-            </nav>
         </div>
-    </header>
-    <form id="form1" runat="server">
+        <div class="item item-rotate item-warning">
+            <a class="link" href="#">
+                <center><span class="glyphicon glyphicon-picture"></span></center>
+            </a>
+            <div class="item_content">
+                <h2>Exhibitions</h2>
+            </div>
+        </div>
+        <div class="item item-rotate item-danger">
+            <a class="link" href="#">
+                <center><span class="glyphicon glyphicon-calendar"></span></center>
+            </a>
+            <div class="item_content">
+                <h2>Competitions</h2>
+            </div>
+        </div>
+        <div class="item item-rotate item-success">
+            <a class="link" href="#">
+                <center><span class="glyphicon glyphicon-certificate"></span></center>
+            </a>
+            <div class="item_content">
+                <h2>Awards</h2>
+            </div>
+        </div>
+        <% if (current_user != null)
+           { %>
+        <div class="item item-info">
+            <a class="link" id="showLeftPush">
+                <center><span class="glyphicon glyphicon-cog"></span></center>
+            </a>
+        </div>
+        <% }
+           else
+           { %>
+        <div class="item item-rotate item-info">
+            <a class="link" href="../Sessions/New.aspx">
+                <center><span class="glyphicon glyphicon-user"></span></center>
+            </a>
+            <div class="item_content">
+                <h2>Sign In</h2>
+            </div>
+        </div>
+        <% } %>
+    </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentSite" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </form>
     <script>
-        var menuRight = document.getElementById('cbp-spmenu-s2'),
-            showRightPush = document.getElementById('showRightPush'),
-            body = document.body;
+         <% if (current_user != null)
+            { %>
+        var menuLeft = document.getElementById('cbp-spmenu-s2'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body,
+            menu = document.getElementById('menu');
 
-        showRightPush.onclick = function () {
+        showLeftPush.onclick = function () {
             classie.toggle(this, 'active');
-            classie.toggle(body, 'cbp-spmenu-push-toleft');
-            classie.toggle(menuRight, 'cbp-spmenu-open');
-            disableOther('showRightPush');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            classie.toggle(menu, 'cbp-spmenu-push-toright');
         };
-
-        function disableOther(button) {
-            if (button !== 'showRightPush') {
-                classie.toggle(showRightPush, 'disabled');
+        <% } %>
+        $('.item-rotate').hover(
+            function () {
+                var $this = $(this);
+                expand($this);
+            },
+            function () {
+                var $this = $(this);
+                collapse($this);
             }
+            );
+        function expand($elem) {
+            $elem.stop().animate({ width: '100px', height: '100px' }, 50)
+            .find('.item_content').stop(true, true).fadeIn(100).find('h2').css({ fontSize: "14px", marginTop: "12px" });
         }
-		</script>
+        function collapse($elem) {
+            $elem.stop().animate({ width: '80px', height: '80px' }, 50)
+            .find('.item_content').stop(true, true).fadeOut(100).find('h2').css({ fontSize: "10px", marginTop: "8px" });
+        }
+    </script>
 </body>
 </html>
