@@ -46,7 +46,7 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-info btn-lg" role="button">
+                    <a href="../Exhibitions/Index.aspx" class="btn btn-info btn-lg" role="button">
                         <span class="glyphicon glyphicon-picture"></span>
                         <br>
                         Exhibitions
@@ -67,14 +67,14 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-primary btn-lg" role="button">
+                    <a href="../Paintings/Index.aspx" class="btn btn-primary btn-lg" role="button">
                         <span class="glyphicon glyphicon-pencil"></span>
                         <br>
                         Paintings
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-danger btn-lg" role="button">
+                    <a href="../Customers/Index.aspx" class="btn btn-danger btn-lg" role="button">
                         <span class="glyphicon glyphicon-phone-alt"></span>
                         <br>
                         Customers

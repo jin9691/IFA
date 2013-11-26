@@ -97,6 +97,13 @@
     <Compile Include="Views\Exhibitions\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Exhibitions\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Exhibitions\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Exhibitions\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -454,6 +461,7 @@
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="Views\Exhibitions\Edit.aspx" />
     <Content Include="Views\Exhibitions\Index.aspx" />
+    <Content Include="Views\Exhibitions\List.aspx" />
     <Content Include="Views\Exhibitions\New.aspx" />
     <Content Include="Views\Exhibitions\Search.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
