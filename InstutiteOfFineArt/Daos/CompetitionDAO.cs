@@ -12,7 +12,7 @@ namespace InstutiteOfFineArt.Daos
 {
     public class CompetitionDAO
     {
-        public DataTable All()
+        public static DataTable All()
         {
 
             try
@@ -31,7 +31,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public Competition Find(int id)
+        public static Competition Find(int id)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -54,7 +54,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-        public DataTable Where(Dictionary<string, object> query)
+        public static DataTable Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -78,7 +78,7 @@ namespace InstutiteOfFineArt.Daos
             adap.Fill(dt);
             return dt;
         }
-        public DataTable Search(List<string> query)
+        public static DataTable Search(List<string> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -98,7 +98,7 @@ namespace InstutiteOfFineArt.Daos
         }
 
 
-        public bool Create(Competition c)
+        public static bool Create(Competition c)
         {
             DBUtilities.Connection();
             try
@@ -128,7 +128,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public bool Update(Competition c)
+        public static bool Update(Competition c)
         {
             DBUtilities.Connection();
             try
@@ -184,7 +184,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public bool Destroy(Competition c)
+        public static bool Destroy(Competition c)
         {
             DBUtilities.Connection();
             try
