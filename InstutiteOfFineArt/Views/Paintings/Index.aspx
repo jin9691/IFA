@@ -25,38 +25,7 @@
         <br/>
         <div>
             <form id="Form1" runat="server" method="post">
-                <asp:GridView ID="gdvUsers" runat="server" CssClass="table table-striped" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gdvUsers_PageIndexChanging">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" />
-                        <asp:BoundField DataField="PaintingDescription" HeaderText="Description" />
-                        <asp:TemplateField HeaderText="Image"></asp:TemplateField>
-                        <asp:BoundField DataField="Mark" HeaderText="Mark" />
-                        <asp:BoundField DataField="Upload Date" HeaderText="Upload Date" />
-                        <asp:BoundField DataField="LastModify" HeaderText="Last Modify" />
-                        <asp:TemplateField HeaderText="Action">
-                            <ItemTemplate>
-                                <div class="btn-group">
-                                    <a href='Edit.aspx?ID=<%# Eval("Id")%>' class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <asp:LinkButton ID="Destroy" runat="server" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" OnClick="Destroy_Click" CssClass="btn btn-default">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </asp:LinkButton>
-                                </div>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                        </asp:TemplateField>
-                    </Columns>
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#d9534f" Font-Bold="True" ForeColor="White" />
-                    <PagerSettings FirstPageText="First" LastPageText="Last" NextPageText="Next" PreviousPageText="Previous" />
-                    <PagerStyle CssClass="gridview" BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" VerticalAlign="Middle" HorizontalAlign="Center" />
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                    <SortedDescendingHeaderStyle BackColor="#820000" />
-                </asp:GridView>
+                
             </form>
         </div>
     </div>

@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="InstutiteOfFineArt.Views.MasterPages.Admin" %>
-
 <%@ Import Namespace="InstutiteOfFineArt.Codes" %>
+<%--<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>--%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,13 +17,14 @@
     <script type="text/javascript" src="../../Assets/Js/jquery-ui.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
+    
 </head>
 <body class="page">
     <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
         <div class="container">
             <div class="navbar-header">
                 <a href="../StaticPages/Home.aspx" class="navbar-brand">
-                    <img src="../../Assets/Images/Pages/logo.png" class="logo"></a>
+                    <img src="../../Assets/Images/Pages/logo.png" class="logo"/></a>
             </div>
             <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
