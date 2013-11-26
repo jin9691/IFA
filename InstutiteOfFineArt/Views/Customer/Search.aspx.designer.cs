@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstutiteOfFineArt.Views.MasterPages {
+namespace InstutiteOfFineArt.Views.Customer {
     
     
-    public partial class Home {
+    public partial class Search {
         
         /// <summary>
-        /// title control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder title;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// ContentSite control.
+        /// gdvCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentSite;
+        protected global::System.Web.UI.WebControls.GridView gdvCustomers;
     }
 }

@@ -45,7 +45,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-        public static Customer Where(Dictionary<string, object> query)
+        public static DataTable Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -67,19 +67,7 @@ namespace InstutiteOfFineArt.Daos
                 i++;
             }
             adap.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                Customer u = new Customer();
-                u.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                u.CustomerName = dt.Rows[0]["CustomerName"].ToString();
-                u.CustomerEmail = dt.Rows[0]["CustomerEmail"].ToString();
-                u.CustomerGender = bool.Parse(dt.Rows[0]["CustomerGender"].ToString());
-                u.CustomerBirthday = DateTime.Parse(dt.Rows[0]["CustomerBirthday"].ToString());
-                u.CustomerAddress = dt.Rows[0]["CustomerAddress"].ToString();
-                u.CustomerPhone = dt.Rows[0]["CustomerPhone"].ToString();
-                return u;
-            }
-            return null;
+            return dt;
         }
 
         public static DataTable Search(List<string> query)
