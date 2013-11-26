@@ -42,7 +42,7 @@
     <% } %>
     <div class="cbp-spmenu-push" style="position: fixed" id="menu">
         <div class="item item-rotate item-primary">
-            <a class="link" href="../StaticPages/Home.aspx">
+            <a class="link" href="#">
                 <center><span class="glyphicon glyphicon-home"></span></center>
             </a>
             <div class="item_content">
