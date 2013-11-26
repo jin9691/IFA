@@ -74,7 +74,7 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="../Customers/Index.aspx" class="btn btn-danger btn-lg" role="button">
+                    <a href="#" class="btn btn-danger btn-lg" role="button">
                         <span class="glyphicon glyphicon-phone-alt"></span>
                         <br>
                         Customers
