@@ -6,7 +6,7 @@
 
 .home
 {
-    background-color: rgba(0,0,0,.90);
+    background-color: rgba(0,0,0,.80);
 }
 
 hr
@@ -49,10 +49,16 @@ hr
     height: 40px;
 }
 
+.home-logo
+{
+    height: 80px;
+}
+
 #nav
 {
     height: 150px;
     padding: 15px;
+    margin-top:51px;
     background-color: rgba(0,0,0,.70);
     border-bottom: 1px solid #D6D6D6;
     border-top: 1px solid #D6D6D6;
@@ -60,7 +66,7 @@ hr
 
     #nav.affix
     {
-        z-index: 1030;
+        z-index: 900;
         position: fixed;
         width: 100%;
     }
@@ -233,10 +239,9 @@ h1 .glyphicon
 /* General styles for all menus */
 .cbp-spmenu
 {
-    padding-top:50px;
-    background-color: #484848;
+    background-color: #5E5E5E;
     position: fixed;
-    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
 }
 
     .cbp-spmenu h3
@@ -248,7 +253,7 @@ h1 .glyphicon
         padding-bottom: 30px;
         margin: 0 !important;
         font-weight: 300;
-        background: #373737;
+        background: #414141;
         border-bottom: 1px solid #5E5E5E;
     }
 
@@ -263,19 +268,19 @@ h1 .glyphicon
 
         .cbp-spmenu .menu a:hover
         {
-            background: #5E5E5E;
+            background: #7E7E7E;
             color: #fff;
         }
 
     .cbp-spmenu .menu .active
     {
-        background: #5E5E5E;
+        background: #7E7E7E;
         color: #fff;
     }
 
     .cbp-spmenu .menu a:active
     {
-        background: #5E5E5E;
+        background: #7E7E7E;
         color: #fff;
     }
 
@@ -291,7 +296,7 @@ h1 .glyphicon
 
     .cbp-spmenu-vertical a
     {
-        border-bottom: 1px solid #5E5E5E;
+        border-bottom: 1px solid #7E7E7E;
         padding: 1em;
     }
 
@@ -301,15 +306,13 @@ h1 .glyphicon
 
 /* Vertical menu that slides from the left or right */
 
-.cbp-spmenu-right
-{
-    right: -240px;
+.cbp-spmenu-left {
+	left: -240px;
 }
 
-    .cbp-spmenu-right.cbp-spmenu-open
-    {
-        right: 0px;
-    }
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
 
 /* Push classes applied to the body */
 
@@ -320,9 +323,9 @@ h1 .glyphicon
     left: 0;
 }
 
-.cbp-spmenu-push-toleft
+.cbp-spmenu-push-toright
 {
-    left: -240px;
+    left: 240px;
 }
 
 /* Transitions */
@@ -337,114 +340,72 @@ h1 .glyphicon
 
 /* Example media queries */
 
-@media screen and (max-height: 26.375em)
-{
-
-    .cbp-spmenu-vertical
-    {
-        font-size: 90%;
-        width: 190px;
-    }
-
-    .cbp-spmenu-left,
-    .cbp-spmenu-push-toleft
-    {
-        left: -190px;
-    }
-
-    .cbp-spmenu-right
-    {
-        right: -190px;
-    }
-
-    .cbp-spmenu-push-toright
-    {
-        left: 190px;
-    }
-}
-
 /* Main-Menu */
-.main-menu{
-    width:800px;
-    height:52px;
-    position:relative;
-    top:200px;
-    left:100px;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: bold;
-    text-transform: uppercase;
-}
 .item{
     position:relative;
-    background-color:#f0f0f0;
-    width:52px;
-    height:52px;
-    border:1px solid #ddd;
+    width:80px;
+    height:80px;
     cursor:pointer;
+    border: 1px solid;
+    margin-top:4px;
+    margin-left:2px;
+    margin-bottom:5px;
+    padding:5px;
+    padding-top: 18px;
     overflow:hidden;
 }
 
-.link{
-    left:2px;
-    top:2px;
-    position:absolute;
-    width:48px;
-    height:48px;
+.item-primary
+{
+    background-color: #428bca;
+    border-color: #357ebd;
+    margin-top: 20px;
 }
-.icon_home{
-    background:transparent url(../images/home.png) no-repeat top left;
+
+.item-danger
+{
+    background-color: #d9534f;
+    border-color: #d43f3a;
+
 }
-.icon_mail{
-    background:transparent url(../images/mail.png) no-repeat top left;
+
+.item-info
+{
+    background-color: #563d7c;
+    border-color: #463265;
 }
-.icon_help{
-    background:transparent url(../images/help.png) no-repeat top left;
+
+.item-success
+{
+    background-color: #5cb85c;
+    border-color: #4cae4c;
 }
-.icon_find{
-    background:transparent url(../images/find.png) no-repeat top left;
+
+.item-warning
+{
+    background-color: #f0ad4e;
+    border-color: #eea236;
 }
-.icon_photos{
-    background:transparent url(../images/photos.png) no-repeat top left;
+
+
+.item .glyphicon
+{
+    font-size:40px;
+    color:#fff;
 }
-.item_content{
-    position:absolute;
-    height:52px;
-    width:220px;
-    overflow:hidden;
-    left:56px;
-    top:7px;
-    background:transparent;
-    display:none;
+
+.item_content
+{
+    display: none;
 }
+
 .item_content h2{
-    color:#aaa;
-    text-shadow: 1px 1px 1px #fff;
+    text-align:center;
+    color:#fff;
     background-color:transparent;
-    font-size:14px;
+    font-size:10px;
+    margin-top:8px;
 }
-.item_content a{
-    background-color:transparent;
-    float:left;
-    margin-right:7px;
-    margin-top:3px;
-    color:#bbb;
-    text-shadow: 1px 1px 1px #fff;
-    text-decoration:none;
-    font-size:12px;
-}
-.item_content a:hover{
-    color:#0b965b;
-}
-.item_content p {
-    background-color:transparent;
-    display:none;
-}
-.item_content p input{
-    border:1px solid #ccc;
-    padding:1px;
-    width:155px;
-    float:left;
-    margin-right:5px;
-}
+
+
+
