@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstutiteOfFineArt.Views.Customers {
+namespace InstutiteOfFineArt.Views.Customer {
     
     
     public partial class Search {

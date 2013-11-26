@@ -12,7 +12,7 @@ namespace InstutiteOfFineArt.Daos
 {
     public class CompetitionDAO
     {
-        public static DataTable All()
+        public DataTable All()
         {
 
             try
@@ -31,7 +31,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public static Competition Find(int id)
+        public Competition Find(int id)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -55,10 +55,14 @@ namespace InstutiteOfFineArt.Daos
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public static DataTable Where(Dictionary<string, object> query)
 =======
         public static Competition Where(Dictionary<string, object> query)
 >>>>>>> origin/DungLV
+=======
+        public DataTable Where(Dictionary<string, object> query)
+>>>>>>> parent of 408b441... Revert "Revert "Exhibition""
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -82,7 +86,7 @@ namespace InstutiteOfFineArt.Daos
             adap.Fill(dt);
             return dt;
         }
-        public static DataTable Search(List<string> query)
+        public DataTable Search(List<string> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -102,7 +106,7 @@ namespace InstutiteOfFineArt.Daos
         }
 
 
-        public static bool Create(Competition c)
+        public bool Create(Competition c)
         {
             DBUtilities.Connection();
             try
@@ -132,7 +136,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public static bool Update(Competition c)
+        public bool Update(Competition c)
         {
             DBUtilities.Connection();
             try
@@ -188,7 +192,7 @@ namespace InstutiteOfFineArt.Daos
             }
         }
 
-        public static bool Destroy(Competition c)
+        public bool Destroy(Competition c)
         {
             DBUtilities.Connection();
             try

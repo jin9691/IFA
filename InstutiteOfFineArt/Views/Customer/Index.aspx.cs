@@ -9,7 +9,7 @@ using InstutiteOfFineArt.Codes;
 using InstutiteOfFineArt.Daos;
 using InstutiteOfFineArt.Models;
 
-namespace InstutiteOfFineArt.Views.Customers
+namespace InstutiteOfFineArt.Views.Customer
 {
     public partial class Index : System.Web.UI.Page
     {
