@@ -15,12 +15,20 @@ namespace InstutiteOfFineArt.Daos
         public static DataTable All()
         {
 
-            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
-            DataTable dt = new DataTable();
-            string sql = "Select * from [Competitions] order by Id desc";
-            SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
-            adap.Fill(dt);
-            return dt;
+            try
+            {
+                DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
+                DataTable dt = new DataTable();
+                string sql = "Select * from [Competitions] order by Id desc";
+                SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+                adap.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         public static Competition Find(int id)
@@ -46,7 +54,11 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
+<<<<<<< HEAD
         public static DataTable Where(Dictionary<string, object> query)
+=======
+        public static Competition Where(Dictionary<string, object> query)
+>>>>>>> origin/DungLV
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
-        <h1>Users managerment<strong><small>(<asp:Label Text="0" ID="lbCountPaintings" runat="server" />)</small></strong>
+        <h1>Paintings managerment<strong><small>(<asp:Label Text="0" ID="lbCountPaintings" runat="server" />)</small></strong>
             <a href="New.aspx" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-plus-sign"></span>Create new</a>
         </h1>
         <hr>

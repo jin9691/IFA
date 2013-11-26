@@ -23,6 +23,7 @@ namespace InstutiteOfFineArt.Views.Sessions
 
         protected void SignIn_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Dictionary<string, object> myQuery = new Dictionary<string, object>();
             myQuery.Add("Username", txtUsername.Text);
             myQuery.Add("Password", Md5.To_Md5(txtPassword.Text));
@@ -46,6 +47,21 @@ namespace InstutiteOfFineArt.Views.Sessions
             {
                 Flash.dictFlash.Add("danger", "Wrong <b>Username</b> Or <b>Password</b>");
             }
+=======
+            //Dictionary<string, object> myQuery = new Dictionary<string, object>();
+            //myQuery.Add("Username", txtUsername.Text);
+            //myQuery.Add("Password", Md5.To_Md5(txtPassword.Text));
+            //User u = UserDAO.Where(myQuery);
+            //if (u != null)
+            //{
+            //    Session["current_user"] = u;
+            //    Response.Redirect("../StaticPages/Home.aspx");
+            //}
+            //else
+            //{
+            //    Flash.dictFlash.Add("danger", "Wrong <b>Username</b> Or <b>Password</b>");
+            //}
+>>>>>>> origin/DungLV
         }
     }
 }
