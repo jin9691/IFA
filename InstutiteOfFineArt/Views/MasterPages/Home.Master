@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="item item-rotate item-warning">
-            <a class="link" href="#">
+            <a class="link" href="../Exhbitions/List.aspx">
                 <center><span class="glyphicon glyphicon-picture"></span></center>
             </a>
             <div class="item_content">
