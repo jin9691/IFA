@@ -54,7 +54,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-        public static DataTable Where(Dictionary<string, object> query)
+        public DataTable Where(Dictionary<string, object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
