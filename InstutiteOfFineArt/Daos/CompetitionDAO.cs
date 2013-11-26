@@ -54,15 +54,7 @@ namespace InstutiteOfFineArt.Daos
             return null;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public static DataTable Where(Dictionary<string, object> query)
-=======
-        public static Competition Where(Dictionary<string, object> query)
->>>>>>> origin/DungLV
-=======
-        public DataTable Where(Dictionary<string, object> query)
->>>>>>> parent of 408b441... Revert "Revert "Exhibition""
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
