@@ -69,6 +69,9 @@
     <Compile Include="Daos\CustomerDAO.cs" />
     <Compile Include="Daos\ExhibitionDAO.cs" />
     <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Views\Award\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +218,7 @@
     <Content Include="Assets\Js\jquery-animate-css-rotate-scale.js" />
     <Content Include="Assets\Js\jquery-css-transform.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Global.asax" />
     <Content Include="Views\Award\Edit.aspx" />
     <Content Include="Views\Award\Index.aspx" />
     <Content Include="Views\Award\New.aspx" />

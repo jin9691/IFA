@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
         <h1>
-            Award Management <strong><small>(Create New Award)</small></strong> <a href="Index.aspx"
+            Award Management <strong><small>(Create New Award)</small></strong> <a href="/awards"
                 class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
                 </span>Back</a>
         </h1>

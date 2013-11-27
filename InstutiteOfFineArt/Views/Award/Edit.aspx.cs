@@ -15,8 +15,8 @@ namespace InstutiteOfFineArt.Views.Award
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(Request.QueryString["ID"]);
-            if (Request.QueryString["ID"] != null)
+            int Id = Convert.ToInt32(RouteData.Values["id"]);
+            if (RouteData.Values["id"] != null)
             {
                 if (!IsPostBack)
                 {
@@ -31,7 +31,7 @@ namespace InstutiteOfFineArt.Views.Award
             }
             else
             {
-                Response.Redirect("Index.aspx");
+                Response.Redirect("/awards");
             }
         }
 

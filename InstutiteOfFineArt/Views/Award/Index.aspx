@@ -8,12 +8,12 @@
     <div class="management-main container">
         <h1>
             Awad managerment<strong><small>(<asp:Label Text="0" ID="lbCountAward" runat="server" />)</small></strong>
-            <a href="New.aspx" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-plus-sign">
+            <a href="/awards/new" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-plus-sign">
             </span>Create new</a>
         </h1>
         <hr>
         <div class="row">
-            <form method="Post" action="Search.aspx">
+            <form method="Post" action="/awards/search">
             <div class="col-md-4 pull-right">
                 <div class="input-group">
                     <input type="text" name="txtSearch" class="form-control" placeholder="Insert award name here...">
@@ -44,7 +44,7 @@
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <div class="btn-group">
-                                <a href='Edit.aspx?ID=<%# Eval("Id")%>' class="btn btn-default"><span class="glyphicon glyphicon-pencil">
+                                <a href='/award/<%# Eval("Id")%>/edit' class="btn btn-default"><span class="glyphicon glyphicon-pencil">
                                 </span></a>
                                 <asp:LinkButton ID="Destroy" runat="server" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();"
                                     OnClick="Destroy_Click" CssClass="btn btn-default">
