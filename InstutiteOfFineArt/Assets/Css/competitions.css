@@ -1,10 +1,10 @@
 /* Circular Content Carousel Style */
 .ca-container{
-	padding-top: 40px;
+	padding-top: 30px;
 	position:relative;
 	margin:0px auto 20px auto;
 	width:990px;
-	height:490px;
+	height:480px;
 }
 .ca-wrapper{
 	width:100%;
@@ -58,8 +58,8 @@
 	padding:20px;
 	position:absolute;
 	top:5px;
-	left:15px;
-	right:15px;
+	left:5px;
+	right:5px;
 	bottom:5px;
 	background:#F8F8F8;
 	overflow:hidden;
@@ -135,20 +135,11 @@
 	margin:0px 2px;
 }
 .ca-content ul li a{
-	color:#fff;
-	background:#d9534f;
-	text-decoration: none;
-	padding:3px 6px;
-	font-size:14px;
 	font-family: "Georgia","Times New Roman",serif;
 	font-style:italic;
+	width: 100px;
 }
-.ca-content ul li a:hover{
-	background:#fff;
-	color:#d9534f;
-	border: 1px solid #d9534f;
-	text-shadow:none;
-}
+
 .ca-nav span{
 	width:25px;
 	height:38px;

@@ -313,17 +313,91 @@ h1 .glyphicon
 	padding: 1em;
 }
 
+/* General styles for all menus */
+.cbp-spmenu-upload
+{
+    background-color: #5E5E5E;
+    position: fixed;
+}
+
+.menu-upload{
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.menu-upload b{
+    color: #fff;
+    font-size: 18px;
+}
+
+.menu-upload img{
+    height: 150px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.menu-upload .desc{
+    opacity: 0.9;
+    margin-top: 20px;
+}
+
+.menu-upload .desc:active,.menu-upload .desc:focus{
+    opacity: 1;
+}
+
+
+    .cbp-spmenu-upload h3
+    {
+        color: #fff;
+        font-size: 1.9em;
+        padding-left: 15px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0 !important;
+        font-weight: 300;
+        background: #414141;
+        border-bottom: 1px solid #5E5E5E;
+    }
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical-upload
+{
+    width: 500px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+    .cbp-spmenu-vertical-upload a
+    {
+        border-bottom: 1px solid #7E7E7E;
+        padding: 1em;
+    }
+
+/* ;
+    padding: 1em;
+}
+
+
 /* Vertical menu that slides from the left or right */
 
-.cbp-spmenu-left
-{
+.cbp-spmenu-left {
     left: -240px;
 }
 
-    .cbp-spmenu-left.cbp-spmenu-open
-    {
-        left: 0px;
-    }
+.cbp-spmenu-right {
+    right: -500px;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+    left: 0px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+    right: 0px;
+}
 
 /* Push classes applied to the body */
 
@@ -333,6 +407,12 @@ h1 .glyphicon
     position: relative;
     left: 0;
 }
+
+.cbp-spmenu-push-toleft
+{
+    left: -400px;
+}
+
 
 .cbp-spmenu-push-toright
 {
