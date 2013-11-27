@@ -1,10 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="InstutiteOfFineArt.Views.StaticPages.Home" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="InstutiteOfFineArt.Views.StaticPages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Home Page - IFA
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyClass" runat="server">
     page
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="CssJs" runat="server">
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/elastislide.css" />
+    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.17475.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquerypp.custom.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery.elastislide.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
      <div class="container">

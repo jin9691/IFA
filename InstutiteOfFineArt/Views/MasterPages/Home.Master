@@ -12,17 +12,15 @@
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/bootstrap.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
-    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/elastislide.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/jquery-ui.css" />
     <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/classie.js"></script>
-    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.17475.js"></script>
-    <script type="text/javascript" src="../../Assets/Js/jquerypp.custom.js"></script>
-    <script type="text/javascript" src="../../Assets/Js/jquery.elastislide.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-animate-css-rotate-scale.js"></script>
     <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
+    <asp:ContentPlaceHolder ID="CssJS" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'>
         </asp:ContentPlaceHolder>">
@@ -40,7 +38,7 @@
         </div>
     </nav>
     <% } %>
-    <div class="cbp-spmenu-push" style="position: fixed" id="menu">
+    <div class="cbp-spmenu-push" style="position: fixed;z-index:1030; opacity:0.8" id="menu">
         <div class="item item-rotate item-primary">
             <a class="link" href="../StaticPages/Home.aspx">
                 <center><span class="glyphicon glyphicon-home"></span></center>
@@ -93,7 +91,7 @@
         </div>
         <% } %>
     </div>
-        <div>
+        <div style="height:100%">
             <asp:ContentPlaceHolder ID="ContentSite" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -112,6 +110,13 @@
             classie.toggle(menu, 'cbp-spmenu-push-toright');
         };
         <% } %>
+
+        $(".item-info").hover(function () {
+            $(this).parent().animate({ opacity: "1" }, 50);
+        }, function () {
+            $(this).parent().animate({ opacity: "0.8" }, 50);
+        })
+
         $('.item-rotate').hover(
             function () {
                 var $this = $(this);
@@ -123,10 +128,12 @@
             }
             );
         function expand($elem) {
+            $elem.parent().animate({ opacity: "1" }, 50);
             $elem.stop().animate({ width: '100px', height: '100px' }, 50)
             .find('.item_content').stop(true, true).fadeIn(100).find('h2').css({ fontSize: "14px", marginTop: "12px" });
         }
         function collapse($elem) {
+            $elem.parent().animate({ opacity: "0.8" }, 50);
             $elem.stop().animate({ width: '80px', height: '80px' }, 50)
             .find('.item_content').stop(true, true).fadeOut(100).find('h2').css({ fontSize: "10px", marginTop: "8px" });
         }

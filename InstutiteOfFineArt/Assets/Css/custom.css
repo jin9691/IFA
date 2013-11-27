@@ -1,4 +1,14 @@
 ﻿/* HOME */
+body
+{
+    height: 100%;
+}
+
+html
+{
+    height: 100%;
+}
+
 .page
 {
     background-image: url('../Images/Pages/background.jpg');
@@ -58,7 +68,7 @@ hr
 {
     height: 150px;
     padding: 15px;
-    margin-top:51px;
+    margin-top: 51px;
     background-color: rgba(0,0,0,.70);
     border-bottom: 1px solid #D6D6D6;
     border-top: 1px solid #D6D6D6;
@@ -99,7 +109,7 @@ h1 .glyphicon
 /* Admin Page */
 .management-main
 {
-    padding-top:50px;
+    padding-top: 50px;
     margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -241,7 +251,6 @@ h1 .glyphicon
 {
     background-color: #5E5E5E;
     position: fixed;
-    border-right: 1px solid #fff;
 }
 
     .cbp-spmenu h3
@@ -306,13 +315,15 @@ h1 .glyphicon
 
 /* Vertical menu that slides from the left or right */
 
-.cbp-spmenu-left {
-	left: -240px;
+.cbp-spmenu-left
+{
+    left: -240px;
 }
 
-.cbp-spmenu-left.cbp-spmenu-open {
-	left: 0px;
-}
+    .cbp-spmenu-left.cbp-spmenu-open
+    {
+        left: 0px;
+    }
 
 /* Push classes applied to the body */
 
@@ -341,18 +352,19 @@ h1 .glyphicon
 /* Example media queries */
 
 /* Main-Menu */
-.item{
-    position:relative;
-    width:80px;
-    height:80px;
-    cursor:pointer;
+.item
+{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
     border: 1px solid;
-    margin-top:4px;
-    margin-left:2px;
-    margin-bottom:5px;
-    padding:5px;
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    padding: 5px;
     padding-top: 18px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .item-primary
@@ -366,7 +378,6 @@ h1 .glyphicon
 {
     background-color: #d9534f;
     border-color: #d43f3a;
-
 }
 
 .item-info
@@ -390,8 +401,8 @@ h1 .glyphicon
 
 .item .glyphicon
 {
-    font-size:40px;
-    color:#fff;
+    font-size: 40px;
+    color: #fff;
 }
 
 .item_content
@@ -399,13 +410,11 @@ h1 .glyphicon
     display: none;
 }
 
-.item_content h2{
-    text-align:center;
-    color:#fff;
-    background-color:transparent;
-    font-size:10px;
-    margin-top:8px;
-}
-
-
-
+    .item_content h2
+    {
+        text-align: center;
+        color: #fff;
+        background-color: transparent;
+        font-size: 10px;
+        margin-top: 8px;
+    }
