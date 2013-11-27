@@ -97,7 +97,7 @@ namespace InstutiteOfFineArt.Daos
             DBUtilities.Connection();
             try
             {
-                string sql = "Insert into Awards (AwardName,AwardRank,Description,PaintingId,CompetitionId)";
+                string sql = "Insert into Awards (AwardName,AwardRank,AwardDescription,PaintingId,CompetitionId)";
                 sql += " values (@1,@2,@3,@4,@5)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
                 cmd.Parameters.AddWithValue("@1", a.AdwardName);
@@ -110,8 +110,7 @@ namespace InstutiteOfFineArt.Daos
                 return true;
             }
             catch (Exception ex)
-            {
-                Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", ex.Message));
+            {                
                 return false;
             }
             finally

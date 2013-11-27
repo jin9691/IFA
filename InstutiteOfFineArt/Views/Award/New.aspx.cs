@@ -30,19 +30,17 @@ namespace InstutiteOfFineArt.Views.Award
             drlCompetitionId.DataTextField = "Topic";
             drlCompetitionId.DataValueField = "Id";
             drlCompetitionId.DataBind();
-            string val = drlCompetitionId.SelectedValue;
-            Label6.Text = val;
-            load_listview(val);
+            string val = drlCompetitionId.SelectedValue;            
+            load_listview(Convert.ToInt32(val));
         }
 
         protected void drlCompetitionId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string val = drlCompetitionId.SelectedValue;
-            Label6.Text = val;
-            load_listview(val);
+            string val = drlCompetitionId.SelectedValue;         
+            load_listview(Convert.ToInt32(val));
         }
 
-        private void load_listview(string val)
+        private void load_listview(int val)
         {
             Dictionary<string, object> query = new Dictionary<string, object>();
             query.Add("CompetitionId", val);
@@ -56,10 +54,11 @@ namespace InstutiteOfFineArt.Views.Award
             if (Validate_Control())
             {
                 InstutiteOfFineArt.Models.Award a = new InstutiteOfFineArt.Models.Award();
-                a.AdwardName = lbAwardName.Text;
+                a.AdwardName = txtAwardDess.Text;
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
                 a.AdwardRank = rbtListRank.SelectedValue;
+                a.AwardDescription = txtAwardDess.Text;
                 if (AwardDAO.Create(a))
                 {
                     Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", a.AdwardName));

@@ -64,8 +64,7 @@
                     <tr>
                         <td class="col-md-2" style="padding: 15px">
                             <asp:Label ID="Label2" Text="Picture:" CssClass="pull-right" runat="server" Font-Bold="true" />
-                        </td>
-                        <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                        </td>                        
                         <td class="col-md-6">
                             <asp:ListView ID="ListView1" runat="server">
                                 <LayoutTemplate>
@@ -112,7 +111,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(".select-image").click(function () {
+                $('.select-image').each(function () {
+                    $("#" + this.id).removeClass('selected');
+                });
                 var elm = (this.id).split("_");
+                $("#" + this.id).addClass('selected');
                 $('#ContentSite_txtPatingID').val(elm[1]);
             });
         });

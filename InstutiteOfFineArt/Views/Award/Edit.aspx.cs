@@ -24,8 +24,9 @@ namespace InstutiteOfFineArt.Views.Award
                     InstutiteOfFineArt.Models.Award a = AwardDAO.Find(Id);
                     txtAwardName.Text = a.AdwardName;
                     txtAwardDess.Text = a.AwardDescription;
+                    rbtListRank.SelectedValue = a.AdwardRank;
                     drlCompetitionId.SelectedValue = a.CompetitionId.ToString();
-                    txtPatingID.Value = a.PaintingId;
+                    txtPatingID.Value = a.PaintingId.ToString();
                 }
             }
             else
@@ -36,8 +37,8 @@ namespace InstutiteOfFineArt.Views.Award
 
         protected void drlCompetitionId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string val = drlCompetitionId.SelectedValue;
-            load_listview(val);
+            string val = drlCompetitionId.SelectedValue;         
+            load_listview(Convert.ToInt32(val));
         }
 
         private void Load_Data()
@@ -48,11 +49,10 @@ namespace InstutiteOfFineArt.Views.Award
             drlCompetitionId.DataValueField = "Id";
             drlCompetitionId.DataBind();
             string val = drlCompetitionId.SelectedValue;
-            Label6.Text = val;
-            load_listview(val);
+            load_listview(Convert.ToInt32(val));
         }
 
-        private void load_listview(string val)
+        private void load_listview(int val)
         {
             Dictionary<string, object> query = new Dictionary<string, object>();
             query.Add("CompetitionId", val);
@@ -71,6 +71,7 @@ namespace InstutiteOfFineArt.Views.Award
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
                 a.AdwardRank = rbtListRank.SelectedValue;
+                a.AwardDescription = txtAwardDess.Text;
                 if (AwardDAO.Update(a))
                 {
                     Flash.dictFlash.Add("success", String.Format("Updated Award [<b>{0}</b>] successfully", a.AdwardName));
