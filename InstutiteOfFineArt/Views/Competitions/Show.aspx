@@ -4,9 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <%@ Import Namespace="InstutiteOfFineArt.Models" %>
-<asp:Content ID="Content3" ContentPlaceHolderID="BodyClass" runat="server">
-    page
-</asp:Content>
 <%@ Import Namespace="InstutiteOfFineArt.Codes" %>
 <asp:Content ID="Content5" ContentPlaceHolderID="CssJs" runat="server">
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/parallax.css" />
@@ -234,7 +231,7 @@
                             <li class="image-thumbs" id="itemPlaceholder" runat="server"></li>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <li class="image-thumbs">
+                                <li class="image-thumbs">
                                 <img style="height: 100px" src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>'
                                     alt='<%# Eval("Id")%> Image' />
                             </li>
@@ -266,6 +263,11 @@
         }
     </script>
     <script type="text/javascript">
+            $("#search_image").click(function () {
+                var id = $("#<%= hdImage.ClientID %>").val();
+                $("#paint_"+id).click();
+            })
+
         $('.edit-remark').click(function () {
             $('#myModal').modal({
                 keyboard: false
@@ -399,10 +401,15 @@
                                     var left = spaces * 1.3 * (i + 1) - $this.width() / 2;
                                     $this.css('left', left + 'px');
                                     $(".img-upload").css('left', left + 'px');
-                                    $(".img-upload").css('top', '30px');
+                                        $(".img-upload").css('top', '-10px');
                                     if (o.thumbRotation) {
                                         var angle = Math.floor(Math.random() * 41) - 20;
                                         $this.css({
+                                                '-moz-transform': 'rotate(' + angle + 'deg)',
+                                                '-webkit-transform': 'rotate(' + angle + 'deg)',
+                                                'transform': 'rotate(' + angle + 'deg)'
+                                            });
+                                            $(".img-upload").css({
                                             '-moz-transform': 'rotate(' + angle + 'deg)',
                                             '-webkit-transform': 'rotate(' + angle + 'deg)',
                                             'transform': 'rotate(' + angle + 'deg)'

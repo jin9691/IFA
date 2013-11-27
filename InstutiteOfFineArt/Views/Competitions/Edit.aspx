@@ -66,7 +66,7 @@
                                 <asp:Label ID="lbConditition" Text="Conditition:" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                                <asp:TextBox runat="server" ID="txtConditition" CssClass="form-control" />
+                                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtConditition" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
                                 <asp:Label ID="lbCondititionErr" Text="*" runat="server" ForeColor="#A73333" />
@@ -78,7 +78,7 @@
                                 <asp:Label ID="lbRemark" Text="Remark:" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                                <asp:TextBox runat="server" ID="txtRemark" CssClass="form-control" />
+                                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtRemark" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
                                 <asp:Label ID="lbRemarkErr" Text="*" runat="server" ForeColor="#A73333" />
@@ -89,7 +89,7 @@
                                 <asp:Label ID="lbDescription" Text="Description:" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                               <CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDescription" CssClass="form-control" />
                             </td>
                             <td class="col-md-4" style="padding: 15px">
                                 <asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />

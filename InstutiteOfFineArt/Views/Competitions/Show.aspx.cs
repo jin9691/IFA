@@ -20,6 +20,16 @@ namespace InstutiteOfFineArt.Views.Competitions
             {
                 Load_Data();
             }
+            if (Session["current_user"] != null)
+            {
+                int Id = Convert.ToInt32(Request.QueryString["ID"]);
+                Dictionary<string, object> query = new Dictionary<string, object>();
+                query.Add("CompetitionId", Id);
+                User u = (User)Session["current_user"];
+                query.Add("StudentId", u.Id);
+                DataTable dt = PaintingDAO.Where(query);
+                hdImage.Value = dt.Rows[0]["Id"].ToString();
+            }
         }
 
         private void Load_Data()

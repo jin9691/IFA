@@ -4,9 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <%@ Import Namespace="InstutiteOfFineArt.Models" %>
-<asp:Content ID="Content3" ContentPlaceHolderID="BodyClass" runat="server">
-    page
-</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="CssJs" runat="server">
     <link rel="stylesheet" type="text/css" href="../../Assets/Css/competitions.css" />
     <link rel="stylesheet" type="text/css" href="../../Assets/Css/jquery.jscrollpane.css"

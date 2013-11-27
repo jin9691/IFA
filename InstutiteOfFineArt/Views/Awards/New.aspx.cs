@@ -72,7 +72,7 @@ namespace InstutiteOfFineArt.Views.Awards
                 else
                 {
                     Flash.dictFlash.Add("danger", "[<b>Award name</b>] are already used");
-                    Response.Redirect("awards/new");
+                    Response.Redirect("New.aspx");
                 }
 
             }

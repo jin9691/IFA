@@ -65,8 +65,8 @@
                                 <asp:Label ID="lblExhibitionDescription" Text="Exhibition Description :" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                                <%--<asp:TextBox ID="txtExhibitionDescription" runat="server" CssClass="form-control" />--%>
-                                <CKEditor:CKEditorControl ID="txtExhibitionDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                <asp:TextBox ID="txtExhibitionDescription" runat="server" CssClass="form-control" />
+                                <%--<CKEditor:CKEditorControl ID="txtExhibitionDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>--%>
                             </td>
                             <td class="col-md-4" style="padding: 15px">
                                 <asp:Label ID="lblExhibitionDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />

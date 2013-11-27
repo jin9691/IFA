@@ -55,7 +55,7 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = new Painting();
-                p.Comment = txtComent.Text;
+                p.Comment = txtComment.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
                     p.CompetitionId = Convert.ToInt32(cbCompetition.SelectedValue);
                 if (cbCustomer.SelectedValue != null && cbCustomer.SelectedValue != "")

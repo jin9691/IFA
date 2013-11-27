@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CKEditor.NET">
-      <HintPath>.\CKEditor.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -224,13 +221,6 @@
     <Compile Include="Views\Paintings\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Paintings\List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Paintings\List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Paintings\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +252,8 @@
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\competitions.css" />
     <Content Include="Assets\Css\custom.css" />
+    <Content Include="Assets\Css\custom2.css" />
+    <Content Include="Assets\Css\demo2.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
     <Content Include="Assets\Css\exhibitions.css" />
@@ -272,6 +264,7 @@
     <Content Include="Assets\Css\jquery.ui.theme.css" />
     <Content Include="Assets\Css\parallax.css" />
     <Content Include="Assets\Css\thumbnail_slider.css" />
+    <Content Include="Assets\Css\stapel2.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\Pages\add.png" />
     <Content Include="Assets\Images\Pages\ajax-loader.gif" />
@@ -324,6 +317,9 @@
     <Content Include="Assets\Js\jquery.contentcarousel.js" />
     <Content Include="Assets\Js\jquery.easing.1.3.js" />
     <Content Include="Assets\Js\jquery.mousewheel.js" />
+    <Content Include="Assets\Js\jquery.min.js" />
+    <Content Include="Assets\Js\jquery.stapel.js" />
+    <Content Include="Assets\Js\modernizr.custom.63321.js" />
     <Content Include="Views\Awards\List.aspx" />
     <Content Include="Views\Competitions\Edit.aspx" />
     <Content Include="Views\Competitions\Index.aspx" />
@@ -609,7 +605,6 @@
     <Content Include="Views\Exhibitions\Show.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
-    <Content Include="Views\Paintings\List.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
     <Content Include="Views\Paintings\Search.aspx" />
     <Content Include="Views\Sessions\New.aspx" />
