@@ -541,6 +541,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Competitions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\glyphicons-halflings-regular.eot" />
