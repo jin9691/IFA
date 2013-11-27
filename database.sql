@@ -27,19 +27,15 @@ GO
 
 CREATE TABLE [Exhibitions]
 (
-    [Id] INT IDENTITY(1, 1) PRIMARY KEY,
+    [Id] INT IDENTITY(0, 1) PRIMARY KEY,
     [ManagerId] INT FOREIGN KEY([ManagerId]) REFERENCES [Users]([Id]),
-<<<<<<< HEAD
     [ExhibitionName] NVARCHAR(50) UNIQUE ,
-=======
-
-    [ExhibitionName] NVARCHAR(50) UNIQUE,
-
->>>>>>> origin/DungLV
     [StartDate] DATETIME ,
     [EndDate] DATETIME ,
     [ExhibitionDescription] NTEXT ,
 )
+GO
+INSERT INTO Exhibitions (ExhibitionName) VALUES ('NOT SELECT')
 GO
 
 CREATE TABLE [Competitions]
@@ -56,7 +52,7 @@ CREATE TABLE [Competitions]
 GO
 
 CREATE TABLE [Customers](
-	[Id] INT IDENTITY(1,1) PRIMARY KEY,
+	[Id] INT IDENTITY(0,1) PRIMARY KEY,
 	[CustomerEmail] VARCHAR(50),
 	[CustomerName] NVARCHAR(50),
 	[CustomerAddress] NVARCHAR(50),
@@ -64,6 +60,9 @@ CREATE TABLE [Customers](
 	[CustomerBirthday] DATETIME,
 	[CustomerPhone] VARCHAR(15),
 )
+GO
+INSERT INTO Customers (CustomerName) VALUES ('NOT SELECT')
+GO
 
 CREATE  TABLE   [Paintings]
 (
@@ -87,17 +86,10 @@ GO
 CREATE  TABLE [Awards]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
-<<<<<<< HEAD
     [AwardName] NVARCHAR(50),
     [AwardRank] NVARCHAR(100),
-    [AwardDescription] NTEXT , 
-=======
-
-    [AwardName] NVARCHAR(50),
-    [AwardRank] NVARCHAR(100),
-    [AwardDescription] NTEXT , 
-
->>>>>>> origin/DungLV
+    [AwardDescription] NTEXT ,  
     [PaintingId] INT FOREIGN KEY([PaintingId]) REFERENCES [Paintings]([Id]), -- which is winner
     [CompetitionId] INT FOREIGN KEY([CompetitionId]) REFERENCES [Competitions]([Id])
 )
+GO

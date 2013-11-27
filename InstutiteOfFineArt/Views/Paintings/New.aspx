@@ -63,11 +63,21 @@
                             <td class="col-md-2" style="padding: 15px">
                                 <asp:Label ID="lbMark" Text="Mark:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
-                            <td class="col-md-6">
-                                <asp:TextBox runat="server" ID="txtMark" CssClass="form-control" />
+                            <td colspan="2" style="padding: 15px" class="col-md-12">
+                                <%--<asp:TextBox runat="server" ID="txtMark" CssClass="form-control" />--%>
+                                
+                                <asp:RadioButton ID="rdbBad" runat="server" Checked="true" GroupName="Mark" />
+                                Bad<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbNormal" runat="server" GroupName="Mark" />
+                                Normal<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbGood" runat="server" GroupName="Mark" />
+                                Good<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbBest" runat="server" GroupName="Mark" />
+                                Best
                             </td>
+                           
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbMarkErr" Text="" runat="server" ForeColor="#A73333" />
+                                <%--<asp:Label ID="lbMarkErr" Text="" runat="server" ForeColor="#A73333" />--%>
                             </td>
                         </tr>
                         <tr>
@@ -77,7 +87,7 @@
                             <td class="col-md-6" style="padding: 15px">
                                 <asp:DropDownList ID="cbCompetition" CssClass="form-control" runat="server" />
                             </td>
-                            <td></td>
+                            <td><asp:Label ID="lbCompetitionErr" Text="" runat="server" ForeColor="#A73333" /></td>
                         </tr>
                         <tr>
                             <td class="col-md-2" style="padding: 15px">
@@ -86,7 +96,7 @@
                             <td class="col-md-6" style="padding: 15px">
                                 <asp:DropDownList ID="cbStudent" CssClass="form-control" runat="server" />
                             </td>
-                            <td class="col-md-4" style="padding: 15px"></td>
+                            <asp:Label ID="lbStudentErr" Text="" runat="server" ForeColor="#A73333" />
                         </tr>
                         <tr>
                             <td class="col-md-2" style="padding: 15px">
@@ -113,9 +123,9 @@
                                 <asp:Label ID="lbIsEhibition" Text="Is Exhibition:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
                             <td colspan="2" style="padding: 15px" class="col-md-12">
-                                <asp:RadioButton ID="rdExhibitions" runat="server" Checked="true" GroupName="isExhibition" />
+                                <asp:RadioButton ID="rdExhibitions" runat="server"  GroupName="isExhibition" />
                                 Exhibitioned<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rdbNotExhibition" runat="server" GroupName="isExhibition" />
+                                <asp:RadioButton ID="rdbNotExhibition" runat="server" Checked="true" GroupName="isExhibition" />
                                 Not Exhibition <span style="padding-right: 10px"></span>
 
                             </td>
@@ -126,9 +136,9 @@
                                 <asp:Label ID="lbIsPaid" Text="Is Paid:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
                             <td colspan="2" style="padding: 15px" class="col-md-12">
-                                <asp:RadioButton ID="rbdPaid" runat="server" Checked="true" GroupName="isPaid" />
+                                <asp:RadioButton ID="rbdPaid" runat="server" GroupName="isPaid" />
                                 Paid<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rbdNotPaid" runat="server" GroupName="isPaid" />
+                                <asp:RadioButton ID="rbdNotPaid" runat="server" Checked="true" GroupName="isPaid" />
                                 Not Paid <span style="padding-right: 10px"></span>
 
                             </td>
@@ -157,7 +167,7 @@
                                 <CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
                             </td>
                             <td class="col-md-4" style="padding: 15px">
-                                <asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />
+                                <%--<asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />--%>
                             </td>
                         </tr>
                         <tr>
