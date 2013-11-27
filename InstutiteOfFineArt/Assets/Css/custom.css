@@ -58,33 +58,33 @@ hr
 {
     height: 150px;
     padding: 15px;
-    margin-top:51px;
+    margin-top: 51px;
     background-color: rgba(0,0,0,.70);
     border-bottom: 1px solid #D6D6D6;
     border-top: 1px solid #D6D6D6;
 }
 
-    #nav.affix
-    {
-        z-index: 900;
-        position: fixed;
-        width: 100%;
-    }
+#nav.affix
+{
+    z-index: 900;
+    position: fixed;
+    width: 100%;
+}
 
-    #nav .btn:not(.btn-block)
-    {
-        margin-top: 10px;
-        width: 190px;
-        height: 100px;
-        margin-bottom: 10px;
-    }
+#nav .btn:not(.btn-block)
+{
+    margin-top: 10px;
+    width: 190px;
+    height: 100px;
+    margin-bottom: 10px;
+}
 
-        #nav .btn:not(.btn-block) .glyphicon
-        {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            font-size: 45px;
-        }
+#nav .btn:not(.btn-block) .glyphicon
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 45px;
+}
 
 h1 .glyphicon
 {
@@ -99,17 +99,17 @@ h1 .glyphicon
 /* Admin Page */
 .management-main
 {
-    padding-top:50px;
+    padding-top: 50px;
     margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-    .management-main h1
-    {
-        font-size: 40px;
-        color: #d9534f;
-    }
+.management-main h1
+{
+    font-size: 40px;
+    color: #d9534f;
+}
 
 .table thead
 {
@@ -124,31 +124,31 @@ h1 .glyphicon
     padding: 2px;
 }
 
-    .gridview a
-    {
-        margin-right: 10px;
-        padding: 5px 10px 5px 10px;
-        color: #2a6496 !important;
-        text-decoration: none;
-        background-color: #fff;
-        border: 1px solid #ccc;
-    }
+.gridview a
+{
+    margin-right: 10px;
+    padding: 5px 10px 5px 10px;
+    color: #2a6496 !important;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
 
-        .gridview a:hover
-        {
-            background-color: #2a6496;
-            color: #fff !important;
-            border: 1px solid #fff;
-        }
+.gridview a:hover
+{
+    background-color: #2a6496;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
 
-    .gridview span
-    {
-        margin-right: 10px;
-        background-color: #2a6496;
-        color: #fff;
-        border: 1px solid #fff;
-        padding: 5px 10px 5px 10px;
-    }
+.gridview span
+{
+    margin-right: 10px;
+    background-color: #2a6496;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px 5px 10px;
+}
 
 /*CSS LOGIN*/
 
@@ -186,10 +186,10 @@ h1 .glyphicon
     box-sizing: border-box;
 }
 
-    .form-signin .form-control:focus
-    {
-        z-index: 2;
-    }
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
 
 .form-signin input[type="text"]
 {
@@ -244,45 +244,45 @@ h1 .glyphicon
     border-right: 1px solid #fff;
 }
 
-    .cbp-spmenu h3
-    {
-        color: #fff;
-        font-size: 1.3em;
-        padding-left: 15px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin: 0 !important;
-        font-weight: 300;
-        background: #414141;
-        border-bottom: 1px solid #5E5E5E;
-    }
+.cbp-spmenu h3
+{
+    color: #fff;
+    font-size: 1.3em;
+    padding-left: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 !important;
+    font-weight: 300;
+    background: #414141;
+    border-bottom: 1px solid #5E5E5E;
+}
 
-    .cbp-spmenu .menu a
-    {
-        display: block;
-        text-decoration: none;
-        color: #d9d9d9;
-        font-size: 1.1em;
-        font-weight: 300;
-    }
+.cbp-spmenu .menu a
+{
+    display: block;
+    text-decoration: none;
+    color: #d9d9d9;
+    font-size: 1.1em;
+    font-weight: 300;
+}
 
-        .cbp-spmenu .menu a:hover
-        {
-            background: #7E7E7E;
-            color: #fff;
-        }
+.cbp-spmenu .menu a:hover
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
-    .cbp-spmenu .menu .active
-    {
-        background: #7E7E7E;
-        color: #fff;
-    }
+.cbp-spmenu .menu .active
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
-    .cbp-spmenu .menu a:active
-    {
-        background: #7E7E7E;
-        color: #fff;
-    }
+.cbp-spmenu .menu a:active
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
 /* Orientation-dependent styles for the content of the menu */
 
@@ -294,11 +294,11 @@ h1 .glyphicon
     z-index: 1000;
 }
 
-    .cbp-spmenu-vertical a
-    {
-        border-bottom: 1px solid #7E7E7E;
-        padding: 1em;
-    }
+.cbp-spmenu-vertical a
+{
+    border-bottom: 1px solid #7E7E7E;
+    padding: 1em;
+}
 
 /* ;
 	padding: 1em;
@@ -306,12 +306,14 @@ h1 .glyphicon
 
 /* Vertical menu that slides from the left or right */
 
-.cbp-spmenu-left {
-	left: -240px;
+.cbp-spmenu-left
+{
+    left: -240px;
 }
 
-.cbp-spmenu-left.cbp-spmenu-open {
-	left: 0px;
+.cbp-spmenu-left.cbp-spmenu-open
+{
+    left: 0px;
 }
 
 /* Push classes applied to the body */
@@ -330,8 +332,7 @@ h1 .glyphicon
 
 /* Transitions */
 
-.cbp-spmenu,
-.cbp-spmenu-push
+.cbp-spmenu, .cbp-spmenu-push
 {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -341,18 +342,19 @@ h1 .glyphicon
 /* Example media queries */
 
 /* Main-Menu */
-.item{
-    position:relative;
-    width:80px;
-    height:80px;
-    cursor:pointer;
+.item
+{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
     border: 1px solid;
-    margin-top:4px;
-    margin-left:2px;
-    margin-bottom:5px;
-    padding:5px;
+    margin-top: 4px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    padding: 5px;
     padding-top: 18px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .item-primary
@@ -366,7 +368,6 @@ h1 .glyphicon
 {
     background-color: #d9534f;
     border-color: #d43f3a;
-
 }
 
 .item-info
@@ -390,8 +391,8 @@ h1 .glyphicon
 
 .item .glyphicon
 {
-    font-size:40px;
-    color:#fff;
+    font-size: 40px;
+    color: #fff;
 }
 
 .item_content
@@ -399,13 +400,20 @@ h1 .glyphicon
     display: none;
 }
 
-.item_content h2{
-    text-align:center;
-    color:#fff;
-    background-color:transparent;
-    font-size:10px;
-    margin-top:8px;
+.item_content h2
+{
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+    font-size: 10px;
+    margin-top: 8px;
 }
 
-
-
+/* Award */
+.select-image
+{
+    float: left;
+    width: 180px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

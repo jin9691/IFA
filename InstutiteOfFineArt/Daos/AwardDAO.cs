@@ -35,7 +35,7 @@ namespace InstutiteOfFineArt.Daos
                 Award a = new Award();
                 a.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 a.AdwardName = dt.Rows[0]["AwardName"].ToString();
-                a.AdwardRank = dt.Rows[0]["AdwardRank"].ToString();
+                a.AdwardRank = dt.Rows[0]["AwardRank"].ToString();
                 a.AwardDescription = dt.Rows[0]["AwardDescription"].ToString();
                 a.PaintingId = Convert.ToInt32(dt.Rows[0]["PaintingId"]);
                 a.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
@@ -109,8 +109,9 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Dispose();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", ex.Message));
                 return false;
             }
             finally

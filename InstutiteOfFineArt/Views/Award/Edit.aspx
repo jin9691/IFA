@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master"
-    AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="InstutiteOfFineArt.Views.Award.New" %>
+    AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="InstutiteOfFineArt.Views.Award.Edit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Create Award
@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
         <h1>
-            Award Management <strong><small>(Create New Award)</small></strong> <a href="Index.aspx"
+            Award Management <strong><small>(Edit Award)</small></strong> <a href="Index.aspx"
                 class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
                 </span>Back</a>
         </h1>
@@ -99,8 +99,8 @@
                         </td>
                         <td colspan="2" style="padding-top: 20px; padding-bottom: 20px">
                             <asp:Button ID="btnAccept" Text="Accept" runat="server" 
-                                CssClass="btn btn-danger" onclick="btnAccept_Click"/><span style="padding-right: 5px"></span>
-                            <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default "
+                                CssClass="btn btn-primary btn-lg" onclick="btnAccept_Click"/><span style="padding-right: 5px"></span>
+                            <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default btn-lg"
                                 CausesValidation="False" />
                         </td>
                     </tr>

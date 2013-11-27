@@ -10,7 +10,7 @@
 namespace InstutiteOfFineArt.Views.Award {
     
     
-    public partial class New {
+    public partial class Edit {
         
         /// <summary>
         /// Form1 control.
