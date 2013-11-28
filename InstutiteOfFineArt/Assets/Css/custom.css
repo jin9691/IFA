@@ -383,6 +383,7 @@ h1 .glyphicon
 
 /* Vertical menu that slides from the left or right */
 
+
 .cbp-spmenu-left {
     left: -240px;
 }
@@ -421,8 +422,7 @@ h1 .glyphicon
 
 /* Transitions */
 
-.cbp-spmenu,
-.cbp-spmenu-push
+.cbp-spmenu, .cbp-spmenu-push
 {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -505,4 +505,15 @@ h1 .glyphicon
     background-color: transparent;
     font-size: 10px;
     margin-top: 8px;
+}
+/* Award */
+.select-image
+{
+    width: 180px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.select-image.selected
+{
+   border: 5px solid #d9534f;
 }

@@ -111,6 +111,37 @@
     <Compile Include="Views\Competitions\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Award\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Award\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Award\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Award\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Award\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Award\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Award\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Award\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customers\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +297,11 @@
     <Content Include="Views\Competitions\New.aspx" />
     <Content Include="Views\Competitions\Search.aspx" />
     <Content Include="Views\Competitions\Show.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Award\Edit.aspx" />
+    <Content Include="Views\Award\Index.aspx" />
+    <Content Include="Views\Award\New.aspx" />
+    <Content Include="Views\Award\Search.aspx" />
     <Content Include="Views\Customers\Index.aspx" />
     <Content Include="Views\Customers\Search.aspx" />
     <Content Include="Assets\Js\jquery.elastislide.js" />
