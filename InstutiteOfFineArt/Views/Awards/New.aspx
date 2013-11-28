@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master"
-    AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="InstutiteOfFineArt.Views.Award.New" %>
+    AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="InstutiteOfFineArt.Views.Awards.New" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Create Award
@@ -42,7 +42,7 @@
                                 1st<span style="padding-right: 10px"></span>
                                 <asp:RadioButton ID="rdb2nd" runat="server" GroupName="Rank" />
                                 2nd<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rdb2rd" runat="server" GroupName="Rank" />
+                                <asp:RadioButton ID="rdb3rd" runat="server" GroupName="Rank" />
                                     3rd
                             </td>
                         </tr>
@@ -71,7 +71,7 @@
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <tr class="TableData">
-                                            <img id='img_<%# Eval("Id")%>' src='../../<%# Eval("PaintingURL")%>' class='select-image' />
+                                            <img id='img_<%# Eval("Id")%>' src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' class='select-image' />
                                         </tr>
                                     </ItemTemplate>
                                 </asp:ListView>

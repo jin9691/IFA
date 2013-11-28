@@ -69,6 +69,13 @@
     <Compile Include="Daos\CustomerDAO.cs" />
     <Compile Include="Daos\ExhibitionDAO.cs" />
     <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Views\Awards\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Competitions\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,32 +121,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Views\Award\Edit.aspx.cs">
+    <Compile Include="Views\Awards\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Award\Edit.aspx.designer.cs">
+    <Compile Include="Views\Awards\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Award\Index.aspx.cs">
+    <Compile Include="Views\Awards\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Award\Index.aspx.designer.cs">
+    <Compile Include="Views\Awards\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Award\New.aspx.cs">
+    <Compile Include="Views\Awards\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Award\New.aspx.designer.cs">
+    <Compile Include="Views\Awards\New.aspx.designer.cs">
       <DependentUpon>New.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Award\Search.aspx.cs">
+    <Compile Include="Views\Awards\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Award\Search.aspx.designer.cs">
+    <Compile Include="Views\Awards\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Customers\Index.aspx.cs">
@@ -291,6 +298,7 @@
     <Content Include="Assets\Js\jquery.contentcarousel.js" />
     <Content Include="Assets\Js\jquery.easing.1.3.js" />
     <Content Include="Assets\Js\jquery.mousewheel.js" />
+    <Content Include="Views\Awards\List.aspx" />
     <Content Include="Views\Competitions\Edit.aspx" />
     <Content Include="Views\Competitions\Index.aspx" />
     <Content Include="Views\Competitions\List.aspx" />
@@ -298,10 +306,10 @@
     <Content Include="Views\Competitions\Search.aspx" />
     <Content Include="Views\Competitions\Show.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Award\Edit.aspx" />
-    <Content Include="Views\Award\Index.aspx" />
-    <Content Include="Views\Award\New.aspx" />
-    <Content Include="Views\Award\Search.aspx" />
+    <Content Include="Views\Awards\Edit.aspx" />
+    <Content Include="Views\Awards\Index.aspx" />
+    <Content Include="Views\Awards\New.aspx" />
+    <Content Include="Views\Awards\Search.aspx" />
     <Content Include="Views\Customers\Index.aspx" />
     <Content Include="Views\Customers\Search.aspx" />
     <Content Include="Assets\Js\jquery.elastislide.js" />

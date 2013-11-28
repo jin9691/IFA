@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstutiteOfFineArt.Views.Award {
+namespace InstutiteOfFineArt.Views.Awards {
     
     
     public partial class New {
@@ -76,13 +76,13 @@ namespace InstutiteOfFineArt.Views.Award {
         protected global::System.Web.UI.WebControls.RadioButton rdb2nd;
         
         /// <summary>
-        /// rdb2rd control.
+        /// rdb3rd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdb2rd;
+        protected global::System.Web.UI.WebControls.RadioButton rdb3rd;
         
         /// <summary>
         /// Label4 control.

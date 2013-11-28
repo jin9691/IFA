@@ -52,21 +52,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -103,21 +89,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -154,21 +126,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -205,21 +163,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -256,21 +200,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -307,21 +237,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -358,21 +274,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -409,21 +311,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -460,21 +348,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -511,21 +385,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -562,21 +422,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -613,21 +459,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -664,21 +496,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -715,21 +533,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -766,21 +570,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -817,21 +607,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -868,21 +644,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -919,21 +681,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -970,21 +718,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -1021,21 +755,7 @@
                         <div class="col-md-6">
                             <div class="image-desc">
                                 <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
-                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
-                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
-                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
-                                    <div class="btn-group pull-right">
-                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
-                                        <span class="caret" style="margin-left:5px"></span>
-                                      </button>
-                                      <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Better</a></li>
-                                        <li><a href="#">Good</a></li>
-                                        <li><a href="#">Normal</a></li>
-                                        <li><a href="#">Bad</a></li>
-                                      </ul>
-                                    </div>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">

@@ -4,23 +4,46 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using InstutiteOfFineArt.Codes;
 using InstutiteOfFineArt.Daos;
 using InstutiteOfFineArt.Models;
+using System.Data;
 
-
-namespace InstutiteOfFineArt.Views.Award
+namespace InstutiteOfFineArt.Views.Awards
 {
-    public partial class New : System.Web.UI.Page
+    public partial class Edit : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            int Id = Convert.ToInt32(RouteData.Values["id"]);
+            if (RouteData.Values["id"] != null)
             {
-                Load_Data();
+                if (!IsPostBack)
+                {
+                    Load_Data();
+                    Award a = AwardDAO.Find(Id);
+                    txtAwardName.Text = a.AdwardName;
+                    txtAwardDess.Text = a.AwardDescription;
+                    if (a.AdwardRank == "1st")
+                        rdb1st.Checked = true;
+                    else if (a.AdwardRank == "2nd")
+                        rdb2nd.Checked = true;
+                    else
+                        rdb3rd.Checked = true;
+                    drlCompetitionId.SelectedValue = a.CompetitionId.ToString();
+                    txtPatingID.Value = a.PaintingId.ToString();
+                }
             }
+            else
+            {
+                Response.Redirect("/awards");
+            }
+        }
 
+        protected void drlCompetitionId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string val = drlCompetitionId.SelectedValue;
+            load_listview(Convert.ToInt32(val));
         }
 
         private void Load_Data()
@@ -30,13 +53,7 @@ namespace InstutiteOfFineArt.Views.Award
             drlCompetitionId.DataTextField = "Topic";
             drlCompetitionId.DataValueField = "Id";
             drlCompetitionId.DataBind();
-            string val = drlCompetitionId.SelectedValue;            
-            load_listview(Convert.ToInt32(val));
-        }
-
-        protected void drlCompetitionId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string val = drlCompetitionId.SelectedValue;         
+            string val = drlCompetitionId.SelectedValue;
             load_listview(Convert.ToInt32(val));
         }
 
@@ -53,8 +70,9 @@ namespace InstutiteOfFineArt.Views.Award
         {
             if (Validate_Control())
             {
-                InstutiteOfFineArt.Models.Award a = new InstutiteOfFineArt.Models.Award();
-                a.AdwardName = txtAwardDess.Text;
+                Award a = new InstutiteOfFineArt.Models.Award();
+                a.Id = Convert.ToInt32(Request.QueryString["ID"]);
+                a.AdwardName = lbAwardName.Text;
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
                 if (rdb1st.Checked)
@@ -64,9 +82,9 @@ namespace InstutiteOfFineArt.Views.Award
                 else
                     a.AdwardRank = "3rd";
                 a.AwardDescription = txtAwardDess.Text;
-                if (AwardDAO.Create(a))
+                if (AwardDAO.Update(a))
                 {
-                    Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", a.AdwardName));
+                    Flash.dictFlash.Add("success", String.Format("Updated Award [<b>{0}</b>] successfully", a.AdwardName));
                     Response.Redirect("Index.aspx");
                 }
                 else
@@ -87,5 +105,6 @@ namespace InstutiteOfFineArt.Views.Award
             }
             return true;
         }
+
     }
 }

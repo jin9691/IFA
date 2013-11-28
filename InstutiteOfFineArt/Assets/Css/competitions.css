@@ -4,7 +4,7 @@
 	position:relative;
 	margin:0px auto 20px auto;
 	width:990px;
-	height:530px;
+	height:500px;
 }
 .ca-wrapper{
 	width:100%;
@@ -101,7 +101,7 @@
 }
 .ca-content{
 	width:660px;
-	height: 500px;
+	height: 470px;
 	overflow:hidden;
 }
 .ca-content-text{

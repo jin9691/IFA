@@ -14,12 +14,12 @@ namespace InstutiteOfFineArt
         protected void Application_Start(object sender, EventArgs e)
         {
             //AWARDS
-            RouteTable.Routes.MapPageRoute("AwardDetail", "award/{id}/edit", "~/Views/Award/Edit.aspx");
-            RouteTable.Routes.MapPageRoute("AwardIndex", "awards", "~/Views/Award/Index.aspx");
-            RouteTable.Routes.MapPageRoute("AwardSearch", "awards/search", "~/Views/Award/Search.aspx");
-            RouteTable.Routes.MapPageRoute("AwardNew", "awards/new", "~/Views/Award/New.aspx");
-            RouteTable.Routes.MapPageRoute("AwardShow", "awards/{id}", "~/Views/Award/Show.aspx");
-            RouteTable.Routes.MapPageRoute("AwardList", "awards/list", "~/Views/Award/List.aspx");
+            RouteTable.Routes.MapPageRoute("AwardDetail", "award/{id}/edit", "~/Views/Awards/Edit.aspx");
+            RouteTable.Routes.MapPageRoute("AwardIndex", "awards", "~/Views/Awards/Index.aspx");
+            RouteTable.Routes.MapPageRoute("AwardSearch", "awards/search", "~/Views/Awards/Search.aspx");
+            RouteTable.Routes.MapPageRoute("AwardNew", "awards/new", "~/Views/Awards/New.aspx");
+            RouteTable.Routes.MapPageRoute("AwardShow", "awards/{id}", "~/Views/Awards/Show.aspx");
+            RouteTable.Routes.MapPageRoute("AwardList", "awards/list", "~/Views/Awards/List.aspx");
 
             //CUSTOMERS
             RouteTable.Routes.MapPageRoute("CustomersIndex", "customers", "~/Views/Customers/Index.aspx");

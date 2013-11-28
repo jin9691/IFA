@@ -9,7 +9,7 @@ using InstutiteOfFineArt.Models;
 using InstutiteOfFineArt.Daos;
 using System.Data;
 
-namespace InstutiteOfFineArt.Views.Award
+namespace InstutiteOfFineArt.Views.Awards
 {
     public partial class Search : System.Web.UI.Page
     {

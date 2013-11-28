@@ -1,17 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master"
-    AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="InstutiteOfFineArt.Views.Award.Search" %>
+    AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="InstutiteOfFineArt.Views.Awards.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
+    Award management
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
+        <h1>
+            Awad managerment<strong><small>(<asp:Label Text="0" ID="lbCountAward" runat="server" />)</small></strong>
+            <a href="/awards/new" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-plus-sign">
+            </span>Create new</a>
+        </h1>
+        <hr>
         <div class="row">
             <form method="Post" action="/awards/search">
-            <div class="col-md-8 pull-left">
+            <div class="col-md-4 pull-right">
                 <div class="input-group">
-                    <input type="text" name="txtSearch" class="form-control input-lg" placeholder="Insert award name here...">
+                    <input type="text" name="txtSearch" class="form-control" placeholder="Insert award name here...">
                     <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default btn-lg">
+                        <button type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </div>
@@ -19,10 +26,7 @@
                 </div>
             </div>
             </form>
-            <a href="/awards" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
-            </span>Back</a>
         </div>
-        <hr>
         <br>
         <div>
             <form id="Form1" runat="server" method="post">

@@ -11,7 +11,7 @@ using InstutiteOfFineArt.Codes;
 using InstutiteOfFineArt.Daos;
 using InstutiteOfFineArt.Models;
 
-namespace InstutiteOfFineArt.Views.Award
+namespace InstutiteOfFineArt.Views.Awards
 {
     public partial class Index : System.Web.UI.Page
     {

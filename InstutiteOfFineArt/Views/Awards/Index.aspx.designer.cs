@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstutiteOfFineArt.Views.Award {
+namespace InstutiteOfFineArt.Views.Awards {
     
     
     public partial class Index {

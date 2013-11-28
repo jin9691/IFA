@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Admin.Master"
-    AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="InstutiteOfFineArt.Views.Award.Edit" %>
+    AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="InstutiteOfFineArt.Views.Awards.Edit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Create Award
@@ -40,11 +40,14 @@
                             <asp:Label ID="Label1" Text="Award Rank:" CssClass="pull-right" runat="server" Font-Bold="true" />
                         </td>
                         <td colspan="2" style="padding: 15px" class="col-md-12">
-                            <asp:RadioButtonList ID="rbtListRank" runat="server">
-                                <asp:ListItem value="Class 1" Selected="True">Class 1</asp:ListItem>
-                                <asp:ListItem value="Class 2">Class 2</asp:ListItem>
-                                <asp:ListItem value="Class 3">Class 3</asp:ListItem>
-                            </asp:RadioButtonList>
+                            <td colspan="2" style="padding: 15px" class="col-md-12">
+                                <asp:RadioButton ID="rdb1st" runat="server" Checked="true" GroupName="Rank" />
+                                1st<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdb2nd" runat="server" GroupName="Rank" />
+                                2nd<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdb3rd" runat="server" GroupName="Rank" />
+                                    3rd
+                            </td>
                            
                         </td>
                     </tr>
