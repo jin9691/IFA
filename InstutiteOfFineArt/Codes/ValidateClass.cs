@@ -10,7 +10,7 @@ namespace InstutiteOfFineArt.Codes
 {
     public class ValidateClass
     {
-        private static List<string> FILE_TYPE  = new List<string>{ "PNG","JPG","JPEG","GIF","png","jpeg","jpg","gif"};
+        private static List<string> FILE_TYPE  = new List<string>{ ".PNG",".JPG",".JPEG",".GIF",".png",".jpeg",".jpg",".gif"};
         public static bool Validate_Require(string valid)
         {
             if (valid == null || valid == "")
@@ -61,7 +61,8 @@ namespace InstutiteOfFineArt.Codes
             if (flImage == null)
                 return false;
             String extention = Path.GetExtension(flImage.FileName);
-            if (string.IsNullOrEmpty(extention) || !FILE_TYPE.Contains(extention)) {
+            if (string.IsNullOrWhiteSpace(extention) || !FILE_TYPE.Contains(extention))
+            {
                 return false;
             }
             return true;

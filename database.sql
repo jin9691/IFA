@@ -36,6 +36,8 @@ CREATE TABLE [Exhibitions]
     [ExhibitionDescription] NTEXT ,
 )
 GO
+INSERT INTO Exhibitions (ExhibitionName) VALUES ('NOT SELECT')
+GO
 
 CREATE TABLE [Competitions]
 (
@@ -51,7 +53,11 @@ CREATE TABLE [Competitions]
 GO
 
 CREATE TABLE [Customers](
+<<<<<<< HEAD
 	[Id] INT IDENTITY(0, 1) PRIMARY KEY,
+=======
+	[Id] INT IDENTITY(0,1) PRIMARY KEY,
+>>>>>>> origin/Dung
 	[CustomerEmail] VARCHAR(50),
 	[CustomerName] NVARCHAR(50),
 	[CustomerAddress] NVARCHAR(50),
@@ -60,6 +66,12 @@ CREATE TABLE [Customers](
 	[CustomerPhone] VARCHAR(15),
 )
 GO
+<<<<<<< HEAD
+=======
+INSERT INTO Customers (CustomerName) VALUES ('NOT SELECT')
+GO
+
+>>>>>>> origin/Dung
 CREATE  TABLE   [Paintings]
 (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
@@ -84,11 +96,16 @@ CREATE  TABLE [Awards]
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
     [AwardName] NVARCHAR(50),
     [AwardRank] NVARCHAR(100),
+<<<<<<< HEAD
     [AwardDescription] NTEXT , 
+=======
+    [AwardDescription] NTEXT ,  
+>>>>>>> origin/Dung
     [PaintingId] INT FOREIGN KEY([PaintingId]) REFERENCES [Paintings]([Id]), -- which is winner
     [CompetitionId] INT FOREIGN KEY([CompetitionId]) REFERENCES [Competitions]([Id])
 )
 GO
+<<<<<<< HEAD
 --User all pass 123456
 delete from Users
 
@@ -440,3 +457,5 @@ INSERT INTO [dbo].[Competitions]
             'Pass Graphic,Framed,Garnish',
             '')
 GO
+=======
+>>>>>>> origin/Dung

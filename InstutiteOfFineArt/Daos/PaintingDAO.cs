@@ -123,6 +123,7 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
+               
                 return false;
             }
             finally

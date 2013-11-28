@@ -19,21 +19,21 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (!IsPostBack)
             {
                 DataTable dt = CompetitionDAO.All();
-                cbCompetition.DataMember = "Id";
+                cbCompetition.DataValueField = "Id";
                 cbCompetition.DataTextField = "Topic";
                 cbCompetition.DataSource = dt;
                 cbCompetition.DataBind();
                 cbCompetition.SelectedIndex = 0;
 
                 DataTable dtExhibition = ExhibitionDAO.All();
-                cbExhibition.DataMember = "Id";
+                cbExhibition.DataValueField = "Id";
                 cbExhibition.DataTextField = "ExhibitionName";
                 cbExhibition.DataSource = dtExhibition;
                 cbExhibition.DataBind();
                 cbExhibition.SelectedIndex = 0;
 
                 DataTable dtCustomers = CustomerDAO.All();
-                cbCustomer.DataMember = "Id";
+                cbCustomer.DataValueField = "Id";
                 cbCustomer.DataTextField = "CustomerName";
                 cbCustomer.DataSource = dtCustomers;
                 cbCustomer.DataBind();
@@ -42,7 +42,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 Dictionary<string, object> query = new Dictionary<string, object>();
                 query.Add("Permission", 3);
                 DataTable dtStudent = UserDAO.Where(query);
-                cbStudent.DataMember = "Id";
+                cbStudent.DataValueField = "Id";
                 cbStudent.DataTextField = "Name";
                 cbStudent.DataSource = dtStudent;
                 cbStudent.DataBind();
@@ -55,21 +55,36 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = new Painting();
-                p.Comment = txtComent.Text;
-                if (cbCompetition.SelectedValue != null)
+                p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
+                //p.Comment = txtComent.Text;
+                if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
                     p.CompetitionId = Convert.ToInt32(cbCompetition.SelectedValue);
-                if (cbCustomer.SelectedValue != null)
+                if (cbCustomer.SelectedValue != null && cbCustomer.SelectedValue != "")
                     p.CustomerId = Convert.ToInt32(cbCustomer.SelectedValue);
-                if (cbExhibition.SelectedValue != null)
+                if (cbExhibition.SelectedValue != null && cbExhibition.SelectedValue != "")
                     p.ExhibitionId = Convert.ToInt32(cbExhibition.SelectedValue);
                 p.IsExhibited = rbdPaid.Checked;
                 p.IsPaid = rbdPaid.Checked;
-                p.Mark = Convert.ToInt32(txtMark.Text);
-                p.PaintingDescription = txtDescription.Text;
-                p.Price = Convert.ToInt32(txtPrice.Text);
-                if (cbStudent.SelectedValue != null)
+               
+                if (rdbBad.Checked)
+                    p.Mark = 1;
+                else if (rdbNormal.Checked)
+                    p.Mark = 2;
+                else if (rdbGood.Checked)
+                    p.Mark = 3;
+                else if (rdbBest.Checked)
+                    p.Mark = 4;
+                //p.PaintingDescription = txtDescription.Text;
+                p.PaintingDescription = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text;
+                if (!string.IsNullOrWhiteSpace(txtPrice.Text))
+                    p.Price = Convert.ToInt32(txtPrice.Text);
+                
+                
+                p.UploadDate = DateTime.Now;
+                p.LastModify = DateTime.Now;
+                if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
-                UploadImage(flImage);
+                p.PaintingURL = UploadImage(flImage);
 
                 //PaintingDAO.Create(p);
                 if (PaintingDAO.Create(p))
@@ -86,12 +101,13 @@ namespace InstutiteOfFineArt.Views.Paintings
 
         }
 
-        private void UploadImage(FileUpload flImage)
+        private string UploadImage(FileUpload flImage)
         {
             string extentions = Path.GetExtension(flImage.FileName);
             string newfileName = Path.GetFileNameWithoutExtension(flImage.FileName) + DateTime.Now.ToBinary();
             string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
             flImage.SaveAs(fullName);
+            return newfileName + extentions;
         }
 
         private bool validateControl()
@@ -108,22 +124,34 @@ namespace InstutiteOfFineArt.Views.Paintings
             }
             else
                 lbImageErr.Text = "";
-
-            if (!ValidateClass.Validate_Length(txtMark.Text, 0, 10))
+            if (cbCompetition.SelectedIndex <= 0)
             {
-                lbMarkErr.Text = "Mark must be number from 0 to 10";
+                lbCompetitionErr.Text = "Must select one competition";
                 return false;
             }
             else
-                lbMarkErr.Text = "";
+                lbCompetitionErr.Text = "";
 
-            if (!ValidateClass.Validate_Number(txtPrice.Text))
+            if (cbStudent.SelectedIndex <= 0)
             {
-                lbPriceErr.Text = "Price must be number";
-                return false;
+                lbStudentErr.Text = "Must select one student";
             }
             else
-                lbPriceErr.Text = "";
+                lbStudentErr.Text = "";
+
+
+            if (ValidateClass.Validate_Require(txtPrice.Text))
+            {
+                if (!ValidateClass.Validate_Number(txtPrice.Text))
+                {
+                    lbPriceErr.Text = "Price must be number";
+                    return false;
+                }
+                else
+                    lbPriceErr.Text = "";
+
+            }
+            
             return true;
         }
     }
