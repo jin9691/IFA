@@ -39,16 +39,35 @@
     <div id="pxs_container" class="pxs_container">
         <div class="pxs_loading">Loading images...</div>
         <div class="pxs_slider_wrapper">
-            <ul class="pxs_slider">
-                <li>
+            <ul class="pxs_slider ul">
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -61,7 +80,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -72,15 +91,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -93,7 +131,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -104,15 +142,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -125,7 +182,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -136,15 +193,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -157,7 +233,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -168,15 +244,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -189,7 +284,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -200,15 +295,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -221,7 +335,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -232,15 +346,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -253,7 +386,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -264,15 +397,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -285,7 +437,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -296,15 +448,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -317,7 +488,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -328,15 +499,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -349,7 +539,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -360,15 +550,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -381,7 +590,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -392,15 +601,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -413,7 +641,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -424,15 +652,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -445,7 +692,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -456,15 +703,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -477,7 +743,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -488,15 +754,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -509,7 +794,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -520,15 +805,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -541,7 +845,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -552,15 +856,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -573,7 +896,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -584,15 +907,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -605,7 +947,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -616,15 +958,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -637,7 +998,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -648,15 +1009,34 @@
                         </div>
                     </div>
                 </li>
-                <li>
+    ul             <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
-                            <center><h2>Mark: <strong><small>Better</small></strong></h2></center>
+                            <center>
+                                <h2>Mark: <strong><small>Better</small></strong>
+                                </h2>
+                            </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong><a href="#" class="btn btn-danger pull-right"> More</a></h2>
+                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
+                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> Delete</a>
+                                    <a href="#" class="btn btn-info btn-sm pull-right" style="margin-left: 5px"> Edit</a>
+                                    <a href="#" class="btn btn-success btn-sm pull-right" style="margin-left: 5px"> Remark</a>
+                                    <a href="#" class="btn btn-warning btn-sm pull-right"  style="margin-left: 5px"> Set Award</a>
+                                    <div class="btn-group pull-right">
+                                      <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Set Mark 
+                                        <span class="caret" style="margin-left:5px"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Better</a></li>
+                                        <li><a href="#">Good</a></li>
+                                        <li><a href="#">Normal</a></li>
+                                        <li><a href="#">Bad</a></li>
+                                      </ul>
+                                    </div>
+                                </h2>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
@@ -669,7 +1049,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <b>Comment:</b>
+                                        <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
                                         Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
@@ -1046,5 +1426,6 @@
             classie.toggle(menuRight, 'cbp-spmenu-open');
             classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
         };
+        $('.dropdown-toggle').dropdown();
     </script>
 </asp:Content>

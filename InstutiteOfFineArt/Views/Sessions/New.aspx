@@ -16,13 +16,13 @@
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="page">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="account-wall">
                     <a href="../StaticPages/Home.aspx">
-                        <img class="profile-img" src="../../Assets/Images/Pages/logo_2.png"
+                        <img class="profile-img" src="../../Assets/Images/Pages/logo_3.png"
                             alt=""></a>
                     <br />
                     <% if (Flash.dictFlash != null) %>

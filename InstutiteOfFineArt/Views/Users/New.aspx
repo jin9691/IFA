@@ -145,7 +145,10 @@
     </div>
     <script type="text/javascript">
         $(function () {
-            $("#<%= txtBirthday.ClientID %>").datepicker();
+            $("#<%= txtBirthday.ClientID %>").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
         });
     </script>
 </asp:Content>

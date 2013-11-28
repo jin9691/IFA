@@ -26,6 +26,15 @@ hr
 }
 
 /* Overwrite Bootstrap */
+.image-desc .dropdown-menu{
+    min-width: 90px !important;
+}
+
+.image-desc .dropdown-menu > li > a:hover, .image-desc.dropdown-menu > li > a:focus {
+    background-color: #3276b1;
+    color: #fff;
+}
+
 .navbar-brand
 {
     float: left;
@@ -74,27 +83,27 @@ hr
     border-top: 1px solid #D6D6D6;
 }
 
-    #nav.affix
-    {
-        z-index: 900;
-        position: fixed;
-        width: 100%;
-    }
+#nav.affix
+{
+    z-index: 900;
+    position: fixed;
+    width: 100%;
+}
 
-    #nav .btn:not(.btn-block)
-    {
-        margin-top: 10px;
-        width: 190px;
-        height: 100px;
-        margin-bottom: 10px;
-    }
+#nav .btn:not(.btn-block)
+{
+    margin-top: 10px;
+    width: 190px;
+    height: 100px;
+    margin-bottom: 10px;
+}
 
-        #nav .btn:not(.btn-block) .glyphicon
-        {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            font-size: 45px;
-        }
+#nav .btn:not(.btn-block) .glyphicon
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 45px;
+}
 
 h1 .glyphicon
 {
@@ -115,11 +124,11 @@ h1 .glyphicon
     padding-right: 20px;
 }
 
-    .management-main h1
-    {
-        font-size: 40px;
-        color: #d9534f;
-    }
+.management-main h1
+{
+    font-size: 40px;
+    color: #d9534f;
+}
 
 .table thead
 {
@@ -134,31 +143,31 @@ h1 .glyphicon
     padding: 2px;
 }
 
-    .gridview a
-    {
-        margin-right: 10px;
-        padding: 5px 10px 5px 10px;
-        color: #2a6496 !important;
-        text-decoration: none;
-        background-color: #fff;
-        border: 1px solid #ccc;
-    }
+.gridview a
+{
+    margin-right: 10px;
+    padding: 5px 10px 5px 10px;
+    color: #2a6496 !important;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
 
-        .gridview a:hover
-        {
-            background-color: #2a6496;
-            color: #fff !important;
-            border: 1px solid #fff;
-        }
+.gridview a:hover
+{
+    background-color: #2a6496;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
 
-    .gridview span
-    {
-        margin-right: 10px;
-        background-color: #2a6496;
-        color: #fff;
-        border: 1px solid #fff;
-        padding: 5px 10px 5px 10px;
-    }
+.gridview span
+{
+    margin-right: 10px;
+    background-color: #2a6496;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px 5px 10px;
+}
 
 /*CSS LOGIN*/
 
@@ -196,10 +205,10 @@ h1 .glyphicon
     box-sizing: border-box;
 }
 
-    .form-signin .form-control:focus
-    {
-        z-index: 2;
-    }
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
 
 .form-signin input[type="text"]
 {
@@ -240,9 +249,6 @@ h1 .glyphicon
     height: 96px;
     margin: 0 auto 10px;
     display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
 }
 
 /* Push Menu */
@@ -253,45 +259,45 @@ h1 .glyphicon
     position: fixed;
 }
 
-    .cbp-spmenu h3
-    {
-        color: #fff;
-        font-size: 1.3em;
-        padding-left: 15px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin: 0 !important;
-        font-weight: 300;
-        background: #414141;
-        border-bottom: 1px solid #5E5E5E;
-    }
+.cbp-spmenu h3
+{
+    color: #fff;
+    font-size: 1.3em;
+    padding-left: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 !important;
+    font-weight: 300;
+    background: #414141;
+    border-bottom: 1px solid #5E5E5E;
+}
 
-    .cbp-spmenu .menu a
-    {
-        display: block;
-        text-decoration: none;
-        color: #d9d9d9;
-        font-size: 1.1em;
-        font-weight: 300;
-    }
+.cbp-spmenu .menu a
+{
+    display: block;
+    text-decoration: none;
+    color: #d9d9d9;
+    font-size: 1.1em;
+    font-weight: 300;
+}
 
-        .cbp-spmenu .menu a:hover
-        {
-            background: #7E7E7E;
-            color: #fff;
-        }
+.cbp-spmenu .menu a:hover
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
-    .cbp-spmenu .menu .active
-    {
-        background: #7E7E7E;
-        color: #fff;
-    }
+.cbp-spmenu .menu .active
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
-    .cbp-spmenu .menu a:active
-    {
-        background: #7E7E7E;
-        color: #fff;
-    }
+.cbp-spmenu .menu a:active
+{
+    background: #7E7E7E;
+    color: #fff;
+}
 
 /* Orientation-dependent styles for the content of the menu */
 
@@ -303,11 +309,11 @@ h1 .glyphicon
     z-index: 1000;
 }
 
-    .cbp-spmenu-vertical a
-    {
-        border-bottom: 1px solid #7E7E7E;
-        padding: 1em;
-    }
+.cbp-spmenu-vertical a
+{
+    border-bottom: 1px solid #7E7E7E;
+    padding: 1em;
+}
 
 /* ;
 	padding: 1em;
@@ -337,28 +343,29 @@ h1 .glyphicon
     opacity: 0.9;
 }
 
-.menu-upload .desc{
+.menu-upload .control{
     opacity: 0.9;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.menu-upload .desc:active,.menu-upload .desc:focus{
+.menu-upload .control:active,.menu-upload .control:focus{
     opacity: 1;
 }
 
 
-    .cbp-spmenu-upload h3
-    {
-        color: #fff;
-        font-size: 1.9em;
-        padding-left: 15px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin: 0 !important;
-        font-weight: 300;
-        background: #414141;
-        border-bottom: 1px solid #5E5E5E;
-    }
+.cbp-spmenu-upload h3
+{
+    color: #fff;
+    font-size: 1.9em;
+    padding-left: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 !important;
+    font-weight: 300;
+    background: #414141;
+    border-bottom: 1px solid #5E5E5E;
+}
 
 /* Orientation-dependent styles for the content of the menu */
 
@@ -369,13 +376,6 @@ h1 .glyphicon
     top: 0;
     z-index: 1000;
 }
-
-    .cbp-spmenu-vertical-upload a
-    {
-        border-bottom: 1px solid #7E7E7E;
-        padding: 1em;
-    }
-
 /* ;
     padding: 1em;
 }
@@ -423,6 +423,14 @@ h1 .glyphicon
 
 .cbp-spmenu,
 .cbp-spmenu-push
+{
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.cbp-spmenu-upload,
+.cbp-spmenu-push-upload
 {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -490,11 +498,11 @@ h1 .glyphicon
     display: none;
 }
 
-    .item_content h2
-    {
-        text-align: center;
-        color: #fff;
-        background-color: transparent;
-        font-size: 10px;
-        margin-top: 8px;
-    }
+.item_content h2
+{
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+    font-size: 10px;
+    margin-top: 8px;
+}

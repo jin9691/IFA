@@ -1,10 +1,10 @@
 /* Circular Content Carousel Style */
 .ca-container{
-	padding-top: 30px;
+	padding-top: 20px;
 	position:relative;
 	margin:0px auto 20px auto;
 	width:990px;
-	height:480px;
+	height:530px;
 }
 .ca-wrapper{
 	width:100%;
@@ -101,7 +101,7 @@
 }
 .ca-content{
 	width:660px;
-	height: 440px;
+	height: 500px;
 	overflow:hidden;
 }
 .ca-content-text{
