@@ -13,11 +13,8 @@ namespace InstutiteOfFineArt.Views.Competitions
 {
     public partial class Edit : System.Web.UI.Page
     {
-       protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-              if (Session["current_user"] != null)
-                if (UserDAO.Find(Int32.Parse(Session["current_user"].ToString())).Permission == 3)
-            {
                 if (!IsPostBack)
                 {
                     int Id = Convert.ToInt32(Request.QueryString["ID"]);
@@ -38,21 +35,17 @@ namespace InstutiteOfFineArt.Views.Competitions
                         cbStaff.DataTextField = "Name";
                         cbStaff.DataSource = dtStudent;
                         cbStaff.DataBind();
-                      cbStaff.SelectedValue = c.StaffId.ToString();
+                        cbStaff.SelectedValue = c.StaffId.ToString();
                     }
 
-                    
+
                 }
-              
-                    
-            }
-              Response.Redirect("Index.aspx");
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
             if (validateControl())
             {
-                
+
                 Competition c = new Competition();
                 c.Remark = txtRemark.Text;
                 if (cbStaff.SelectedValue != null)
@@ -117,11 +110,12 @@ namespace InstutiteOfFineArt.Views.Competitions
                 lbEndDateErr.Text = "Start date must earlier than end date";
                 return false;
             }
-            else {
+            else
+            {
                 lbEndDateErr.Text = "";
             }
             return true;
-            
+
         }
     }
 }

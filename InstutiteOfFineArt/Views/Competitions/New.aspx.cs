@@ -15,33 +15,23 @@ namespace InstutiteOfFineArt.Views.Competitions
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
-            if (Session["current_user"] != null)
-                if (UserDAO.Find(Int32.Parse(Session["current_user"].ToString())).Permission == 3)
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
-                {
-                    Dictionary<string, object> query = new Dictionary<string, object>();
-                    query.Add("Permission", 1);
-                    DataTable dtStudent = UserDAO.Where(query);
-                    cbStaff.DataValueField = "Id";
-                    cbStaff.DataTextField = "Name";
-                    cbStaff.DataSource = dtStudent;
-                    cbStaff.DataBind();
-                    cbStaff.SelectedIndex = 0;
-                }
+                Dictionary<string, object> query = new Dictionary<string, object>();
+                query.Add("Permission", 1);
+                DataTable dtStudent = UserDAO.Where(query);
+                cbStaff.DataValueField = "Id";
+                cbStaff.DataTextField = "Name";
+                cbStaff.DataSource = dtStudent;
+                cbStaff.DataBind();
+                cbStaff.SelectedIndex = 0;
             }
-        
-                Response.Redirect("Index.aspx");
-          
-
-          
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
             if (validateControl())
             {
-                
+
                 Competition c = new Competition();
                 c.Remark = txtRemark.Text;
                 if (cbStaff.SelectedValue != null)
@@ -100,7 +90,7 @@ namespace InstutiteOfFineArt.Views.Competitions
             else
                 lbRemarkErr.Text = "";
             return true;
-            
+
         }
     }
 }

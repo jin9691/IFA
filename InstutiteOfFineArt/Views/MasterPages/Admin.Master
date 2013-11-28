@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-warning btn-lg" role="button">
+                    <a href="../Competitions/Index.aspx" class="btn btn-warning btn-lg" role="button">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <br>
                         Competitons
