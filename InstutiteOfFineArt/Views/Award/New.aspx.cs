@@ -57,7 +57,12 @@ namespace InstutiteOfFineArt.Views.Award
                 a.AdwardName = txtAwardDess.Text;
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
-                a.AdwardRank = rbtListRank.SelectedValue;
+                if (rdb1st.Checked)
+                    a.AdwardRank = "1st";
+                else if (rdb2nd.Checked)
+                    a.AdwardRank = "2nd";
+                else
+                    a.AdwardRank = "3rd";
                 a.AwardDescription = txtAwardDess.Text;
                 if (AwardDAO.Create(a))
                 {

@@ -37,7 +37,10 @@ namespace InstutiteOfFineArt.Views.Competitions
                         cbStaff.DataBind();
                         cbStaff.SelectedValue = c.StaffId.ToString();
                     }
-
+                    else
+                    {
+                        Response.Redirect("Index.aspx");
+                    }
 
                 }
         }

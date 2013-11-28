@@ -57,8 +57,8 @@ namespace InstutiteOfFineArt.Views.Paintings
                         txtPrice.Text = p.Price.ToString();
                         txtComent.Text = p.Comment == null ? "" : p.Comment;
                         txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
-                        previewImage.ImageUrl = Server.MapPath(@"\Assets\Images\Paintings\") + p.PaintingURL;
-                        
+                        previewImage.ImageUrl = "../../Assets/Images/Paintings/" + p.PaintingURL;
+
 
                         if (p.Mark == 1)
                             rdbBad.Checked = true;
@@ -83,6 +83,10 @@ namespace InstutiteOfFineArt.Views.Paintings
 
                         txtPrice.Text = p.Price.ToString();
                     }
+                }
+                else
+                {
+                    Response.Redirect("Index.aspx");
                 }
             }
         }
@@ -186,6 +190,14 @@ namespace InstutiteOfFineArt.Views.Paintings
                     lbPriceErr.Text = "";
 
             }
+
+            if (ValidateClass.Validate_Length(txtPrice.Text, 50, 100))
+            {
+                lbDescriptionErr.Text = "Description is required";
+                return false;
+            }
+            else
+                lbDescriptionErr.Text = "";
 
             return true;
         }

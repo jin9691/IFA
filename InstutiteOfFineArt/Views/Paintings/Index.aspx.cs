@@ -63,7 +63,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         }
         public string Painting_show(object url)
         {
-            return Server.MapPath(@"\Assets\Images\Paintings\") + url;
+            return "../../Assets/Images/Paintings/" + url;
         }
         
     }

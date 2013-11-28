@@ -55,8 +55,7 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = new Painting();
-                p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
-                //p.Comment = txtComent.Text;
+                p.Comment = txtComent.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
                     p.CompetitionId = Convert.ToInt32(cbCompetition.SelectedValue);
                 if (cbCustomer.SelectedValue != null && cbCustomer.SelectedValue != "")
@@ -74,8 +73,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                     p.Mark = 3;
                 else if (rdbBest.Checked)
                     p.Mark = 4;
-                //p.PaintingDescription = txtDescription.Text;
-                p.PaintingDescription = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text;
+                p.PaintingDescription = txtDescription.Text;
                 if (!string.IsNullOrWhiteSpace(txtPrice.Text))
                     p.Price = Convert.ToInt32(txtPrice.Text);
                 
@@ -104,7 +102,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         private string UploadImage(FileUpload flImage)
         {
             string extentions = Path.GetExtension(flImage.FileName);
-            string newfileName = Path.GetFileNameWithoutExtension(flImage.FileName) + DateTime.Now.ToBinary();
+            string newfileName = DateTime.Now.ToBinary().ToString();
             string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
             flImage.SaveAs(fullName);
             return newfileName + extentions;
@@ -124,20 +122,6 @@ namespace InstutiteOfFineArt.Views.Paintings
             }
             else
                 lbImageErr.Text = "";
-            if (cbCompetition.SelectedIndex <= 0)
-            {
-                lbCompetitionErr.Text = "Must select one competition";
-                return false;
-            }
-            else
-                lbCompetitionErr.Text = "";
-
-            if (cbStudent.SelectedIndex <= 0)
-            {
-                lbStudentErr.Text = "Must select one student";
-            }
-            else
-                lbStudentErr.Text = "";
 
 
             if (ValidateClass.Validate_Require(txtPrice.Text))
@@ -151,6 +135,14 @@ namespace InstutiteOfFineArt.Views.Paintings
                     lbPriceErr.Text = "";
 
             }
+
+            if (ValidateClass.Validate_Length(txtPrice.Text, 50, 100))
+            {
+                lbDescriptionErr.Text = "Description is required";
+                return false;
+            }
+            else
+                lbDescriptionErr.Text = "";
             
             return true;
         }

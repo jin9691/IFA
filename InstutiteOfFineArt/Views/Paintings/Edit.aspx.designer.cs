@@ -58,51 +58,6 @@ namespace InstutiteOfFineArt.Views.Paintings {
         protected global::System.Web.UI.WebControls.Label lbImageErr;
         
         /// <summary>
-        /// lbMark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMark;
-        
-        /// <summary>
-        /// rdbBad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbBad;
-        
-        /// <summary>
-        /// rdbNormal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbNormal;
-        
-        /// <summary>
-        /// rdbGood control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbGood;
-        
-        /// <summary>
-        /// rdbBest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbBest;
-        
-        /// <summary>
         /// lbCompetition control.
         /// </summary>
         /// <remarks>
@@ -193,6 +148,51 @@ namespace InstutiteOfFineArt.Views.Paintings {
         protected global::System.Web.UI.WebControls.DropDownList cbCustomer;
         
         /// <summary>
+        /// lbPaintingDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPaintingDescription;
+        
+        /// <summary>
+        /// txtDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl txtDescription;
+        
+        /// <summary>
+        /// lbDescriptionErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDescriptionErr;
+        
+        /// <summary>
+        /// lbComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbComment;
+        
+        /// <summary>
+        /// txtComent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl txtComent;
+        
+        /// <summary>
         /// lbIsEhibition control.
         /// </summary>
         /// <remarks>
@@ -274,40 +274,49 @@ namespace InstutiteOfFineArt.Views.Paintings {
         protected global::System.Web.UI.WebControls.Label lbPriceErr;
         
         /// <summary>
-        /// lbPaintingDescription control.
+        /// lbMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPaintingDescription;
+        protected global::System.Web.UI.WebControls.Label lbMark;
         
         /// <summary>
-        /// txtDescription control.
+        /// rdbBad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl txtDescription;
+        protected global::System.Web.UI.WebControls.RadioButton rdbBad;
         
         /// <summary>
-        /// lbComment control.
+        /// rdbNormal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbComment;
+        protected global::System.Web.UI.WebControls.RadioButton rdbNormal;
         
         /// <summary>
-        /// txtComent control.
+        /// rdbGood control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl txtComent;
+        protected global::System.Web.UI.WebControls.RadioButton rdbGood;
+        
+        /// <summary>
+        /// rdbBest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbBest;
         
         /// <summary>
         /// btnAccept control.

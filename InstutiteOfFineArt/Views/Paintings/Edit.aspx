@@ -60,27 +60,6 @@
                         </script>
                         <tr>
                             <td class="col-md-2" style="padding: 15px">
-                                <asp:Label ID="lbMark" Text="Mark:" CssClass="pull-right" runat="server" Font-Bold="True" />
-                            </td>
-                            <td colspan="2" style="padding: 15px" class="col-md-12">
-                                <%--<asp:TextBox runat="server" ID="txtMark" CssClass="form-control" />--%>
-                                
-                                <asp:RadioButton ID="rdbBad" runat="server" Checked="true" GroupName="Mark" />
-                                Bad<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rdbNormal" runat="server" GroupName="Mark" />
-                                Normal<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rdbGood" runat="server" GroupName="Mark" />
-                                Good<span style="padding-right: 10px"></span>
-                                <asp:RadioButton ID="rdbBest" runat="server" GroupName="Mark" />
-                                Best
-                            </td>
-                           
-                            <td class="col-md-4" style="padding: 15px">
-                                <%--<asp:Label ID="lbMarkErr" Text="" runat="server" ForeColor="#A73333" />--%>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-2" style="padding: 15px">
                                 <asp:Label ID="lbCompetition" Text="Competition:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
                             <td class="col-md-6" style="padding: 15px">
@@ -116,7 +95,28 @@
                             </td>
                             <td class="col-md-4" style="padding: 15px"></td>
                         </tr>
-
+                        <tr>
+                            <td class="col-md-2" style="padding: 15px">
+                                <asp:Label ID="lbPaintingDescription" Text="Description:" CssClass="pull-right" runat="server" Font-Bold="true" />
+                            </td>
+                            <td class="col-md-6">
+                                <%--<asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" TextMode="MultiLine" />--%>
+                                <CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                            </td>
+                            <td class="col-md-4" style="padding: 15px">
+                                <asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2" style="padding: 15px">
+                                <asp:Label ID="lbComment" Text="Comment:" CssClass="pull-right" runat="server" Font-Bold="True" />
+                            </td>
+                            <td class="col-md-6">
+                                <%--<asp:TextBox runat="server" ID="txtComment" CssClass="form-control" />--%>
+                                <CKEditor:CKEditorControl ID="txtComent" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                            </td>
+                            <td class="col-md-4" style="padding: 15px"></td>
+                        </tr>
                         <tr>
                             <td class="col-md-2" style="padding: 15px">
                                 <asp:Label ID="lbIsEhibition" Text="Is Exhibition:" CssClass="pull-right" runat="server" Font-Bold="True" />
@@ -156,28 +156,22 @@
                             </td>
 
                         </tr>
-
                         <tr>
                             <td class="col-md-2" style="padding: 15px">
-                                <asp:Label ID="lbPaintingDescription" Text="Description:" CssClass="pull-right" runat="server" Font-Bold="true" />
+                                <asp:Label ID="lbMark" Text="Mark:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
-                            <td class="col-md-6">
-                                <%--<asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" TextMode="MultiLine" />--%>
-                                <CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                            <td colspan="2" style="padding: 15px" class="col-md-12">
+                                <%--<asp:TextBox runat="server" ID="txtMark" CssClass="form-control" />--%>
+                                
+                                <asp:RadioButton ID="rdbBad" runat="server" Checked="true" GroupName="Mark" />
+                                Bad<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbNormal" runat="server" GroupName="Mark" />
+                                Normal<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbGood" runat="server" GroupName="Mark" />
+                                Good<span style="padding-right: 10px"></span>
+                                <asp:RadioButton ID="rdbBest" runat="server" GroupName="Mark" />
+                                Best
                             </td>
-                            <td class="col-md-4" style="padding: 15px">
-                                <%--<asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />--%>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-2" style="padding: 15px">
-                                <asp:Label ID="lbComment" Text="Comment:" CssClass="pull-right" runat="server" Font-Bold="True" />
-                            </td>
-                            <td class="col-md-6">
-                                <%--<asp:TextBox runat="server" ID="txtComment" CssClass="form-control" />--%>
-                                <CKEditor:CKEditorControl ID="txtComent" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                            </td>
-                            <td class="col-md-4" style="padding: 15px"></td>
                         </tr>
                         <tr>
                             <td class="col-md-2" style="padding: 15px; top: -334px;"></td>
@@ -186,6 +180,7 @@
                                 <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default " CausesValidation="False" />
                             </td>
                         </tr>
+
                     </tbody>
                 </table>
             </form>
