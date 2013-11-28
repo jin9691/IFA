@@ -35,7 +35,7 @@ namespace InstutiteOfFineArt.Daos
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
-            string sql = "Select * from [Competitions] order by Id desc WHERE Id = @1";
+            string sql = "Select * from [Competitions]  WHERE Id = @1 order by Id desc";
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.SelectCommand.Parameters.AddWithValue("@1", id);
             adap.Fill(dt);

@@ -55,7 +55,8 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = new Painting();
-                p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? txtComent.Text : null;
+                p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
+                //p.Comment = txtComent.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
                     p.CompetitionId = Convert.ToInt32(cbCompetition.SelectedValue);
                 if (cbCustomer.SelectedValue != null && cbCustomer.SelectedValue != "")
@@ -73,9 +74,11 @@ namespace InstutiteOfFineArt.Views.Paintings
                     p.Mark = 3;
                 else if (rdbBest.Checked)
                     p.Mark = 4;
-                p.PaintingDescription = txtDescription.Text;
+                //p.PaintingDescription = txtDescription.Text;
+                p.PaintingDescription = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text;
                 if (!string.IsNullOrWhiteSpace(txtPrice.Text))
                     p.Price = Convert.ToInt32(txtPrice.Text);
+                
                 
                 p.UploadDate = DateTime.Now;
                 p.LastModify = DateTime.Now;
