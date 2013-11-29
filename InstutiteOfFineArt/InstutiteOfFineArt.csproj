@@ -73,6 +73,85 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="Views\Awards\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competitions\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Competitions\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Awards\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Awards\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Awards\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Awards\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Customers\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -102,6 +181,13 @@
     <Compile Include="Views\Exhibitions\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Exhibitions\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Exhibitions\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Exhibitions\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,6 +215,13 @@
     </Compile>
     <Compile Include="Views\Paintings\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Paintings\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Paintings\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Paintings\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
@@ -159,18 +252,30 @@
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Content Include="Assets\Css\bootstrap.css" />
+    <Content Include="Assets\Css\competitions.css" />
     <Content Include="Assets\Css\custom.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
     <Content Include="Assets\Css\jquery-ui.css" />
+    <Content Include="Assets\Css\jquery.jscrollpane.css" />
+    <Content Include="Assets\Css\parallax.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Images\Pages\add.png" />
+    <Content Include="Assets\Images\Pages\ajax-loader.gif" />
+    <Content Include="Assets\Images\Pages\arrows.png" />
     <Content Include="Assets\Images\Pages\background.jpg" />
+    <Content Include="Assets\Images\Pages\bg1.png" />
+    <Content Include="Assets\Images\Pages\bg2.png" />
+    <Content Include="Assets\Images\Pages\bg3.png" />
+    <Content Include="Assets\Images\Pages\cross.png" />
     <Content Include="Assets\Images\Pages\ifa-icon.png" />
     <Content Include="Assets\Images\Pages\loading.gif" />
     <Content Include="Assets\Images\Pages\logo.png" />
     <Content Include="Assets\Images\Pages\logo_2.png" />
     <Content Include="Assets\Images\Pages\logo_3.png" />
     <Content Include="Assets\Images\Pages\nav.png" />
+    <Content Include="Assets\Images\Pages\next.png" />
+    <Content Include="Assets\Images\Pages\prev.png" />
     <Content Include="Assets\Images\Paintings\1.jpg" />
     <Content Include="Assets\Images\Paintings\10.jpg" />
     <Content Include="Assets\Images\Paintings\11.jpg" />
@@ -187,11 +292,28 @@
     <Content Include="Assets\Images\Paintings\9.jpg" />
     <Content Include="Assets\Js\bootstrap.js" />
     <Content Include="Assets\Js\bootstrap.min.js" />
+    <Content Include="Assets\Js\ChunkFive_400.font.js" />
     <Content Include="Assets\Js\classie.js" />
+    <Content Include="Assets\Js\cufon-yui.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
     <Content Include="Assets\Js\jquery-animate-css-rotate-scale.js" />
     <Content Include="Assets\Js\jquery-css-transform.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Assets\Js\jquery.contentcarousel.js" />
+    <Content Include="Assets\Js\jquery.easing.1.3.js" />
+    <Content Include="Assets\Js\jquery.mousewheel.js" />
+    <Content Include="Views\Awards\List.aspx" />
+    <Content Include="Views\Competitions\Edit.aspx" />
+    <Content Include="Views\Competitions\Index.aspx" />
+    <Content Include="Views\Competitions\List.aspx" />
+    <Content Include="Views\Competitions\New.aspx" />
+    <Content Include="Views\Competitions\Search.aspx" />
+    <Content Include="Views\Competitions\Show.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Awards\Edit.aspx" />
+    <Content Include="Views\Awards\Index.aspx" />
+    <Content Include="Views\Awards\New.aspx" />
+    <Content Include="Views\Awards\Search.aspx" />
     <Content Include="Views\Customers\Index.aspx" />
     <Content Include="Views\Customers\Search.aspx" />
     <Content Include="Assets\Js\jquery.elastislide.js" />
@@ -459,10 +581,12 @@
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="Views\Exhibitions\Edit.aspx" />
     <Content Include="Views\Exhibitions\Index.aspx" />
+    <Content Include="Views\Exhibitions\List.aspx" />
     <Content Include="Views\Exhibitions\New.aspx" />
     <Content Include="Views\Exhibitions\Search.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
+    <Content Include="Views\Paintings\List.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
     <Content Include="Views\Paintings\Search.aspx" />
     <Content Include="Assets\Js\modernizr.custom.js" />

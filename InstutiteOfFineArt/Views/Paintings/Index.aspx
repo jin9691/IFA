@@ -12,7 +12,7 @@
             <form method="post" action="Search.aspx">
                 <div class="col-md-4 pull-right">
                     <div class="input-group">
-                        <input type="text" name="txtSearch" class="form-control" placeholder="Insert name or authors paintings..."/>
+                        <input type="text" name="txtSearch" class="form-control" placeholder="Insert painting's author..."/>
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
@@ -31,21 +31,21 @@
                         <%--<asp:BoundField DataField="Name" HeaderText="Name" />--%>
                         <asp:TemplateField HeaderText="Student Name">
                             <ItemTemplate>
-                                <asp:Label ID="UserName" runat="server" Text='<%# Student_Name(Eval("StudentID")).Username%>' />
+                                <asp:Label ID="UserName" runat="server" Text='<%# Student_Name(Eval("StudentID")).Username %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <%--<asp:BoundField DataField="StudentID" HeaderText="Username" />--%>
                         <%--<asp:BoundField DataField="CompetitionID" HeaderText="Competition" />--%>
                          <asp:TemplateField HeaderText="Competition Name">
                             <ItemTemplate>
-                                <asp:Label ID="UserName" runat="server" Text='<%# Competition_Name(Eval("CompetitionID")).Topic%>' />
+                                <asp:Label ID="CompetitionName" runat="server" Text='<%# Competition_Name(Eval("CompetitionID")).Topic%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="UploadDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Upload Date" />
                         <asp:BoundField DataField="LastModify" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Last modify" />
-                        <asp:TemplateField HeaderText="Image">
+                        <asp:TemplateField HeaderText="Painting">
                             <ItemTemplate>
-                                <asp:Image ID="image" CssClass="form-control" ImageUrl='<%# Painting_show(Eval("PaintingURL"))%>' runat="server" /> 
+                                <asp:Image ID="image" Height="32px" Width="32px" ImageUrl='<%# Painting_show(Eval("PaintingURL"))%>' runat="server" /> 
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Action">

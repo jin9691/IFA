@@ -35,7 +35,7 @@ namespace InstutiteOfFineArt.Daos
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
-            string sql = "Select * from [Competitions]  WHERE Id = @1 order by Id desc";
+            string sql = "Select * from [Competitions] WHERE Id = @1";
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.SelectCommand.Parameters.AddWithValue("@1", id);
             adap.Fill(dt);
@@ -102,7 +102,7 @@ namespace InstutiteOfFineArt.Daos
             DBUtilities.Connection();
             try
             {
-                string sql = "INSERT INTO [Competitions] (StaffId,Topic,StartDate,DueDate,Description,Condition,Remark)";
+                string sql = "INSERT INTO [Competitions] (StaffId,Topic,StartDate,DueDate,CompetitionDescription,Condition,Remark)";
                 sql += "VALUES (@1,@2,@3,@4,@5,@6,@7)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
                 cmd.Parameters.AddWithValue("@1", c.StaffId);
@@ -116,9 +116,9 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Dispose();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                throw ex;
                 return false;
             }
             finally

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="InstutiteOfFineArt.Views.StaticPages.Home" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="InstutiteOfFineArt.Views.StaticPages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Home Page - IFA
@@ -6,11 +6,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyClass" runat="server">
     page
 </asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="CssJs" runat="server">
+    <link rel="Stylesheet" type="text/css" href="../../Assets/Css/elastislide.css" />
+    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.17475.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquerypp.custom.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery.elastislide.js"></script>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
      <div class="container">
             <div class="row show-image">
-                <div class="col-md-5" style="margin-left:90px">
+                <div class="col-md-5" style="margin-left:50px;">
+                    <center>
                     <img class="image"  src="../../Assets/Images/Paintings/1.jpg" alt="image01" />
+                    </center>
                 </div>
                 <div class="col-md-6"  style="margin-left:20px">
                     <div class="row">
@@ -91,7 +99,7 @@
                 padding: '5px'
             },200)
             var src = $(this).attr("src");
-            $(".show-image").children().children(".image").attr("src",src)
+            $(".show-image").children().children().children(".image").attr("src",src)
 
         },function(){
             $(this).stop(true, true).animate({ borderWidth: "0px", padding: "0px" },200)

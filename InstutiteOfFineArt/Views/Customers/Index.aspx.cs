@@ -23,7 +23,9 @@ namespace InstutiteOfFineArt.Views.Customers
 
         private void Load_Data()
         {
-            DataTable dtCustomer = CustomerDAO.All();
+            List<string> query = new List<string>();
+            query.Add("ID != 0");
+            DataTable dtCustomer = CustomerDAO.Search(query);
             gdvCustomers.DataSource = dtCustomer;
             gdvCustomers.DataBind();
             lbCountCustomer.Text = dtCustomer.Rows.Count.ToString();
