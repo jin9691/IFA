@@ -30,7 +30,7 @@ page
                     <asp:TextBox runat="server" ID="txtDueDate" CssClass="control form-control"></asp:TextBox>
                     <br>
                     <center>
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" CssClass="btn btn-success btn-lg"  />
+                        <asp:Button ID="btnUpload" runat="server" Text="Accept" CssClass="btn btn-success btn-lg"  />
                         <a href="#" class="btn btn-danger btn-lg" id="btnCancel" >Cancel</a>
                     </center> 
                 </div>

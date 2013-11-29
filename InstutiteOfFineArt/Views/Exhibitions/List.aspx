@@ -20,17 +20,12 @@
         <form id="Form1" runat="server" action="post">
             <div class="row">
                 <div class="col-md-12">
-                    <b>Topic:</b>
+                    <b>Name:</b>
                     <asp:TextBox ID="txtTopic" CssClass="control form-control" runat="server"></asp:TextBox>
-                    <b>Condition:</b>
-                    <asp:TextBox ID="txtCondition" Height="50px" TextMode="MultiLine" CssClass="control form-control" runat="server"></asp:TextBox>
                     <b>Description:</b>
                     <asp:TextBox ID="txtDesc" Height="100px" TextMode="MultiLine" CssClass="control form-control" runat="server"></asp:TextBox>
-                    <b>Due Date:</b>
-                    <asp:TextBox runat="server" ID="txtDueDate" CssClass="control form-control"></asp:TextBox>
-                    <br>
                     <center>
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" CssClass="btn btn-success btn-lg"  />
+                        <asp:Button ID="btnUpload" runat="server" Text="Accept" CssClass="btn btn-success btn-lg"  />
                         <a href="#" class="btn btn-danger btn-lg" id="btnCancel" >Cancel</a>
                     </center> 
                 </div>
@@ -59,14 +54,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -92,14 +82,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -125,14 +110,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -158,14 +138,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -191,14 +166,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -224,14 +194,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -257,14 +222,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -290,14 +250,9 @@
                         <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
                         <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
                         <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                        <b>Remark:</b><br>
-                        <div class="remark">Nokia is launching a global crowdsourcing campaign to find a fresh version of the classic Nokia Tune. The winning tune will be placed next to the standard Nokia Tune in a selection of the company 2012 product portfolio.
-                        </div>
-
                     </div>
                     <ul>
                         <li><a href="../Paintings/List.aspx" class="btn btn-primary btn-sm">All images</a></li>
-                        <li><a href="#" class="edit-remark btn btn-success btn-sm">Remark</a></li>
                         <li><a href="#" class="delete-competition btn btn-danger btn-sm">Delete</a></li>
                         <li><a href="#" class="edit-desc btn btn-warning btn-sm">Edit</a></li>
                     </ul>
@@ -328,13 +283,6 @@ showRightPush.onclick = function () {
     classie.toggle(menuRight, 'cbp-spmenu-open');
     classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
 };
-
-$(function () {
-    $("#<%= txtDueDate.ClientID %>").datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-    });
 
 </script>
 </asp:Content>
