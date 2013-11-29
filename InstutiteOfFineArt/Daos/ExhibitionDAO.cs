@@ -38,7 +38,7 @@ namespace InstutiteOfFineArt.Daos
                 e.ExhibitionName = dt.Rows[0]["ExhibitionName"].ToString();
                 e.StartDate = Convert.ToDateTime(dt.Rows[0]["StartDate"]);
                 e.EndDate = Convert.ToDateTime(dt.Rows[0]["EndDate"]);
-                e.ExhibitionDescription = dt.Rows[0]["ExhibitionName"].ToString();
+                e.ExhibitionDescription = dt.Rows[0]["ExhibitionDescription"].ToString();
                 return e;
             }
             return null;
@@ -92,7 +92,7 @@ namespace InstutiteOfFineArt.Daos
             DBUtilities.Connection();
             try
             {
-                string sql = "Insert into [Exhibitions] (Name,ManagerId,StartDate,EndDate,Description)";
+                string sql = "Insert into [Exhibitions] (ExhibitionName,ManagerId,StartDate,EndDate,ExhibitionDescription)";
                 sql += " values (@1,@2,@3,@4,@5)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
                 cmd.Parameters.AddWithValue("@1",e.ExhibitionName);
