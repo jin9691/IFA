@@ -15,8 +15,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
      <div class="container">
             <div class="row show-image">
-                <div class="col-md-5" style="margin-left:90px">
+                <div class="col-md-5" style="margin-left:50px;">
+                    <center>
                     <img class="image"  src="../../Assets/Images/Paintings/1.jpg" alt="image01" />
+                    </center>
                 </div>
                 <div class="col-md-6"  style="margin-left:20px">
                     <div class="row">
@@ -97,7 +99,7 @@
                 padding: '5px'
             },200)
             var src = $(this).attr("src");
-            $(".show-image").children().children(".image").attr("src",src)
+            $(".show-image").children().children().children(".image").attr("src",src)
 
         },function(){
             $(this).stop(true, true).animate({ borderWidth: "0px", padding: "0px" },200)
