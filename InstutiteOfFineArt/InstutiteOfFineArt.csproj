@@ -69,6 +69,11 @@
     <Compile Include="Daos\CustomerDAO.cs" />
     <Compile Include="Daos\ExhibitionDAO.cs" />
     <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customers\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

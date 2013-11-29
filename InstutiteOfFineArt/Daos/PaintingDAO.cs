@@ -179,7 +179,9 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
+            
                 return false;
+                throw;
             }
             finally
             {
