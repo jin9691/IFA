@@ -102,7 +102,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         private string UploadImage(FileUpload flImage)
         {
             string extentions = Path.GetExtension(flImage.FileName);
-            string newfileName = DateTime.Now.ToBinary().ToString();
+            string newfileName = DateTime.Now.ToFileTime().ToString();
             string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
             flImage.SaveAs(fullName);
             return newfileName + extentions;

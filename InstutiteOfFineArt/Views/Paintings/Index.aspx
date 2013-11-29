@@ -31,14 +31,14 @@
                         <%--<asp:BoundField DataField="Name" HeaderText="Name" />--%>
                         <asp:TemplateField HeaderText="Student Name">
                             <ItemTemplate>
-                                <asp:Label ID="UserName" runat="server" Text='<%# Student_Name(Eval("StudentID")).Username%>' />
+                                <asp:Label ID="UserName" runat="server" Text='<%# Student_Name(Eval("StudentID")).Username %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <%--<asp:BoundField DataField="StudentID" HeaderText="Username" />--%>
                         <%--<asp:BoundField DataField="CompetitionID" HeaderText="Competition" />--%>
                          <asp:TemplateField HeaderText="Competition Name">
                             <ItemTemplate>
-                                <asp:Label ID="UserName" runat="server" Text='<%# Competition_Name(Eval("CompetitionID")).Topic%>' />
+                                <asp:Label ID="CompetitionName" runat="server" Text='<%# Competition_Name(Eval("CompetitionID")).Topic%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="UploadDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Upload Date" />
