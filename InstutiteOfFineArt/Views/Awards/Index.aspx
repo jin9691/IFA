@@ -35,12 +35,25 @@
                 OnPageIndexChanging="gdvAward_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="Id" HeaderText="Id" />
+                    <asp:TemplateField HeaderText="ID">
+                        <ItemTemplate>
+                            <asp:Label ID="IDRow" runat="server" Text='<%# Container.DataItemIndex + 1 %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="AwardName" HeaderText="Award Name" />
                     <asp:BoundField DataField="AwardRank" HeaderText="Award Rank" />
                     <asp:BoundField DataField="AwardDescription" HeaderText="Award Description" />
-                    <asp:BoundField DataField="PaintingId" HeaderText="Painting Id" />
-                    <asp:BoundField DataField="CompetitionId" HeaderText="Competition Id" />
+                    <asp:TemplateField HeaderText="Painting">
+                        <ItemTemplate>
+                            <img id='img_<%# Eval("Id")%>' src='../../Assets/Images/Paintings/<%# Painting_Image(Eval("PaintingId"))%>'
+                                                            style=" width: 50px;"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Competition">
+                        <ItemTemplate>
+                            <asp:Label ID="CompetitionTopic" runat="server" Text='<%# Competition_Topic(Eval("CompetitionId"))%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <div class="btn-group">

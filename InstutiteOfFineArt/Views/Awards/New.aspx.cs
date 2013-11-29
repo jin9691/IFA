@@ -54,25 +54,25 @@ namespace InstutiteOfFineArt.Views.Awards
             if (Validate_Control())
             {
                 InstutiteOfFineArt.Models.Award a = new InstutiteOfFineArt.Models.Award();
-                a.AdwardName = txtAwardDess.Text;
+                a.AwardName = txtAwardName.Text;
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
                 if (rdb1st.Checked)
-                    a.AdwardRank = "1st";
+                    a.AwardRank = "1st";
                 else if (rdb2nd.Checked)
-                    a.AdwardRank = "2nd";
+                    a.AwardRank = "2nd";
                 else
-                    a.AdwardRank = "3rd";
-                a.AwardDescription = txtAwardDess.Text;
+                    a.AwardRank = "3rd";
+                a.AwardDescription = txtAwardDesc.Text;
                 if (AwardDAO.Create(a))
                 {
-                    Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", a.AdwardName));
-                    Response.Redirect("Index.aspx");
+                    Flash.dictFlash.Add("success", String.Format("Created Award [<b>{0}</b>] successfully", a.AwardName));
+                    Response.Redirect("/awards");
                 }
                 else
                 {
                     Flash.dictFlash.Add("danger", "[<b>Award name</b>] are already used");
-                    Response.Redirect("New.aspx");
+                    Response.Redirect("awards/new");
                 }
 
             }
@@ -85,6 +85,22 @@ namespace InstutiteOfFineArt.Views.Awards
                 lbAwardNameErr.Text = "* Name cannot be blank";
                 return false;
             }
+            else
+                lbAwardNameErr.Text = "";
+            if (!ValidateClass.Validate_Require(txtPatingID.Value))
+            {
+                lbPatingIDErr.Text = "You must choice picture";
+                return false;
+            }
+            else
+                lbPatingIDErr.Text = "";
+            if (!ValidateClass.Validate_Length(txtAwardDesc.Text, 50, 100))
+            {
+                lbDescErr.Text = "Description must be leght from 50 to 100 character";
+                return false;
+            }
+            else
+                lbDescErr.Text = "";
             return true;
         }
     }

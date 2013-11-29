@@ -22,6 +22,33 @@ namespace InstutiteOfFineArt.Views.Paintings {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
+        /// fileUploadField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUploadField;
+        
+        /// <summary>
+        /// fileUploadName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fileUploadName;
+        
+        /// <summary>
+        /// lbfileUploadErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbfileUploadErr;
+        
+        /// <summary>
         /// txtDesc control.
         /// </summary>
         /// <remarks>
@@ -31,6 +58,15 @@ namespace InstutiteOfFineArt.Views.Paintings {
         protected global::System.Web.UI.WebControls.TextBox txtDesc;
         
         /// <summary>
+        /// lbDescErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDescErr;
+        
+        /// <summary>
         /// btnUpload control.
         /// </summary>
         /// <remarks>
@@ -38,14 +74,5 @@ namespace InstutiteOfFineArt.Views.Paintings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

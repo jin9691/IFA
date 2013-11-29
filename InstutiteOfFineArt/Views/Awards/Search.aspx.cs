@@ -60,13 +60,28 @@ namespace InstutiteOfFineArt.Views.Awards
             InstutiteOfFineArt.Models.Award award = AwardDAO.Find(id);
             if (AwardDAO.Destroy(award))
             {
-                Flash.dictFlash.Add("success", String.Format("Delete award [<b>{0}</b>] successfully", award.AdwardName));
+                Flash.dictFlash.Add("success", String.Format("Delete award [<b>{0}</b>] successfully", award.AwardName));
             }
             else
             {
-                Flash.dictFlash.Add("success", String.Format("Cannot delete award [<b>{0}</b>]", award.AdwardName));
+                Flash.dictFlash.Add("success", String.Format("Cannot delete award [<b>{0}</b>]", award.AwardName));
             }
             Response.Redirect("Index.aspx");
+        }
+
+        public string Competition_Topic(object Id)
+        {
+            int val = Convert.ToInt32(Id.ToString());
+            Competition com = CompetitionDAO.Find(val);
+            return com.Topic;
+        }
+
+        public string Painting_Image(object Id)
+        {
+            int val = Convert.ToInt32(Id.ToString());
+            Painting paint = PaintingDAO.Find(val);
+            return paint.PaintingURL;
+
         }
 
         public override void VerifyRenderingInServerForm(Control control)

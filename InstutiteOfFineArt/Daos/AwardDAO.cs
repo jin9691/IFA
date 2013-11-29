@@ -34,8 +34,8 @@ namespace InstutiteOfFineArt.Daos
             if (dt.Rows.Count > 0) {
                 Award a = new Award();
                 a.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                a.AdwardName = dt.Rows[0]["AwardName"].ToString();
-                a.AdwardRank = dt.Rows[0]["AwardRank"].ToString();
+                a.AwardName = dt.Rows[0]["AwardName"].ToString();
+                a.AwardRank = dt.Rows[0]["AwardRank"].ToString();
                 a.AwardDescription = dt.Rows[0]["AwardDescription"].ToString();
                 a.PaintingId = Convert.ToInt32(dt.Rows[0]["PaintingId"]);
                 a.CompetitionId = Convert.ToInt32(dt.Rows[0]["CompetitionId"]);
@@ -100,8 +100,8 @@ namespace InstutiteOfFineArt.Daos
                 string sql = "Insert into Awards (AwardName,AwardRank,AwardDescription,PaintingId,CompetitionId)";
                 sql += " values (@1,@2,@3,@4,@5)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
-                cmd.Parameters.AddWithValue("@1", a.AdwardName);
-                cmd.Parameters.AddWithValue("@2", a.AdwardRank);
+                cmd.Parameters.AddWithValue("@1", a.AwardName);
+                cmd.Parameters.AddWithValue("@2", a.AwardRank);
                 cmd.Parameters.AddWithValue("@3", a.AwardDescription);
                 cmd.Parameters.AddWithValue("@4", a.PaintingId);
                 cmd.Parameters.AddWithValue("@5", a.CompetitionId);
