@@ -507,11 +507,36 @@ h1 .glyphicon
 /* Award */
 .select-image
 {
-    width: 180px;
+    width: 169px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 .select-image.selected
 {
    border: 5px solid #d9534f;
+}
+/*List Painting*/
+center.hiddenFileInputContainter
+{
+    position: relative;
+}
+input[type='file']#ContentSite_fileUploadField
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    margin-left: 152px;
+    height: 149px;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    width: 154px;
+    -moz-opacity: 0;
+    filter: Alpha(Opacity=0);
+}
+.awr-preview-mage
+{
+    width:115px;
+    margin-left:10px    
 }

@@ -44,13 +44,33 @@ namespace InstutiteOfFineArt.Views.Awards
             InstutiteOfFineArt.Models.Award award = AwardDAO.Find(id);
             if (AwardDAO.Destroy(award))
             {
-                Flash.dictFlash.Add("success", String.Format("Delete award [<b>{0}</b>] successfully", award.AdwardName));
+                Flash.dictFlash.Add("success", String.Format("Delete award [<b>{0}</b>] successfully", award.AwardName));
             }
             else
             {
-                Flash.dictFlash.Add("success", String.Format("Cannot delete award [<b>{0}</b>]", award.AdwardName));
+                Flash.dictFlash.Add("success", String.Format("Cannot delete award [<b>{0}</b>]", award.AwardName));
             }
-            Response.Redirect("Index.aspx");
+            Response.Redirect("/awards");
+        }
+
+        public string Competition_Topic(object Id)
+        {
+            int val = Convert.ToInt32(Id.ToString());
+            Competition com = CompetitionDAO.Find(val);
+            return com.Topic;
+        }
+
+        public string Painting_Image(object Id) {
+            int val = Convert.ToInt32(Id.ToString());
+            Painting paint = PaintingDAO.Find(val);
+            return paint.PaintingURL;
+          
+        }
+
+        public int Row_Count(){
+            int i = 1;
+            i = i++;
+            return i;
         }
 
         public override void VerifyRenderingInServerForm(Control control)
@@ -58,6 +78,8 @@ namespace InstutiteOfFineArt.Views.Awards
             /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
                server control at run time. */
         }
+
+
 
     }
 }

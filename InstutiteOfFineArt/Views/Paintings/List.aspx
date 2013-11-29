@@ -1,5 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="InstutiteOfFineArt.Views.Paintings.List" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master"
+    AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="InstutiteOfFineArt.Views.Paintings.List" %>
 
+<%@ Import Namespace="InstutiteOfFineArt.Codes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="BodyClass" runat="server">
@@ -11,33 +13,101 @@
     <script type="text/javascript" src="../../Assets/Js/jquery.easing.1.3.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
+    <% if (Flash.dictFlash != null) %>
+    <% foreach (var key in Flash.dictFlash.Keys)
+       { %>
+    <center>
+        <div class="alert alert-<%= key %>">
+            <%= Flash.dictFlash[key] %>
+        </div>
+    </center>
+    <% } %>
+    <% Flash.dictFlash.Clear(); %>
     <nav class="cbp-spmenu-upload cbp-spmenu-vertical-upload cbp-spmenu-right" id="cbp-spmenu-s1">
         <h3><i class="glyphicon glyphicon-upload" style="margin-right: 10px"></i><b>Upload Painting</b></h3>
-        <div class="menu-upload">
-            <center>
-                <img src="../../Assets/Images/Pages/add.png">
-                <br>
-            </center>
-            <br />
-
-            <form id="Form1" runat="server" action="post">
+        <div class="menu-upload">      
+            <form id="Form1" runat="server" action="List.aspx" method="post" enctype="multipart/form-data">
+                <center class="hiddenFileInputContainter">
+                    <img src="../../Assets/Images/Pages/add.png" />
+                
+                    <asp:FileUpload ID="fileUploadField" runat="server"></asp:FileUpload>
+                
+                    <br />
+                    <asp:TextBox ID="fileUploadName" runat="server" Enabled="False"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lbfileUploadErr" runat="server" Text="" ForeColor="White"></asp:Label>
+                </center>
+                <br />
                 <div class="row">
                     <div class="col-md-12">
                         <b>Description:</b>
                         <asp:TextBox ID="txtDesc" Height="200px" TextMode="MultiLine" CssClass="desc form-control" runat="server"></asp:TextBox>
                         <br>
-                        <center>
-                            <asp:Button ID="btnUpload" runat="server" Text="Upload" CssClass="btn btn-success btn-lg"  />
-                            <button class="btn btn-warning btn-lg">Preview</button>
-                            <asp:Button ID="Button1" runat="server" Text="Cancel" CssClass="btn btn-danger btn-lg"  />
+                        <asp:Label ID="lbDescErr" runat="server" Text="" ForeColor="White"></asp:Label>
+                        <center>                        
+                            <asp:Button ID="btnUpload" runat="server" Text="Upload" 
+                                CssClass="btn btn-success btn-lg" onclick="btnUpload_Click"></asp:Button>                           
+                            <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">Preview</button>
+                            <input type="reset" value="Cancel" id="hideRightPush" class="btn btn-danger btn-lg">                            
                         </center> 
                     </div>
                 </div>
             </form>
         </div>
     </nav>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Image preview</h4>
+                </div>
+                <div class="modal-body">
+                    <img id="preview_image" style="width: 540px;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    console.log(input.files[0].type);
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        if (!input.files[0].type.match('image.*')) {
+                            alert('no image');
+                        } else {
+                            console.log(e.target.result);
+                            $("#preview_image").attr('src', e.target.result);
+                        }
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $('#<%=fileUploadField.ClientID %>').change(function () {
+                $('#<%=fileUploadName.ClientID %>').val(this.files[0].name);
+                readURL(this);
+            });
+
+        });
+        $('#myModal').modal(options);
+    </script>
     <div id="pxs_container" class="pxs_container">
-        <div class="pxs_loading">Loading images...</div>
+        <div class="pxs_loading">
+            Loading images...</div>
         <div class="pxs_slider_wrapper">
             <ul class="pxs_slider ul">
                 <li class="li">
@@ -45,14 +115,16 @@
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -60,7 +132,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -69,27 +149,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -97,7 +181,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -106,27 +198,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -134,7 +230,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -143,27 +247,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -171,7 +279,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -180,27 +296,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -208,7 +328,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -217,27 +345,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -245,7 +377,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -254,27 +394,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -282,7 +426,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -291,27 +443,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -319,7 +475,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -328,27 +492,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -356,7 +524,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -365,27 +541,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -393,7 +573,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -402,27 +590,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -430,7 +622,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -439,27 +639,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -467,7 +671,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -476,27 +688,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -504,7 +720,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -513,27 +737,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -541,7 +769,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -550,27 +786,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -578,7 +818,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -587,27 +835,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -615,7 +867,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -624,27 +884,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/1.jpg" alt="First Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -652,7 +916,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -661,27 +933,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/2.jpg" alt="Second Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -689,7 +965,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -698,27 +982,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -726,7 +1014,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -735,27 +1031,31 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-    ul             <li class="li">
+                ul
+                <li class="li">
                     <div class="row" style="margin-top: 1%">
                         <div class="col-md-5 image-src" style="margin-left: 2%">
                             <img src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" />
                             <center>
-                                <h2>Mark: <strong><small>Better</small></strong>
+                                <h2>
+                                    Mark: <strong><small>Better</small></strong>
                                 </h2>
                             </center>
                         </div>
                         <div class="col-md-6">
                             <div class="image-desc">
-                                <h2>Student: <strong><small>Vũ Thế Dũng</small></strong>
-                                    <a href="#" class="btn btn-danger btn-sm pull-right" style="margin-left: 5px"> More</a>
+                                <h2>
+                                    Student: <strong><small>Vũ Thế Dũng</small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                        style="margin-left: 5px">More</a>
                                 </h2>
                                 <hr>
                                 <div class="row">
@@ -763,7 +1063,15 @@
                                         <b>Description:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have been painted between 1503 and 1506, although Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic, on permanent display at The Louvre museum in Paris since 1797. The ambiguity of the subject's expression, which is frequently described as enigmatic, the monumentality of the composition, the subtle modeling of forms and the atmospheric illusionism were novel qualities that have contributed to the continuing fascination and study of the work.
+                                        The painting, thought to be a portrait of Lisa Gherardini, the wife of Francesco
+                                        del Giocondo, is in oil on a white Lombardy poplar panel, and is believed to have
+                                        been painted between 1503 and 1506, although Leonardo may have continued working
+                                        on it as late as 1517. It was acquired by King Francis I of France and is now the
+                                        property of the French Republic, on permanent display at The Louvre museum in Paris
+                                        since 1797. The ambiguity of the subject's expression, which is frequently described
+                                        as enigmatic, the monumentality of the composition, the subtle modeling of forms
+                                        and the atmospheric illusionism were novel qualities that have contributed to the
+                                        continuing fascination and study of the work.
                                     </div>
                                 </div>
                                 <hr>
@@ -772,19 +1080,18 @@
                                         <b>Remark:</b>
                                     </div>
                                     <div class="col-md-10">
-                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the mid-19th century, Théophile Gautier and the Romantic poets were able to write about Mona Lisa as a femme fatale because Lisa was an ordinary person
+                                        Historian Donald Sassoon catalogued the growth of the painting's fame. During the
+                                        mid-19th century, Théophile Gautier and the Romantic poets were able to write about
+                                        Mona Lisa as a femme fatale because Lisa was an ordinary person
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </li>
-
             </ul>
             <div class="pxs_navigation">
-                <span class="pxs_prev"></span>
-                <span class="pxs_next"></span>
+                <span class="pxs_prev"></span><span class="pxs_next"></span>
             </div>
             <div class="row">
                 <ul class="pxs_thumbnails">
@@ -828,16 +1135,13 @@
                         <img style="height: 100px" src="../../Assets/Images/Paintings/3.jpg" alt="Third Image" /></li>
                     <li class="image-thumbs">
                         <img style="height: 100px" src="../../Assets/Images/Paintings/4.jpg" alt="Forth Image" /></li>
-                    <li style="margin-left: 50%" class="img-upload">
-                        <a href="#" class="pull-right btn btn-primary btn-lg" id="showRightPush">
-                            <span class="glyphicon glyphicon-upload" style="margin-right: 5px; opacity: 0.8"></span>Upload
-                        </a>
-                    </li>
+                    <li style="margin-left: 50%" class="img-upload"><a href="#" class="pull-right btn btn-primary btn-lg"
+                        id="showRightPush"><span class="glyphicon glyphicon-upload" style="margin-right: 5px;
+                            opacity: 0.8"></span>Upload </a></li>
                 </ul>
             </div>
         </div>
     </div>
-
     <script type="text/javascript">
         (function ($) {
             $.fn.parallaxSlider = function (options) {
@@ -890,7 +1194,7 @@
                                 need to set width of the slider,
                                 of each one of its elements, and of the
                                 navigation buttons
-                                 */
+                                */
                                 setWidths($pxs_slider,
                                 $elems,
                                 total_elems,
@@ -902,9 +1206,9 @@
                                 $pxs_prev);
 
                                 /*
-                                    set the width of the thumbs
-                                    and spread them evenly
-                                 */
+                                set the width of the thumbs
+                                and spread them evenly
+                                */
                                 $pxs_thumbnails.css({
                                     'width': one_image_w + 'px',
                                     'margin-left': -one_image_w / 2 + 'px'
@@ -978,7 +1282,7 @@
 
                                 /*
                                 clicking a thumb will slide to the respective image
-                                 */
+                                */
                                 $thumbs.bind('click', function () {
                                     var $thumb = $(this);
                                     highlight($thumb);
@@ -1001,7 +1305,7 @@
                                 /*
                                 activate the autoplay mode if
                                 that option was specified
-                                 */
+                                */
                                 if (o.auto != 0) {
                                     o.circular = true;
                                     slideshow = setInterval(function () {
@@ -1015,7 +1319,7 @@
                                 slider elements, based on the new windows width.
                                 we need to slide again to the current one,
                                 since the left of the slider is no longer correct
-                                 */
+                                */
                                 $(window).resize(function () {
                                     w_w = $(window).width();
                                     setWidths($pxs_slider, $elems, total_elems, $pxs_bg1, $pxs_bg2, $pxs_bg3, one_image_w, $pxs_next, $pxs_prev);
@@ -1083,7 +1387,7 @@
                 /*
                 the width of the slider is the windows width
                 times the total number of elements in the slider
-                 */
+                */
                 var pxs_slider_w = w_w * total_elems;
                 $pxs_slider.width(pxs_slider_w + 'px');
                 //each element will have a width = windows width
@@ -1091,7 +1395,7 @@
                 /*
                 we also set the width of each bg image div.
                 The value is the same calculated for the pxs_slider
-                 */
+                */
                 $pxs_bg1.width(pxs_slider_w + 'px');
                 $pxs_bg2.width(pxs_slider_w + 'px');
                 $pxs_bg3.width(pxs_slider_w + 'px');
@@ -1100,7 +1404,7 @@
                 both the right and left of the
                 navigation next and previous buttons will be:
                 windowWidth/2 - imgWidth/2 + some margin (not to touch the image borders)
-                 */
+                */
                 var position_nav = w_w / -one_image_w;
                 $pxs_next.css('right', position_nav + 'px');
                 $pxs_prev.css('right', position_nav + 'px');
@@ -1108,12 +1412,12 @@
             }
 
             $.fn.parallaxSlider.defaults = {
-                auto: 0,	//how many seconds to periodically slide the content.
+                auto: 0, //how many seconds to periodically slide the content.
                 //If set to 0 then autoplay is turned off.
-                speed: 1000,//speed of each slide animation
-                easing: 'jswing',//easing effect for the slide animation
-                easingBg: 'jswing',//easing effect for the background animation
-                circular: true,//circular slider
+                speed: 1000, //speed of each slide animation
+                easing: 'jswing', //easing effect for the slide animation
+                easingBg: 'jswing', //easing effect for the background animation
+                circular: true, //circular slider
                 thumbRotation: true//the thumbs will be randomly rotated
             };
             //easeInOutExpo,easeInBack

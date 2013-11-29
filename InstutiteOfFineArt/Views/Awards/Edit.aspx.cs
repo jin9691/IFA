@@ -22,16 +22,17 @@ namespace InstutiteOfFineArt.Views.Awards
                 {
                     Load_Data();
                     Award a = AwardDAO.Find(Id);
-                    txtAwardName.Text = a.AdwardName;
+                    txtAwardName.Text = a.AwardName;
                     txtAwardDess.Text = a.AwardDescription;
-                    if (a.AdwardRank == "1st")
+                    if (a.AwardRank == "1st")
                         rdb1st.Checked = true;
-                    else if (a.AdwardRank == "2nd")
+                    else if (a.AwardRank == "2nd")
                         rdb2nd.Checked = true;
                     else
                         rdb3rd.Checked = true;
                     drlCompetitionId.SelectedValue = a.CompetitionId.ToString();
                     txtPatingID.Value = a.PaintingId.ToString();
+                    load_listview(Convert.ToInt32(drlCompetitionId.SelectedValue));
                 }
             }
             else
@@ -70,27 +71,28 @@ namespace InstutiteOfFineArt.Views.Awards
         {
             if (Validate_Control())
             {
+                int Id = Convert.ToInt32(RouteData.Values["id"]);
                 Award a = new InstutiteOfFineArt.Models.Award();
-                a.Id = Convert.ToInt32(Request.QueryString["ID"]);
-                a.AdwardName = lbAwardName.Text;
+                a.Id = Id;
+                a.AwardName = txtAwardName.Text;
                 a.CompetitionId = Convert.ToInt32(drlCompetitionId.SelectedValue);
                 a.PaintingId = Convert.ToInt32(txtPatingID.Value);
                 if (rdb1st.Checked)
-                    a.AdwardRank = "1st";
+                    a.AwardRank = "1st";
                 else if (rdb2nd.Checked)
-                    a.AdwardRank = "2nd";
+                    a.AwardRank = "2nd";
                 else
-                    a.AdwardRank = "3rd";
+                    a.AwardRank = "3rd";
                 a.AwardDescription = txtAwardDess.Text;
                 if (AwardDAO.Update(a))
                 {
-                    Flash.dictFlash.Add("success", String.Format("Updated Award [<b>{0}</b>] successfully", a.AdwardName));
-                    Response.Redirect("Index.aspx");
+                    Flash.dictFlash.Add("success", String.Format("Updated Award [<b>{0}</b>] successfully", a.AwardName));
+                    Response.Redirect("/awards");
                 }
                 else
                 {
                     Flash.dictFlash.Add("danger", "[<b>Award name</b>] are already used");
-                    Response.Redirect("New.aspx");
+                    Response.Redirect(String.Format("/award/{0}/edit",Id));
                 }
 
             }
