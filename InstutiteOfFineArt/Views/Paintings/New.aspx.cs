@@ -104,11 +104,15 @@ namespace InstutiteOfFineArt.Views.Paintings
 
         private string UploadImage(FileUpload flImage)
         {
-            string extentions = Path.GetExtension(flImage.FileName);
-            string newfileName = DateTime.Now.ToFileTime().ToString();
-            string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
-            flImage.SaveAs(fullName);
-            return newfileName + extentions;
+            if (flImage.HasFile)
+            {
+                string extentions = Path.GetExtension(flImage.FileName);
+                string newfileName = DateTime.Now.ToFileTime().ToString();
+                string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
+                flImage.SaveAs(fullName);
+                return newfileName + extentions; 
+            }
+            return null;
         }
 
         private bool Validate_Image_ONCE()
@@ -119,7 +123,7 @@ namespace InstutiteOfFineArt.Views.Paintings
             query.Add("CompetitionID", competitionID);
             query.Add("StudentID", studentID);
             DataTable dt = PaintingDAO.Where(query);
-            if (dt.Rows.Count > 1)
+            if (dt.Rows.Count > 0)
                 return false;
             return true;
         }
@@ -151,19 +155,9 @@ namespace InstutiteOfFineArt.Views.Paintings
                     lbPriceErr.Text = "";
 
             }
-
-<<<<<<< HEAD
-=======
-            if (ValidateClass.Validate_Length(txtPrice.Text, 50, 100))
-            {
-                lbDescriptionErr.Text = "Description is required";
-                return false;
-            }
-            else
-                lbDescriptionErr.Text = "";
-            
->>>>>>> origin/master
             return true;
+
+
         }
     }
 }

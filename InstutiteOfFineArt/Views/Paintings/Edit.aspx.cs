@@ -16,147 +16,86 @@ namespace InstutiteOfFineArt.Views.Paintings
     {
         private int paintingID;
         private DateTime uploadDate;
+        private string oldImage;
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+            
             if (Request.QueryString["ID"] != null)
-=======
-            paintingID = Convert.ToInt32(Request.QueryString["ID"]);
-            if (!IsPostBack)
->>>>>>> origin/master
             {
+                paintingID = Convert.ToInt32(Request.QueryString["ID"]);
+                Painting p = PaintingDAO.Find(paintingID);
+                uploadDate = p.UploadDate;
+                oldImage = p.PaintingURL;
                 if (!IsPostBack)
                 {
-                    if (ValidateClass.Validate_Number(Request.QueryString["ID"]))
+                    
+                    DataTable dt = CompetitionDAO.All();
+                    cbCompetition.DataValueField = "Id";
+                    cbCompetition.DataTextField = "Topic";
+                    cbCompetition.DataSource = dt;
+                    cbCompetition.DataBind();
+                    cbCompetition.SelectedValue = p.CompetitionId.ToString();
+
+                    DataTable dtExhibition = ExhibitionDAO.All();
+                    cbExhibition.DataValueField = "Id";
+                    cbExhibition.DataTextField = "ExhibitionName";
+                    cbExhibition.DataSource = dtExhibition;
+                    cbExhibition.DataBind();
+                    cbExhibition.SelectedValue = p.ExhibitionId.ToString();
+
+                    DataTable dtCustomers = CustomerDAO.All();
+                    cbCustomer.DataValueField = "Id";
+                    cbCustomer.DataTextField = "CustomerName";
+                    cbCustomer.DataSource = dtCustomers;
+                    cbCustomer.DataBind();
+                    cbCustomer.SelectedValue = p.CustomerId.ToString();
+
+                    Dictionary<string, object> query = new Dictionary<string, object>();
+                    query.Add("Permission", 3);
+                    DataTable dtStudent = UserDAO.Where(query);
+                    cbStudent.DataValueField = "Id";
+                    cbStudent.DataTextField = "Name";
+                    cbStudent.DataSource = dtStudent;
+                    cbStudent.DataBind();
+                    cbStudent.SelectedValue = p.StudentId.ToString();
+                    txtPrice.Text = p.Price.ToString();
+                    txtComent.Text = p.Comment == null ? "" : p.Comment;
+                    txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
+                    previewImage.ImageUrl = Painting_show(p.PaintingURL);
+                    if (p.Mark == 1)
+                        rdbBad.Checked = true;
+                    else if (p.Mark == 2)
+                        rdbNormal.Checked = true;
+                    else if (p.Mark == 3)
+                        rdbGood.Checked = true;
+                    else if (p.Mark == 4)
+                        rdbBest.Checked = true;
+                    if (p.IsPaid)
                     {
-<<<<<<< HEAD
-                        paintingID = Convert.ToInt32(Request.QueryString["ID"]);
-                        if (paintingID > 0)
-=======
-                        Painting p = PaintingDAO.Find(paintingID);
-                        uploadDate = p.UploadDate;
-                        DataTable dt = CompetitionDAO.All();
-                        cbCompetition.DataValueField = "Id";
-                        cbCompetition.DataTextField = "Topic";
-                        cbCompetition.DataSource = dt;
-                        cbCompetition.DataBind();
-                        cbCompetition.SelectedValue = p.CompetitionId.ToString();
-
-                        DataTable dtExhibition = ExhibitionDAO.All();
-                        cbExhibition.DataValueField = "Id";
-                        cbExhibition.DataTextField = "ExhibitionName";
-                        cbExhibition.DataSource = dtExhibition;
-                        cbExhibition.DataBind();
-                        cbExhibition.SelectedValue = p.ExhibitionId.ToString();
-
-                        DataTable dtCustomers = CustomerDAO.All();
-                        cbCustomer.DataValueField = "Id";
-                        cbCustomer.DataTextField = "CustomerName";
-                        cbCustomer.DataSource = dtCustomers;
-                        cbCustomer.DataBind();
-                        cbCustomer.SelectedValue = p.CustomerId.ToString();
-
-                        Dictionary<string, object> query = new Dictionary<string, object>();
-                        query.Add("Permission", 3);
-                        DataTable dtStudent = UserDAO.Where(query);
-                        cbStudent.DataValueField = "Id";
-                        cbStudent.DataTextField = "Name";
-                        cbStudent.DataSource = dtStudent;
-                        cbStudent.DataBind();
-                        cbStudent.SelectedValue = p.StudentId.ToString();
-                        txtPrice.Text = p.Price.ToString();
-                        txtComent.Text = p.Comment == null ? "" : p.Comment;
-                        txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
-                        previewImage.ImageUrl = "../../Assets/Images/Paintings/" + p.PaintingURL;
-
-
-                        if (p.Mark == 1)
-                            rdbBad.Checked = true;
-                        else if (p.Mark == 2)
-                            rdbNormal.Checked = true;
-                        else if (p.Mark == 3)
-                            rdbGood.Checked = true;
-                        else if (p.Mark == 4)
-                            rdbBest.Checked = true;
-                        if (p.IsPaid)
->>>>>>> origin/master
-                        {
-                            Painting p = PaintingDAO.Find(paintingID);
-                            //p.Id = paintingID;
-                            DataTable dt = CompetitionDAO.All();
-                            cbCompetition.DataValueField = "Id";
-                            cbCompetition.DataTextField = "Topic";
-                            cbCompetition.DataSource = dt;
-                            cbCompetition.DataBind();
-                            cbCompetition.SelectedValue = p.CompetitionId.ToString();
-
-                            DataTable dtExhibition = ExhibitionDAO.All();
-                            cbExhibition.DataValueField = "Id";
-                            cbExhibition.DataTextField = "ExhibitionName";
-                            cbExhibition.DataSource = dtExhibition;
-                            cbExhibition.DataBind();
-                            cbExhibition.SelectedValue = p.ExhibitionId.ToString();
-
-                            DataTable dtCustomers = CustomerDAO.All();
-                            cbCustomer.DataValueField = "Id";
-                            cbCustomer.DataTextField = "CustomerName";
-                            cbCustomer.DataSource = dtCustomers;
-                            cbCustomer.DataBind();
-                            cbCustomer.SelectedValue = p.CustomerId.ToString();
-
-                            Dictionary<string, object> query = new Dictionary<string, object>();
-                            query.Add("Permission", 3);
-                            DataTable dtStudent = UserDAO.Where(query);
-                            cbStudent.DataValueField = "Id";
-                            cbStudent.DataTextField = "Name";
-                            cbStudent.DataSource = dtStudent;
-                            cbStudent.DataBind();
-                            cbStudent.SelectedValue = p.StudentId.ToString();
-                            txtPrice.Text = p.Price.ToString();
-                            txtComent.Text = p.Comment == null ? "" : p.Comment;
-                            txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
-                            previewImage.ImageUrl = Server.MapPath(@"\Assets\Images\Paintings\") + p.PaintingURL;
-
-
-                            if (p.Mark == 1)
-                                rdbBad.Checked = true;
-                            else if (p.Mark == 2)
-                                rdbNormal.Checked = true;
-                            else if (p.Mark == 3)
-                                rdbGood.Checked = true;
-                            else if (p.Mark == 4)
-                                rdbBest.Checked = true;
-                            if (p.IsPaid)
-                            {
-                                rbdPaid.Checked = true;
-                            }
-                            else
-                                rbdNotPaid.Checked = true;
-                            if (p.IsExhibited)
-                            {
-                                rdExhibitions.Checked = true;
-                            }
-                            else
-                                rdbNotExhibition.Checked = true;
-
-                            txtPrice.Text = p.Price.ToString();
-                         
-                        }
+                        rbdPaid.Checked = true;
                     }
-                }
-<<<<<<< HEAD
+                    else
+                        rbdNotPaid.Checked = true;
+                    if (p.IsExhibited)
+                    {
+                        rdExhibitions.Checked = true;
+                    }
+                    else
+                        rdbNotExhibition.Checked = true;
 
+                    txtPrice.Text = p.Price.ToString();
+
+
+                }
             }
             else
-            {
                 Response.Redirect("Index.aspx");
-=======
-                else
-                {
-                    Response.Redirect("Index.aspx");
-                }
->>>>>>> origin/master
-            }
+              
+
+            
+
+
+
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
@@ -190,14 +129,9 @@ namespace InstutiteOfFineArt.Views.Paintings
                 if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
                 p.PaintingURL = UploadImage(flImage);
-<<<<<<< HEAD
-                //p.UploadDate = DateTime.Now;
-=======
+                
                 p.UploadDate = uploadDate;
->>>>>>> origin/master
                 p.LastModify = DateTime.Now;
-                //p.Id = paintingID;
-                //PaintingDAO.Create(p);
                 if (!Validate_Image_ONCE())
                 {
                     Flash.dictFlash.Add("danger", "This student had painting in this competition !!!");
@@ -205,6 +139,10 @@ namespace InstutiteOfFineArt.Views.Paintings
                 }
                 else if (PaintingDAO.Update(p))                
                 {
+                    if (p.PaintingURL != null)
+                    {
+                        Delete_Image(oldImage);
+                    }
                     Flash.dictFlash.Add("success", String.Format("Update <b>painting</b> successfully"));
                     Response.Redirect("Index.aspx");
                 }
@@ -234,27 +172,18 @@ namespace InstutiteOfFineArt.Views.Paintings
         {
 
             if (flImage.HasFile)
-            {
-<<<<<<< HEAD
-                lbImageErr.Text = "Image is required";
-               
-
-                if (!ValidateClass.Validate_FileType(flImage))
-                {
-                    lbImageErr.Text = "File is not image";
-                    return false;
-                }
-                else
-                    lbImageErr.Text = "";
-=======
+            {               
                 string extentions = Path.GetExtension(flImage.FileName);
                 string newfileName = DateTime.Now.ToFileTime().ToString();
                 string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
                 flImage.SaveAs(fullName);
                 return newfileName + extentions; 
->>>>>>> origin/master
             }
             return null;
+        }
+        private string Painting_show(object url)
+        {
+            return "../../Assets/Images/Paintings/" + url;
         }
 
         private bool validateControl()
@@ -272,15 +201,14 @@ namespace InstutiteOfFineArt.Views.Paintings
 
             }
 
-            if (ValidateClass.Validate_Length(txtPrice.Text, 50, 100))
-            {
-                lbDescriptionErr.Text = "Description is required";
-                return false;
-            }
-            else
-                lbDescriptionErr.Text = "";
+            
 
             return true;
+        }
+
+        public void Delete_Image(string url)
+        {
+            File.Delete(Server.MapPath(@"\Assets\Images\Paintings\") + url);
         }
     }
 }

@@ -123,7 +123,7 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                throw;
+                
                 return false;
             }
             finally
@@ -210,13 +210,8 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-<<<<<<< HEAD
-            
-=======
-                throw;
->>>>>>> origin/master
                 return false;
-                throw;
+               
             }
             finally
             {
