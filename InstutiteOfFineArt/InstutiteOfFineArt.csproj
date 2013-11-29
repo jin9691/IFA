@@ -165,14 +165,12 @@
     </Compile>
     <Compile Include="Views\Exhibitions\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Exhibitions\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Exhibitions\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Exhibitions\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -186,14 +184,12 @@
     </Compile>
     <Compile Include="Views\Exhibitions\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Exhibitions\New.aspx.designer.cs">
       <DependentUpon>New.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Exhibitions\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Exhibitions\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
