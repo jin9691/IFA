@@ -15,16 +15,18 @@ namespace InstutiteOfFineArt.Views.Paintings
     public partial class Edit : System.Web.UI.Page
     {
         private int paintingID;
+        private DateTime uploadDate;
         protected void Page_Load(object sender, EventArgs e)
         {
+            paintingID = Convert.ToInt32(Request.QueryString["ID"]);
             if (!IsPostBack)
             {
                 if (Request.QueryString["ID"] != null)
                 {
                     if (ValidateClass.Validate_Number(Request.QueryString["ID"]))
                     {
-                        paintingID = Convert.ToInt32(Request.QueryString["ID"]);
                         Painting p = PaintingDAO.Find(paintingID);
+                        uploadDate = p.UploadDate;
                         DataTable dt = CompetitionDAO.All();
                         cbCompetition.DataValueField = "Id";
                         cbCompetition.DataTextField = "Topic";
@@ -95,6 +97,7 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = new Painting();
+                p.Id = paintingID;
                 p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
                 //p.Comment = txtComent.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
@@ -105,7 +108,6 @@ namespace InstutiteOfFineArt.Views.Paintings
                     p.ExhibitionId = Convert.ToInt32(cbExhibition.SelectedValue);
                 p.IsExhibited = rbdPaid.Checked;
                 p.IsPaid = rbdPaid.Checked;
-
                 if (rdbBad.Checked)
                     p.Mark = 1;
                 else if (rdbNormal.Checked)
@@ -122,12 +124,12 @@ namespace InstutiteOfFineArt.Views.Paintings
                 if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
                 p.PaintingURL = UploadImage(flImage);
-                p.UploadDate = DateTime.Now;
+                p.UploadDate = uploadDate;
                 p.LastModify = DateTime.Now;
                 //PaintingDAO.Create(p);
                 if (PaintingDAO.Update(p))
                 {
-                    Flash.dictFlash.Add("success", String.Format("Update painting [<b>{0}</b>] successfully", flImage.FileName));
+                    Flash.dictFlash.Add("success", String.Format("Update <b>painting</b> successfully"));
                     Response.Redirect("Index.aspx");
                 }
                 else
@@ -141,43 +143,20 @@ namespace InstutiteOfFineArt.Views.Paintings
 
         private string UploadImage(FileUpload flImage)
         {
-            string extentions = Path.GetExtension(flImage.FileName);
-            string newfileName = Path.GetFileNameWithoutExtension(flImage.FileName) + DateTime.Now.ToBinary();
-            string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
-            flImage.SaveAs(fullName);
-            return newfileName + extentions;
+
+            if (flImage.HasFile)
+            {
+                string extentions = Path.GetExtension(flImage.FileName);
+                string newfileName = DateTime.Now.ToFileTime().ToString();
+                string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
+                flImage.SaveAs(fullName);
+                return newfileName + extentions; 
+            }
+            return null;
         }
 
         private bool validateControl()
         {
-            if (ValidateClass.Validate_Image_Require(flImage))
-            {
-                lbImageErr.Text = "Image is required";
-                return false;
-
-                if (!ValidateClass.Validate_FileType(flImage))
-                {
-                    lbImageErr.Text = "File is not image";
-                    return false;
-                }
-                else
-                    lbImageErr.Text = "";
-            }
-            if (cbCompetition.SelectedIndex <= 0)
-            {
-                lbCompetitionErr.Text = "Must select one competition";
-                return false;
-            }
-            else
-                lbCompetitionErr.Text = "";
-
-            if (cbStudent.SelectedIndex <= 0)
-            {
-                lbStudentErr.Text = "Must select one student";
-            }
-            else
-                lbStudentErr.Text = "";
-
 
             if (ValidateClass.Validate_Require(txtPrice.Text))
             {
