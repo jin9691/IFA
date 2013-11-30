@@ -40,7 +40,7 @@ namespace InstutiteOfFineArt.Views.Competitions
                 c.DueDate = DateTime.Parse(txtEndDate.Text);
                 c.Topic = txtTopic.Text;
                 c.Condition = txtConditition.Text;
-                c.CompetitionDescription = txtConditition.Text;
+                c.CompetitionDescription = txtDescription.Text;
                 if (CompetitionDAO.Create(c))
                 {
                     Flash.dictFlash.Add("success", String.Format("Created competition [<b>{0}</b>] successfully", c.Topic));
@@ -78,6 +78,13 @@ namespace InstutiteOfFineArt.Views.Competitions
             if (!ValidateClass.Validate_Require(txtConditition.Text))
             {
                 lbCondititionErr.Text = "* Conditition can not be blank";
+                return false;
+            }
+            else
+                lbCondititionErr.Text = "";
+            if (!ValidateClass.Validate_Require(txtDescription.Text))
+            {
+                lbDescriptionErr.Text = "* Description can not be blank";
                 return false;
             }
             else

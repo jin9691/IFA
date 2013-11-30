@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <form id="Form1" runat="server">
-        <div class="modal fade">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -23,13 +23,22 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-                        <asp:TextBox ID="txtEdit" runat="server"></asp:TextBox>
+                        <asp:HiddenField ID="hdEdit" runat="server" />
+                        <asp:HiddenField ID="hdID" runat="server" />
+                        <asp:HiddenField ID="hdStaff" runat="server" />
+                        <asp:TextBox ID="txtEdit" runat="server" TextMode="MultiLine" CssClass="form-control" Height="200px"></asp:TextBox>
                         <br />
-                        <asp:Label ID="lbErr" runat="server" Text=""></asp:Label>
+                        <div id="edit-desc" style="display: none">
+                            <b>Start Date:</b>
+                            <asp:TextBox runat="server" ID="txtEditStart" CssClass="form-control"></asp:TextBox>
+                            <br />
+                            <b>Due Date:</b>
+                            <asp:TextBox runat="server" ID="txtEditDue" CssClass="form-control"></asp:TextBox>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-primary" />
+                        <asp:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Text="Save Changes" CssClass="btn btn-primary" />
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -48,11 +57,12 @@
                         <asp:TextBox ID="txtCondition" Height="50px" TextMode="MultiLine" CssClass="control form-control" runat="server"></asp:TextBox>
                         <b>Description:</b>
                         <asp:TextBox ID="txtDesc" Height="100px" TextMode="MultiLine" CssClass="control form-control" runat="server"></asp:TextBox>
+                        <b>Start Date:</b>
+                        <asp:TextBox runat="server" ID="txtStartDate" CssClass="control form-control"></asp:TextBox>
                         <b>Due Date:</b>
                         <asp:TextBox runat="server" ID="txtDueDate" CssClass="control form-control"></asp:TextBox>
-                        <br>
                         <center>
-                        <asp:Button ID="btnUpload" runat="server" Text="Accept" CssClass="btn btn-success btn-lg"  />
+                        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Accept" CssClass="btn btn-success btn-lg"  />
                         <a href="#" class="btn btn-danger btn-lg" id="btnCancel" >Cancel</a>
                     </center>
                     </div>
@@ -70,7 +80,9 @@
                                 </div>
                                 <h3><%# Eval("Topic") %></h3>
                                 <h4>
-                                    <span><%# Eval("Condition") %></span>
+                                    <span><%# Eval("Condition") %></span><br />
+                                    <span><b>Start Date:</b> <%# String.Format("{0: dd/MM/yyyy}",Eval("StartDate")) %></span>
+                                    <span><b>Due Date:</b> <%# String.Format("{0: dd/MM/yyyy}",Eval("DueDate")) %></span>
                                 </h4>
                                 <a href="#" class="ca-more">more...</a>
                             </div>
@@ -79,13 +91,19 @@
                                     <h6><%# Eval("Topic") %></h6>
                                     <a href="#" class="ca-close">close</a>
                                     <div class="ca-content-text">
-                                        <p><%# Eval("CompetitionDescription") %>.</p>
+                                        <p class="desc"><%# Eval("CompetitionDescription") %>.</p>
                                         <b>Remark:</b><br>
                                         <div class="remark">
                                             <%# Eval("Remark") %>
                                         </div>
                                     </div>
                                     <ul>
+                                        <p id="desc" style="display: none"><%# Eval("CompetitionDescription") %></p>
+                                        <p id="remark" style="display: none"><%# Eval("Remark") %></p>
+                                        <p id="id-com" style="display: none"><%# Eval("Id") %></p>
+                                        <p id="start" style="display: none"><%# String.Format("{0:dd/MM/yyyy}",Eval("StartDate")) %></p>
+                                        <p id="due" style="display: none"><%# String.Format("{0:dd/MM/yyyy}",Eval("DueDate")) %></p>
+                                        <p id="staff" style="display: none"><%# Eval("StaffId") %></p>
                                         <li><a href="Show.aspx?ID=<%# Eval("Id") %>" class="btn btn-primary btn-sm">All images</a></li>
                                         <li><a href="#" class="edit-remark btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Remark</a></li>
                                         <li>
@@ -104,8 +122,22 @@
         </div>
         <div class="co-footer">
             <center>
-        <h1>Competitions <a href="#" class="btn btn-primary btn-lg" id="showRightPush" style="margin-left:60px">Add Competition</a></h1>
-    </center>
+                <div class="col-md-6">
+                    <h1>Competitions <a href="#" class="btn btn-primary btn-lg" id="showRightPush" style="margin-left:60px">Add Competition</a></h1>
+                </div>
+                <div class="col-md-6">
+                    <% if (InstutiteOfFineArt.Codes.Flash.dictFlash != null) %>
+                    <% foreach (var key in InstutiteOfFineArt.Codes.Flash.dictFlash.Keys)
+                       { %>
+                    <center>
+                        <div class="alert alert-<%= key %> alert-small" style="margin-top:40px">
+                            <%= InstutiteOfFineArt.Codes.Flash.dictFlash[key] %>
+                        </div>
+                    </center>
+                    <% } %>
+                    <% InstutiteOfFineArt.Codes.Flash.dictFlash.Clear(); %>
+                </div>
+            </center>
         </div>
     </form>
     <script type="text/javascript">
@@ -119,10 +151,31 @@
     </script>
     <script type="text/javascript">
         $('.edit-remark').click(function () {
-            alert("abc");
             $('#myModal').modal({
                 keyboard: false
             })
+
+            $(".modal-title").html("Remark")
+            $("#<%= txtEdit.ClientID %>").html($(this).parent().siblings("#remark").html())
+            $("#<%= hdID.ClientID %>").val($(this).parent().siblings("#id-com").html())
+            $("#edit-desc").css("display", "none");
+            $("#<%= hdEdit.ClientID %>").val("remark")
+            $("#<%= txtEditStart.ClientID %>").val($(this).parent().siblings("#start").html())
+            $("#<%= txtEditDue.ClientID %>").val($(this).parent().siblings("#due").html())
+            $("#<%= hdStaff.ClientID %>").val($(this).parent().siblings("#staff").html())
+        })
+        $('.edit-desc').click(function () {
+            $('#myModal').modal({
+                keyboard: false
+            })
+            $(".modal-title").html("Edit Description")
+            $("#<%= txtEdit.ClientID %>").html($(this).parent().siblings("#desc").html())
+            $("#<%= hdID.ClientID %>").val($(this).parent().siblings("#id-com").html())
+            $("#edit-desc").css("display", "inline");
+            $("#<%= txtEditStart.ClientID %>").val($(this).parent().siblings("#start").html())
+            $("#<%= txtEditDue.ClientID %>").val($(this).parent().siblings("#due").html())
+            $("#<%= hdEdit.ClientID %>").val("desc")
+            $("#<%= hdStaff.ClientID %>").val($(this).parent().siblings("#staff").html())
         })
         $('#ca-container').contentcarousel();
         $("#btnCancel").click(function () {
@@ -144,7 +197,23 @@
         $(function () {
             $("#<%= txtDueDate.ClientID %>").datepicker({
                 changeMonth: true,
-                changeYear: true
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
+            });
+            $("#<%= txtStartDate.ClientID %>").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
+            });
+            $("#<%= txtEditDue.ClientID %>").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
+            });
+            $("#<%= txtEditStart.ClientID %>").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yy"
             });
         });
 

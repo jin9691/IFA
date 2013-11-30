@@ -13,12 +13,12 @@ namespace InstutiteOfFineArt.Models
         }
 
         public int Id { get; set; }
-        public int StaffId { get; set; }
         public string Topic { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime DueDate { get; set; }
         public string CompetitionDescription { get; set; }
         public string Condition { get; set; }
         public string Remark { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime DueDate { get; set; }
+        public int StaffId { get; set; }
     }
 }

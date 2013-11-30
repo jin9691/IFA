@@ -21,7 +21,6 @@ namespace InstutiteOfFineArt.Models
         public string PaintingURL { get; set; }
         public int Mark { get; set; }
         public DateTime UploadDate { get; set; }
-        public DateTime LastModify { get; set; }
         public int CompetitionId { get; set; }
         public int StudentId { get; set; }
         public int ExhibitionId { get; set; }
@@ -30,5 +29,6 @@ namespace InstutiteOfFineArt.Models
         public bool IsExhibited { get; set; }
         public int Price { get; set; }
         public bool IsPaid { get; set; }
+        public DateTime LastModify { get; set; }
     }
 }

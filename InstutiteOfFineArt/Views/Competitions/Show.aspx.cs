@@ -104,7 +104,7 @@ namespace InstutiteOfFineArt.Views.Competitions
                 lbfileUploadErr.Text = "";
             if (!ValidateClass.Validate_Length(txtDesc.Text, 100, 700))
             {         
-                lbDescErr.Text = "Description must be leght from 100 to 700 character";
+                lbDescErr.Text = "Description must be lenght from 100 to 700 character";
                 lbfileUploadErr.Text = "Upload try again";
                 return false;
             }

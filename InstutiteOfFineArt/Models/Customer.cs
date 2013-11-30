@@ -15,8 +15,8 @@ namespace InstutiteOfFineArt.Models
         public string CustomerEmail { get; set; }
         public string CustomerName { get; set; }
         public string CustomerAddress { get; set; }
-        public bool CustomerGender { get; set; }
         public DateTime CustomerBirthday { get; set; }
         public string CustomerPhone { get; set; }
+        public bool CustomerGender { get; set; }
     }
 }
