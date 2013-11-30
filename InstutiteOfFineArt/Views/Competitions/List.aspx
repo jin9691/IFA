@@ -122,20 +122,20 @@
         </div>
         <div class="co-footer">
             <center>
-                <div class="col-md-5">
+                <div class="col-md-6">
+                    <h1>Competitions <a href="#" class="btn btn-primary btn-lg" id="showRightPush" style="margin-left:60px">Add Competition</a></h1>
+                </div>
+                <div class="col-md-6">
                     <% if (InstutiteOfFineArt.Codes.Flash.dictFlash != null) %>
                     <% foreach (var key in InstutiteOfFineArt.Codes.Flash.dictFlash.Keys)
                        { %>
                     <center>
-                        <div class="alert alert-<%= key %> alert-small" style="margin-top:30px;margin-left:40px">
+                        <div class="alert alert-<%= key %> alert-small" style="margin-top:40px">
                             <%= InstutiteOfFineArt.Codes.Flash.dictFlash[key] %>
                         </div>
                     </center>
                     <% } %>
                     <% InstutiteOfFineArt.Codes.Flash.dictFlash.Clear(); %>
-                </div>
-                <div class="col-md-6">
-                    <h1>Competitions <a href="#" class="btn btn-primary btn-lg" id="showRightPush" style="margin-left:60px">Add Competition</a></h1>
                 </div>
             </center>
         </div>
