@@ -259,6 +259,7 @@
     <Content Include="Assets\Css\custom.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
+    <Content Include="Assets\Css\exhibitions.css" />
     <Content Include="Assets\Css\jquery-ui.css" />
     <Content Include="Assets\Css\jquery.jscrollpane.css" />
     <Content Include="Assets\Css\jquery.ui.core.css" />

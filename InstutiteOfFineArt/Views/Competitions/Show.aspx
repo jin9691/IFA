@@ -33,21 +33,19 @@
                     <asp:FileUpload ID="fileUploadField" runat="server"></asp:FileUpload>
                 
                     <br />
-                    <asp:TextBox ID="fileUploadName" runat="server" Enabled="False"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="lbfileUploadErr" runat="server" Text="" ForeColor="#428bca" CssClass="lbUploadErr"></asp:Label>
+                    <asp:TextBox Visible="false" ID="fileUploadName" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:Label ID="lbfileUploadErr" runat="server" Text="" ForeColor="#88B4DA" CssClass="lbUploadErr"></asp:Label>
                 </center>
                 <br />
                 <div class="row">
                     <div class="col-md-12">
                         <b>Description:</b>
-                        <asp:TextBox ID="txtDesc" Height="200px" TextMode="MultiLine" CssClass="desc form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDesc" Height="150px" TextMode="MultiLine" CssClass="desc form-control" runat="server"></asp:TextBox>
                         <br>
-                        <asp:Label ID="lbDescErr" runat="server" Text="" ForeColor="#428bca" CssClass="lbUploadErr"></asp:Label>
-                        <center>                        
+                        <asp:Label ID="lbDescErr" runat="server" Text="" ForeColor="#88B4DA" CssClass="lbUploadErr"></asp:Label>
+                        <center style="margin-top:20px">                        
                             <asp:Button ID="btnUpload" runat="server" Text="Upload" 
                                 CssClass="btn btn-success btn-lg" onclick="btnUpload_Click"></asp:Button>                           
-                            <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">Preview</button>
                             <input type="reset" value="Cancel" id="hideRightPush" class="btn btn-danger btn-lg">                            
                         </center> 
                     </div>
@@ -55,28 +53,6 @@
             </form>
         </div>
     </nav>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;</button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        Image preview</h4>
-                </div>
-                <div class="modal-body">
-                    <img id="preview_image" style="width: 540px;" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Close</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -106,7 +82,6 @@
             });
 
         });
-        $('#myModal').modal(options);
     </script>
     <div id="pxs_container" class="pxs_container">
         <div class="pxs_loading">
@@ -122,12 +97,14 @@
                     <li class="li">
                         <div class="row" style="margin-top: 1%">
                             <div class="col-md-5 image-src" style="margin-left: 2%">
+                                <center>
                                 <img src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' alt='<%# Eval("Id")%> Image' />
                                 <center>
                                     <h2>
                                         Mark: <strong><small>
                                             <%# Eval("Mark")%></small></strong>
                                     </h2>
+                                </center>
                                 </center>
                             </div>
                             <div class="col-md-6">

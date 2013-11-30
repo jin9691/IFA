@@ -19,77 +19,74 @@ namespace InstutiteOfFineArt.Views.Paintings
         protected void Page_Load(object sender, EventArgs e)
         {
             paintingID = Convert.ToInt32(Request.QueryString["ID"]);
-            if (!IsPostBack)
+            if (Request.QueryString["ID"] != null)
             {
-                if (Request.QueryString["ID"] != null)
+                if (ValidateClass.Validate_Number(Request.QueryString["ID"]))
                 {
-                    if (ValidateClass.Validate_Number(Request.QueryString["ID"]))
+                    Painting p = PaintingDAO.Find(paintingID);
+                    uploadDate = p.UploadDate;
+                    DataTable dt = CompetitionDAO.All();
+                    cbCompetition.DataValueField = "Id";
+                    cbCompetition.DataTextField = "Topic";
+                    cbCompetition.DataSource = dt;
+                    cbCompetition.DataBind();
+                    cbCompetition.SelectedValue = p.CompetitionId.ToString();
+
+                    DataTable dtExhibition = ExhibitionDAO.All();
+                    cbExhibition.DataValueField = "Id";
+                    cbExhibition.DataTextField = "ExhibitionName";
+                    cbExhibition.DataSource = dtExhibition;
+                    cbExhibition.DataBind();
+                    cbExhibition.SelectedValue = p.ExhibitionId.ToString();
+
+                    DataTable dtCustomers = CustomerDAO.All();
+                    cbCustomer.DataValueField = "Id";
+                    cbCustomer.DataTextField = "CustomerName";
+                    cbCustomer.DataSource = dtCustomers;
+                    cbCustomer.DataBind();
+                    cbCustomer.SelectedValue = p.CustomerId.ToString();
+
+                    Dictionary<string, object> query = new Dictionary<string, object>();
+                    query.Add("Permission", 3);
+                    DataTable dtStudent = UserDAO.Where(query);
+                    cbStudent.DataValueField = "Id";
+                    cbStudent.DataTextField = "Name";
+                    cbStudent.DataSource = dtStudent;
+                    cbStudent.DataBind();
+                    cbStudent.SelectedValue = p.StudentId.ToString();
+                    txtPrice.Text = p.Price.ToString();
+                    txtComent.Text = p.Comment == null ? "" : p.Comment;
+                    txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
+                    previewImage.ImageUrl = "../../Assets/Images/Paintings/" + p.PaintingURL;
+
+
+                    if (p.Mark == 1)
+                        rdbBad.Checked = true;
+                    else if (p.Mark == 2)
+                        rdbNormal.Checked = true;
+                    else if (p.Mark == 3)
+                        rdbGood.Checked = true;
+                    else if (p.Mark == 4)
+                        rdbBest.Checked = true;
+                    if (p.IsPaid)
                     {
-                        Painting p = PaintingDAO.Find(paintingID);
-                        uploadDate = p.UploadDate;
-                        DataTable dt = CompetitionDAO.All();
-                        cbCompetition.DataValueField = "Id";
-                        cbCompetition.DataTextField = "Topic";
-                        cbCompetition.DataSource = dt;
-                        cbCompetition.DataBind();
-                        cbCompetition.SelectedValue = p.CompetitionId.ToString();
-
-                        DataTable dtExhibition = ExhibitionDAO.All();
-                        cbExhibition.DataValueField = "Id";
-                        cbExhibition.DataTextField = "ExhibitionName";
-                        cbExhibition.DataSource = dtExhibition;
-                        cbExhibition.DataBind();
-                        cbExhibition.SelectedValue = p.ExhibitionId.ToString();
-
-                        DataTable dtCustomers = CustomerDAO.All();
-                        cbCustomer.DataValueField = "Id";
-                        cbCustomer.DataTextField = "CustomerName";
-                        cbCustomer.DataSource = dtCustomers;
-                        cbCustomer.DataBind();
-                        cbCustomer.SelectedValue = p.CustomerId.ToString();
-
-                        Dictionary<string, object> query = new Dictionary<string, object>();
-                        query.Add("Permission", 3);
-                        DataTable dtStudent = UserDAO.Where(query);
-                        cbStudent.DataValueField = "Id";
-                        cbStudent.DataTextField = "Name";
-                        cbStudent.DataSource = dtStudent;
-                        cbStudent.DataBind();
-                        cbStudent.SelectedValue = p.StudentId.ToString();
-                        txtPrice.Text = p.Price.ToString();
-                        txtComent.Text = p.Comment == null ? "" : p.Comment;
-                        txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
-                        previewImage.ImageUrl = "../../Assets/Images/Paintings/" + p.PaintingURL;
-
-
-                        if (p.Mark == 1)
-                            rdbBad.Checked = true;
-                        else if (p.Mark == 2)
-                            rdbNormal.Checked = true;
-                        else if (p.Mark == 3)
-                            rdbGood.Checked = true;
-                        else if (p.Mark == 4)
-                            rdbBest.Checked = true;
-                        if (p.IsPaid)
-                        {
-                            rbdPaid.Checked = true;
-                        }
-                        else
-                            rbdNotPaid.Checked = true;
-                        if (p.IsExhibited)
-                        {
-                            rdExhibitions.Checked = true;
-                        }
-                        else
-                            rdbNotExhibition.Checked = true;
-
-                        txtPrice.Text = p.Price.ToString();
+                        rbdPaid.Checked = true;
                     }
+                    else
+                        rbdNotPaid.Checked = true;
+                    if (p.IsExhibited)
+                    {
+                        rdExhibitions.Checked = true;
+                    }
+                    else
+                        rdbNotExhibition.Checked = true;
+
+                    txtPrice.Text = p.Price.ToString();
                 }
-                else
-                {
-                    Response.Redirect("Index.aspx");
-                }
+            }
+            else
+            {
+                Response.Redirect("Index.aspx");
             }
         }
         protected void btnAccept_Click(object sender, EventArgs e)
@@ -120,7 +117,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 p.PaintingDescription = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text;
                 if (!string.IsNullOrWhiteSpace(txtPrice.Text))
                     p.Price = Convert.ToInt32(txtPrice.Text);
-                
+
                 if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
                 p.PaintingURL = UploadImage(flImage);
@@ -135,7 +132,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 else
                 {
                     Flash.dictFlash.Add("danger", " Cannot update Painting !!!");
-                    Response.Redirect("Edit.aspx?ID="+paintingID);
+                    Response.Redirect("Edit.aspx?ID=" + paintingID);
                 }
             }
 
@@ -150,7 +147,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 string newfileName = DateTime.Now.ToFileTime().ToString();
                 string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
                 flImage.SaveAs(fullName);
-                return newfileName + extentions; 
+                return newfileName + extentions;
             }
             return null;
         }
