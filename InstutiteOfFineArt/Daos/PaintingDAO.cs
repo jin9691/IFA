@@ -76,7 +76,7 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
-        public static DataTable Search(Dictionary<string, string> query) 
+        public static DataTable Search(List<object> query) 
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();

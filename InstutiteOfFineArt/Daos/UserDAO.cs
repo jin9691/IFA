@@ -91,6 +91,25 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
+        public static DataTable SearchByStudent(List<string> query)
+        {
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
+            DataTable dt = new DataTable();
+            string sql = "Select * from Users where ";
+            int i = 1;
+            foreach (var item in query)
+            {
+                if (i < query.Count)
+                    sql += String.Format("{0} or ", item);
+                else
+                    sql += String.Format("{0} AND Permission = 3 order by Id desc", item);
+                i++;
+            }
+            SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+            adap.Fill(dt);
+            return dt;
+        }
+
         public static bool Create(User u)
         {
             DBUtilities.Connection();

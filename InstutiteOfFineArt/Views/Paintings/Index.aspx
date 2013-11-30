@@ -12,7 +12,7 @@
             <form method="post" action="Search.aspx">
                 <div class="col-md-4 pull-right">
                     <div class="input-group">
-                        <input type="text" name="txtSearch" class="form-control" placeholder="Insert painting's author..."/>
+                        <input type="text" name="txtSearchPainting" class="form-control" placeholder="Insert painting's author..."/>
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
