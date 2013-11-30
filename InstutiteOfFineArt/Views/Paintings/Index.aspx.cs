@@ -4,6 +4,7 @@ using InstutiteOfFineArt.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,7 +28,9 @@ namespace InstutiteOfFineArt.Views.Paintings
             Painting u = PaintingDAO.Find(id);
             if (PaintingDAO.Destroy(u))
             {
+                Delete_Image(u.PaintingURL);
                 Flash.dictFlash.Add("success", String.Format("Delete painting [<b>{0}</b>] successfully", u.PaintingURL));
+
             }
             else
             {
@@ -65,6 +68,10 @@ namespace InstutiteOfFineArt.Views.Paintings
         {
             return "../../Assets/Images/Paintings/" + url;
         }
-        
+
+        public void Delete_Image(string url)
+        {
+            File.Delete(Server.MapPath(@"\Assets\Images\Paintings\") + url);
+        }
     }
 }

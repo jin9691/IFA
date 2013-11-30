@@ -76,7 +76,7 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
-        public static DataTable Search(Dictionary<string, string> query) 
+        public static DataTable Search(List<object> query) 
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -123,7 +123,7 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                throw;
+                
                 return false;
             }
             finally
@@ -180,8 +180,8 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                throw;
                 return false;
+               
             }
             finally
             {

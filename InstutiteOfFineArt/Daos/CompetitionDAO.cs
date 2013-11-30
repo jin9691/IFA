@@ -119,9 +119,9 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Dispose();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                
                 return false;
             }
             finally
