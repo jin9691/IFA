@@ -14,6 +14,10 @@
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/elastislide.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/jquery-ui.css" />
+     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom2.css" />
+     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/demo2.css" />
+   <link rel="Stylesheet" type="text/css" href="../../Assets/Css/stapel2.css" />
+   
     <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
@@ -23,9 +27,10 @@
     <script type="text/javascript" src="../../Assets/Js/jquery.elastislide.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-animate-css-rotate-scale.js"></script>
     <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="../../Assets/Js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../Assets/Js/jquery.stapel.js"></script>
 </head>
-<body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'>
-        </asp:ContentPlaceHolder>">
+<body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'> </asp:ContentPlaceHolder>">
     <% if (current_user != null)
        { %>
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2">

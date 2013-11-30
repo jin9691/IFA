@@ -69,6 +69,13 @@
     <Compile Include="Daos\CustomerDAO.cs" />
     <Compile Include="Daos\ExhibitionDAO.cs" />
     <Compile Include="Daos\PaintingDAO.cs" />
+    <Compile Include="Views\Awards\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Awards\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Competitions\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,9 +204,12 @@
     </Compile>
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\custom.css" />
+    <Content Include="Assets\Css\custom2.css" />
+    <Content Include="Assets\Css\demo2.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
     <Content Include="Assets\Css\jquery-ui.css" />
+    <Content Include="Assets\Css\stapel2.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\Pages\background.jpg" />
     <Content Include="Assets\Images\Pages\ifa-icon.png" />
@@ -229,6 +239,10 @@
     <Content Include="Assets\Js\jquery-animate-css-rotate-scale.js" />
     <Content Include="Assets\Js\jquery-css-transform.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Assets\Js\jquery.min.js" />
+    <Content Include="Assets\Js\jquery.stapel.js" />
+    <Content Include="Assets\Js\modernizr.custom.63321.js" />
+    <Content Include="Views\Awards\List.aspx" />
     <Content Include="Views\Competitions\Edit.aspx" />
     <Content Include="Views\Competitions\Index.aspx" />
     <Content Include="Views\Competitions\List.aspx" />
