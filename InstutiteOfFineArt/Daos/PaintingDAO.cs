@@ -15,7 +15,7 @@ namespace InstutiteOfFineArt.Daos
         public static DataTable All()
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
-            string sql = "SELECT * FROM [Paintings]";
+            string sql = "SELECT * FROM [Paintings] order by ID desc";
             DataTable dt = new DataTable();
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.Fill(dt);
@@ -62,7 +62,7 @@ namespace InstutiteOfFineArt.Daos
                 if (i < query.Count)
                     sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, item.Value);
+                    sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;
@@ -124,36 +124,6 @@ namespace InstutiteOfFineArt.Daos
             catch (Exception)
             {
                 
-                return false;
-            }
-            finally
-            {
-                DBUtilities.Close_Connection();
-            }
-        }
-
-        public static bool CreateForStudent(Painting a)
-        {
-
-            DBUtilities.Connection();
-            try
-            {
-                string sql = "Insert into Paintings (PaintingDescription,PaintingURL,UploadDate,LastModify,CompetitionId,StudentId)";
-                sql += " values (@1,@2,@3,@4,@5,@6)";
-                SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
-                cmd.Parameters.AddWithValue("@1", a.PaintingDescription);
-                cmd.Parameters.AddWithValue("@2", a.PaintingURL);
-                cmd.Parameters.AddWithValue("@3", a.UploadDate);
-                cmd.Parameters.AddWithValue("@4", a.LastModify);
-                cmd.Parameters.AddWithValue("@5", a.CompetitionId);
-                cmd.Parameters.AddWithValue("@6", a.StudentId);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Flash.dictFlash.Add("danger", ex.Message);
                 return false;
             }
             finally

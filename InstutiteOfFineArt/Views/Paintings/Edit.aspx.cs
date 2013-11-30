@@ -18,8 +18,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         private DateTime uploadDate;
         private string oldImage;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
+        { 
             if (Request.QueryString["ID"] != null)
             {
                 paintingID = Convert.ToInt32(Request.QueryString["ID"]);
@@ -28,7 +27,6 @@ namespace InstutiteOfFineArt.Views.Paintings
                 oldImage = p.PaintingURL;
                 if (!IsPostBack)
                 {
-                    
                     DataTable dt = CompetitionDAO.All();
                     cbCompetition.DataValueField = "Id";
                     cbCompetition.DataTextField = "Topic";
@@ -85,17 +83,10 @@ namespace InstutiteOfFineArt.Views.Paintings
 
                     txtPrice.Text = p.Price.ToString();
 
-
                 }
             }
             else
                 Response.Redirect("Index.aspx");
-              
-
-            
-
-
-
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
@@ -125,7 +116,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 p.PaintingDescription = string.IsNullOrWhiteSpace(txtDescription.Text) ? null : txtDescription.Text;
                 if (!string.IsNullOrWhiteSpace(txtPrice.Text))
                     p.Price = Convert.ToInt32(txtPrice.Text);
-                
+
                 if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
                 p.PaintingURL = UploadImage(flImage);
@@ -149,7 +140,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 else
                 {
                     Flash.dictFlash.Add("danger", " Cannot update Painting !!!");
-                    Response.Redirect("Edit.aspx?ID="+paintingID);
+                    Response.Redirect("Edit.aspx?ID=" + paintingID);
                 }
             }
 
@@ -177,7 +168,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 string newfileName = DateTime.Now.ToFileTime().ToString();
                 string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
                 flImage.SaveAs(fullName);
-                return newfileName + extentions; 
+                return newfileName + extentions;
             }
             return null;
         }

@@ -1450,6 +1450,12 @@
             classie.toggle(menuRight, 'cbp-spmenu-open');
             classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
         };
+        hideRightPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body_upload, 'cbp-spmenu-push-toleft');
+            classie.toggle(menuRight, 'cbp-spmenu-open');
+            classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
+        };
         $('.dropdown-toggle').dropdown();
     </script>
 </asp:Content>

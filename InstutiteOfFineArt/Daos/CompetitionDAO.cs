@@ -64,7 +64,7 @@ namespace InstutiteOfFineArt.Daos
                 if (i < query.Count)
                     sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, i);
+                    sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;
@@ -111,7 +111,10 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Parameters.AddWithValue("@4", c.DueDate);
                 cmd.Parameters.AddWithValue("@5", c.CompetitionDescription);
                 cmd.Parameters.AddWithValue("@6", c.Condition);
+                if(c.Remark != null)
                 cmd.Parameters.AddWithValue("@7", c.Remark);
+                else
+                    cmd.Parameters.AddWithValue("@7", "");
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return true;
@@ -175,6 +178,7 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
+                throw;
                 return false;
             }
             finally

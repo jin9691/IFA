@@ -37,9 +37,6 @@
                          <asp:BoundField DataField="Topic" HeaderText="Topic" />
                            <asp:BoundField DataField="StartDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Start Date" />
                            <asp:BoundField DataField="DueDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="End Date" />
-                       <asp:BoundField DataField="Remark" HeaderText="Remark" />
-                         
-                       
                         <asp:TemplateField HeaderText="Competition's description">
                             <ItemTemplate>
                                 <asp:Label ID="CompetitionDescription" runat="server" Text='<%# Description_Label(Eval("CompetitionDescription"))%>' />

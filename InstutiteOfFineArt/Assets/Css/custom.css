@@ -327,12 +327,12 @@ h1 .glyphicon
 
 .menu-upload{
     margin-top: 10px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .menu-upload b{
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .menu-upload img{
@@ -539,4 +539,9 @@ input[type='file']#ContentSite_fileUploadField
 {
     width:115px;
     margin-left:10px    
+}
+.alert-small
+{
+    width: 500px;
+    margin-top: 10px;
 }

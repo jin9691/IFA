@@ -203,6 +203,13 @@
     <Compile Include="Views\Exhibitions\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Exhibitions\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Exhibitions\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Paintings\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,9 +264,14 @@
     <Content Include="Assets\Css\custom.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
+    <Content Include="Assets\Css\exhibitions.css" />
     <Content Include="Assets\Css\jquery-ui.css" />
     <Content Include="Assets\Css\jquery.jscrollpane.css" />
+    <Content Include="Assets\Css\jquery.ui.core.css" />
+    <Content Include="Assets\Css\jquery.ui.slider.css" />
+    <Content Include="Assets\Css\jquery.ui.theme.css" />
     <Content Include="Assets\Css\parallax.css" />
+    <Content Include="Assets\Css\thumbnail_slider.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\Pages\add.png" />
     <Content Include="Assets\Images\Pages\ajax-loader.gif" />
@@ -269,7 +281,9 @@
     <Content Include="Assets\Images\Pages\bg2.png" />
     <Content Include="Assets\Images\Pages\bg3.png" />
     <Content Include="Assets\Images\Pages\cross.png" />
+    <Content Include="Assets\Images\Pages\dot.png" />
     <Content Include="Assets\Images\Pages\ifa-icon.png" />
+    <Content Include="Assets\Images\Paintings\joinnow.png" />
     <Content Include="Assets\Images\Pages\loading.gif" />
     <Content Include="Assets\Images\Pages\logo.png" />
     <Content Include="Assets\Images\Pages\logo_2.png" />
@@ -277,6 +291,7 @@
     <Content Include="Assets\Images\Pages\nav.png" />
     <Content Include="Assets\Images\Pages\next.png" />
     <Content Include="Assets\Images\Pages\prev.png" />
+    <Content Include="Assets\Images\Pages\triangle.png" />
     <Content Include="Assets\Images\Paintings\1.jpg" />
     <Content Include="Assets\Images\Paintings\10.jpg" />
     <Content Include="Assets\Images\Paintings\11.jpg" />
@@ -296,10 +311,14 @@
     <Content Include="Assets\Js\ChunkFive_400.font.js" />
     <Content Include="Assets\Js\classie.js" />
     <Content Include="Assets\Js\cufon-yui.js" />
+    <Content Include="Assets\Js\jqbrowser-uncompressed.js" />
     <Content Include="Assets\Js\jquery-1.7.2.js" />
     <Content Include="Assets\Js\jquery-animate-css-rotate-scale.js" />
     <Content Include="Assets\Js\jquery-css-transform.js" />
+    <Content Include="Assets\Js\jquery-mousewheel-3.0.4\jquery.mousewheel.js" />
+    <Content Include="Assets\Js\jquery-mousewheel-3.0.4\jquery.mousewheel.min.js" />
     <Content Include="Assets\Js\jquery-ui.js" />
+    <Content Include="Assets\Js\jquery.ba-hashchange.min.js" />
     <Content Include="Assets\Js\jquery.contentcarousel.js" />
     <Content Include="Assets\Js\jquery.easing.1.3.js" />
     <Content Include="Assets\Js\jquery.mousewheel.js" />
@@ -585,12 +604,12 @@
     <Content Include="Views\Exhibitions\List.aspx" />
     <Content Include="Views\Exhibitions\New.aspx" />
     <Content Include="Views\Exhibitions\Search.aspx" />
+    <Content Include="Views\Exhibitions\Show.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
     <Content Include="Views\Paintings\List.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
     <Content Include="Views\Paintings\Search.aspx" />
-    <Content Include="Assets\Js\modernizr.custom.js" />
     <Content Include="Views\Sessions\New.aspx" />
     <Content Include="Views\StaticPages\Home.aspx" />
     <Content Include="Views\Users\Edit.aspx" />

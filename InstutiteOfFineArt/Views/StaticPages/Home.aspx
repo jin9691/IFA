@@ -42,46 +42,46 @@
                     <!-- Elastislide Carousel -->
                     <ul id="carousel" class="elastislide-list">
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/1.jpg" alt="image01" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/1.jpg" alt="image01" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/2.jpg" alt="image02" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/2.jpg" alt="image02" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/3.jpg" alt="image03" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/3.jpg" alt="image03" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/4.jpg" alt="image04" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/4.jpg" alt="image04" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/5.jpg" alt="image05" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/5.jpg" alt="image05" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/6.jpg" alt="image06" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/6.jpg" alt="image06" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/7.jpg" alt="image07" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/7.jpg" alt="image07" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/8.jpg" alt="image08" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/8.jpg" alt="image08" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/9.jpg" alt="image09" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/9.jpg" alt="image09" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/10.jpg" alt="image10" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/10.jpg" alt="image10" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/11.jpg" alt="image11" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/11.jpg" alt="image11" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/12.jpg" alt="image12" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/12.jpg" alt="image12" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/13.jpg" alt="image13" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/13.jpg" alt="image13" /></a>
                         </li>
                         <li>
-                            <a><img src="../../Assets/Images/Paintings/14.jpg" alt="image14" /></a>
+                            <a class="image-slide"><img src="../../Assets/Images/Paintings/14.jpg" alt="image14" /></a>
                         </li>
                     </ul>
                     <!-- End Elastislide Carousel -->
@@ -95,14 +95,15 @@
 
         $('.elastislide-list > li > a > img').hover(function(){
             $(this).css({border: '0 solid #428bca'}).animate({ 
-                borderWidth: '2px',
-                padding: '5px'
+                opacity: 1
             },200)
             var src = $(this).attr("src");
             $(".show-image").children().children().children(".image").attr("src",src)
 
         },function(){
-            $(this).stop(true, true).animate({ borderWidth: "0px", padding: "0px" },200)
+            $(this).stop(true, true).animate({ 
+                opacity: 0.8
+            },200)
         });
         </script>
 </asp:Content>

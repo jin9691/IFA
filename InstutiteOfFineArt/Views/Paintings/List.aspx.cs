@@ -16,7 +16,9 @@ namespace InstutiteOfFineArt.Views.Paintings
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack){
+                
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                     User u = (User)Session["current_user"];
                     p.StudentId = Convert.ToInt32(u.Id);
                 }
-                if (PaintingDAO.CreateForStudent(p))
+                if (PaintingDAO.Create(p))
                 {
                     Flash.dictFlash.Add("success", String.Format("Upload painting [<b>{0}</b>] successfully", fileUploadField.FileName));
                     Response.Redirect("List.aspx");
@@ -77,9 +79,9 @@ namespace InstutiteOfFineArt.Views.Paintings
             }
             else
                 lbfileUploadErr.Text = "";
-            if (!ValidateClass.Validate_Length(txtDesc.Text, 50, 100))
+            if (!ValidateClass.Validate_Length(txtDesc.Text, 100, 700))
             {
-                lbDescErr.Text = "Description must be leght from 50 to 100 character";
+                lbDescErr.Text = "Description must be leght from 100 to 700 character";
                 return false;
             }
             else
