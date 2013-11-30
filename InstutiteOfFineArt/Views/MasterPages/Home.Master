@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../../Assets/Js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/classie.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-animate-css-rotate-scale.js"></script>
-    <script type="text/javascript" src="../../Assets/Js/modernizr.custom.js"></script>
+
     <asp:ContentPlaceHolder ID="CssJS" runat="server">
     </asp:ContentPlaceHolder>
 </head>
