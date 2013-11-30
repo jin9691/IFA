@@ -7,6 +7,11 @@ namespace InstutiteOfFineArt.Models
 {
     public class Competition
     {
+        public Competition()
+        {
+            StartDate = DateTime.Now;
+        }
+
         public int Id { get; set; }
         public int StaffId { get; set; }
         public string Topic { get; set; }

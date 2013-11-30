@@ -7,6 +7,15 @@ namespace InstutiteOfFineArt.Models
 {
     public class Painting
     {
+        public Painting()
+        {
+            Mark = 1;
+            UploadDate = DateTime.Now;
+            IsExhibited = false;
+            Price = 0;
+            IsPaid = false;
+            Comment = "";
+        }
         public int Id { get; set; }
         public string PaintingDescription { get; set; }
         public string PaintingURL { get; set; }

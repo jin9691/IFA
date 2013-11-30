@@ -7,6 +7,10 @@ namespace InstutiteOfFineArt.Models
 {
     public class Exhibition
     {
+        public Exhibition()
+        {
+            StartDate = DateTime.Now;
+        }
         public int Id { get; set; }
         public int ManagerId { get; set; }
         public string ExhibitionName { get; set; }

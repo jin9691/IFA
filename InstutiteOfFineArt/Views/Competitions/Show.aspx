@@ -29,7 +29,7 @@
             <form id="Form1" runat="server" action="Show.aspx" method="post" enctype="multipart/form-data">
                 <center class="hiddenFileInputContainter">
                     <img src="../../Assets/Images/Pages/add.png" id="addImageUpload" />
-                
+                    <asp:HiddenField ID="hdID" runat="server" />
                     <asp:FileUpload ID="fileUploadField" runat="server"></asp:FileUpload>
                 
                     <br />

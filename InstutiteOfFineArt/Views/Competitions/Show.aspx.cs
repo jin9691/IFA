@@ -26,7 +26,7 @@ namespace InstutiteOfFineArt.Views.Competitions
             Dictionary<string, object> query = new Dictionary<string, object>();
             query.Add("CompetitionId", Id);
             DataTable dtPainting = PaintingDAO.Where(query);
-
+            hdID.Value = Id.ToString();
             lvPxsSliderWrapper.DataSource = dtPainting;
             lvPxsSliderWrapper.DataBind();
 
@@ -36,7 +36,7 @@ namespace InstutiteOfFineArt.Views.Competitions
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            int CompetitionID = (Request.QueryString["ID"] != null) ? Convert.ToInt32(Request.QueryString["ID"]) : 1;
+            int CompetitionID = Convert.ToInt32(hdID.Value);
             
             if (validateControl())
             {              
@@ -56,15 +56,15 @@ namespace InstutiteOfFineArt.Views.Competitions
                     p.UploadDate = DateTime.Now;
                     p.LastModify = DateTime.Now;
                     p.StudentId = Convert.ToInt32(u.Id);
-                    if (PaintingDAO.CreateForStudent(p))
+                    if (PaintingDAO.Create(p))
                     {
                         Flash.dictFlash.Add("success", String.Format("Upload painting [<b>{0}</b>] successfully", fileUploadField.FileName));
-                        Response.Redirect("Show.aspx");
+                        Response.Redirect("Show.aspx?ID="+hdID.Value);
                     }
                     else
                     {
                         Flash.dictFlash.Add("danger", " Cannot create Painting !!!");
-                        Response.Redirect("Show.aspx");
+                        Response.Redirect("Show.aspx?ID=" + hdID.Value);
                     }
                 }
                 else {

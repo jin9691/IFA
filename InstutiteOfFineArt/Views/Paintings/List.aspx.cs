@@ -38,7 +38,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                     User u = (User)Session["current_user"];
                     p.StudentId = Convert.ToInt32(u.Id);
                 }
-                if (PaintingDAO.CreateForStudent(p))
+                if (PaintingDAO.Create(p))
                 {
                     Flash.dictFlash.Add("success", String.Format("Upload painting [<b>{0}</b>] successfully", fileUploadField.FileName));
                     Response.Redirect("List.aspx");
