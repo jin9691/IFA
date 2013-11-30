@@ -57,7 +57,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         {
             List<string> query = new List<string>();
             query.Add(String.Format("Username like '%{0}%'", Session["txtSearchPainting"]));
-            DataTable dtUsers = UserDAO.SearchByStudent(query);
+            DataTable dtUsers = UserDAO.Search(query);
             if (dtUsers.Rows.Count > 0)
             {
                 List<object> queryPaint = new List<object>();

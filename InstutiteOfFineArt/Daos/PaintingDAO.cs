@@ -15,7 +15,7 @@ namespace InstutiteOfFineArt.Daos
         public static DataTable All()
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
-            string sql = "SELECT * FROM [Paintings]";
+            string sql = "SELECT * FROM [Paintings] order by ID desc";
             DataTable dt = new DataTable();
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
             adap.Fill(dt);
@@ -60,9 +60,9 @@ namespace InstutiteOfFineArt.Daos
             foreach (var item in query)
             {
                 if (i < query.Count)
-                    sql += String.Format("{0} = {1} and ", item.Key, i);
+                    sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, item.Value);
+                    sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;

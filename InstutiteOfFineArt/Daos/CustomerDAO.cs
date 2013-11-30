@@ -56,7 +56,7 @@ namespace InstutiteOfFineArt.Daos
                 if (i < query.Count)
                     sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = {1}", item.Key, i);
+                    sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;

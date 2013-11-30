@@ -88,15 +88,18 @@ namespace InstutiteOfFineArt.Views.Paintings
                     Flash.dictFlash.Add("danger", "This student had painting in this competition !!!");
                     Response.Redirect("New.aspx");
                 }
-                else if (PaintingDAO.Create(p))
-                {
-                    Flash.dictFlash.Add("success", String.Format("Created painting [<b>{0}</b>] successfully", flImage.FileName));
-                    Response.Redirect("Index.aspx");
-                }
                 else
                 {
-                    Flash.dictFlash.Add("danger", " Cannot create Painting !!!");
-                    Response.Redirect("New.aspx");
+                    if (PaintingDAO.Create(p))
+                    {
+                    Flash.dictFlash.Add("success", String.Format("Created painting [<b>{0}</b>] successfully", flImage.FileName));
+                    Response.Redirect("Index.aspx");
+                    }
+                    else
+                    {
+                        Flash.dictFlash.Add("danger", " Cannot create Painting !!!");
+                        Response.Redirect("New.aspx");
+                    }
                 }
             }
 
