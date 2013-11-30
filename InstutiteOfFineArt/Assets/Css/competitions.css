@@ -1,10 +1,10 @@
 /* Circular Content Carousel Style */
 .ca-container{
-	padding-top: 20px;
+	padding-top: 30px;
 	position:relative;
 	margin:0px auto 20px auto;
 	width:990px;
-	height:500px;
+	height:510px;
 }
 .ca-wrapper{
 	width:100%;
@@ -170,14 +170,14 @@
     background-color: rgba(0,0,0,0.5);
     bottom: 0;
     margin-top: 100px !important;
-    height: 120px;
+    height: 100px;
     left: 0;
     position: absolute;
     right: 0;
 }
 
 .co-footer h1{
-	font-size: 50px;
+	font-size: 40px;
 	padding-top: 10px;
 	font-family: "Georgia","Times New Roman",serif;
 }

@@ -101,6 +101,17 @@ namespace InstutiteOfFineArt.Views.Competitions
                     Flash.dictFlash.Add("danger", "Description must be lenght from 100 to 300 character");
                     return false;
                 }
+                if (!ValidateClass.Validate_Datetime(txtDueDate.Text))
+                {
+                    Flash.dictFlash.Add("danger", "* End date must be valid date");
+                    return false;
+                }
+                if (!ValidateClass.Validate_Datetime(txtStartDate.Text))
+                {
+                    Flash.dictFlash.Add("danger", "* Start date must be valid date");
+                    return false;
+                }
+
             }
             return true;
         }
