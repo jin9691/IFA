@@ -16,15 +16,17 @@ namespace InstutiteOfFineArt.Views.Paintings
     {
         private int paintingID;
         private DateTime uploadDate;
+        private string oldImage;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            paintingID = Convert.ToInt32(Request.QueryString["ID"]);
+        { 
             if (Request.QueryString["ID"] != null)
             {
-                if (ValidateClass.Validate_Number(Request.QueryString["ID"]))
+                paintingID = Convert.ToInt32(Request.QueryString["ID"]);
+                Painting p = PaintingDAO.Find(paintingID);
+                uploadDate = p.UploadDate;
+                oldImage = p.PaintingURL;
+                if (!IsPostBack)
                 {
-                    Painting p = PaintingDAO.Find(paintingID);
-                    uploadDate = p.UploadDate;
                     DataTable dt = CompetitionDAO.All();
                     cbCompetition.DataValueField = "Id";
                     cbCompetition.DataTextField = "Topic";
@@ -57,9 +59,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                     txtPrice.Text = p.Price.ToString();
                     txtComent.Text = p.Comment == null ? "" : p.Comment;
                     txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
-                    previewImage.ImageUrl = "../../Assets/Images/Paintings/" + p.PaintingURL;
-
-
+                    previewImage.ImageUrl = Painting_show(p.PaintingURL);
                     if (p.Mark == 1)
                         rdbBad.Checked = true;
                     else if (p.Mark == 2)
@@ -82,12 +82,11 @@ namespace InstutiteOfFineArt.Views.Paintings
                         rdbNotExhibition.Checked = true;
 
                     txtPrice.Text = p.Price.ToString();
+
                 }
             }
             else
-            {
                 Response.Redirect("Index.aspx");
-            }
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
@@ -121,11 +120,20 @@ namespace InstutiteOfFineArt.Views.Paintings
                 if (cbStudent.SelectedValue != null && cbStudent.SelectedValue != "")
                     p.StudentId = Convert.ToInt32(cbStudent.SelectedValue);
                 p.PaintingURL = UploadImage(flImage);
+                
                 p.UploadDate = uploadDate;
                 p.LastModify = DateTime.Now;
-                //PaintingDAO.Create(p);
-                if (PaintingDAO.Update(p))
+                if (!Validate_Image_ONCE())
                 {
+                    Flash.dictFlash.Add("danger", "This student had painting in this competition !!!");
+                    Response.Redirect("Edit.aspx?ID=" + paintingID);
+                }
+                else if (PaintingDAO.Update(p))                
+                {
+                    if (p.PaintingURL != null)
+                    {
+                        Delete_Image(oldImage);
+                    }
                     Flash.dictFlash.Add("success", String.Format("Update <b>painting</b> successfully"));
                     Response.Redirect("Index.aspx");
                 }
@@ -138,11 +146,24 @@ namespace InstutiteOfFineArt.Views.Paintings
 
         }
 
+        private bool Validate_Image_ONCE()
+        {
+            int competitionID = Convert.ToInt32(cbCompetition.SelectedValue);
+            int studentID = Convert.ToInt32(cbStudent.SelectedValue);
+            Dictionary<string, object> query = new Dictionary<string, object>();
+            query.Add("CompetitionID", competitionID);
+            query.Add("StudentID", studentID);
+            DataTable dt = PaintingDAO.Where(query);
+            if (dt.Rows.Count > 1)
+                return false;
+            return true;
+        }
+
         private string UploadImage(FileUpload flImage)
         {
 
             if (flImage.HasFile)
-            {
+            {               
                 string extentions = Path.GetExtension(flImage.FileName);
                 string newfileName = DateTime.Now.ToFileTime().ToString();
                 string fullName = Server.MapPath(@"\Assets\Images\Paintings\") + newfileName + extentions;
@@ -150,6 +171,10 @@ namespace InstutiteOfFineArt.Views.Paintings
                 return newfileName + extentions;
             }
             return null;
+        }
+        private string Painting_show(object url)
+        {
+            return "../../Assets/Images/Paintings/" + url;
         }
 
         private bool validateControl()
@@ -167,15 +192,14 @@ namespace InstutiteOfFineArt.Views.Paintings
 
             }
 
-            if (ValidateClass.Validate_Length(txtPrice.Text, 50, 100))
-            {
-                lbDescriptionErr.Text = "Description is required";
-                return false;
-            }
-            else
-                lbDescriptionErr.Text = "";
+            
 
             return true;
+        }
+
+        public void Delete_Image(string url)
+        {
+            File.Delete(Server.MapPath(@"\Assets\Images\Paintings\") + url);
         }
     }
 }

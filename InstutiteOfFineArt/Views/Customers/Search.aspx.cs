@@ -13,7 +13,7 @@ namespace InstutiteOfFineArt.Views.Customers
 {
     public partial class Search : System.Web.UI.Page
     {
-        private string search_query;
+        //private string search_query;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

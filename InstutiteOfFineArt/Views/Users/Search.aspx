@@ -8,7 +8,7 @@
             <form method="Post" action="Search.aspx">
                 <div class="col-md-8 pull-left">
                     <div class="input-group">
-                        <input type="text" name="txtSearch" class="form-control input-lg" placeholder="Insert name or email here...">
+                        <input type="text" name="txtSearch" class="form-control input-lg" placeholder="Insert name or email here..."/>
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
