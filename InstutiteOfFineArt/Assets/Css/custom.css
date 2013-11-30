@@ -540,3 +540,12 @@ input[type='file']#ContentSite_fileUploadField
     width:115px;
     margin-left:10px    
 }
+.alert-small
+{
+    width: 500px;
+    margin-top: 10px;
+}
+/*Competitions show*/
+ul.pxs_slider .li img {
+    width: 400px;
+}

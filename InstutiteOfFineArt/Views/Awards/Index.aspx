@@ -46,7 +46,7 @@
                     <asp:TemplateField HeaderText="Painting">
                         <ItemTemplate>
                             <img id='img_<%# Eval("Id")%>' src='../../Assets/Images/Paintings/<%# Painting_Image(Eval("PaintingId"))%>'
-                                                            style=" width: 50px;"/>
+                                                            style=" height: 40px;"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Competition">
