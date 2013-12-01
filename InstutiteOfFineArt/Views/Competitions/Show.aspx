@@ -98,20 +98,21 @@
                         <div class="row" style="margin-top: 1%">
                             <div class="col-md-5 image-src" style="margin-left: 2%">
                                 <center>
-                                <img src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' alt='<%# Eval("Id")%> Image' />
-                                <center>
-                                    <h2>
-                                        Mark: <strong><small>
-                                            <%# Eval("Mark")%></small></strong>
-                                    </h2>
-                                </center>
+                                    <img src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' alt='<%# Eval("Id")%> Image' />
+                                    <center>
+                                        <h2>
+                                            Mark: <strong><small>
+                                                <%# Mark_Equal(Eval("Mark"))%></small></strong>
+                                        </h2>
+                                    </center>
                                 </center>
                             </div>
                             <div class="col-md-6">
                                 <div class="image-desc">
                                     <h2>
-                                        Student: <strong><small><%# Student_Name(Eval("StudentId"))%></small></strong> 
-                                        <a href="#" class="btn btn-danger btn-sm pull-right"style="margin-left: 5px">More</a>
+                                        Student: <strong><small>
+                                            <%# Student_Name(Eval("StudentId"))%></small></strong> <a href="#" class="btn btn-danger btn-sm pull-right"
+                                                style="margin-left: 5px">More</a>
                                     </h2>
                                     <hr>
                                     <div class="row">
@@ -142,25 +143,26 @@
             </div>
             <div class="row">
                 <ul class="pxs_thumbnails">
-                        <asp:ListView ID="lvPxsSliderSmall" runat="server">
-                            <LayoutTemplate>                  
-                                <li class="image-thumbs" id="itemPlaceholder" runat="server"></li>
-                                <li style="margin-left: 50%" class="img-upload"><a href="#" class="pull-right btn btn-primary btn-lg"
-                                id="showRightPush"><span class="glyphicon glyphicon-upload" style="margin-right: 5px;
-                                    opacity: 0.8"></span>Upload </a></li>                        
-                            </LayoutTemplate>
-                            <ItemTemplate>
-                                 <li class="image-thumbs">
-                                    <img style="height: 100px" src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' alt='<%# Eval("Id")%> Image' />
-                                  </li>
-                            </ItemTemplate>
-                        </asp:ListView>
-                    </ul>
-                
+                    <asp:ListView ID="lvPxsSliderSmall" runat="server">
+                        <LayoutTemplate>
+                            <li class="image-thumbs" id="itemPlaceholder" runat="server"></li>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <li class="image-thumbs">
+                                <img style="height: 100px" src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>'
+                                    alt='<%# Eval("Id")%> Image' />
+                            </li>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    <li style="margin-left: 50%" class="img-upload"><a href="#" class="pull-right btn btn-primary btn-lg"
+                        id="showRightPush"><span class="glyphicon glyphicon-upload" style="margin-right: 5px;
+                            opacity: 0.8"></span>Upload </a></li>
+                </ul>
             </div>
         </div>
     </div>
     <script type="text/javascript">
+        var null_img = false;
         (function ($) {
             $.fn.parallaxSlider = function (options) {
                 var opts = $.extend({}, $.fn.parallaxSlider.defaults, options);
@@ -196,7 +198,13 @@
                     //first preload all the images
                     var loaded = 0,
                     $images = $pxs_slider_wrapper.find('img');
-
+                    console.log($images.length);
+                    if ($images.length == 0) {
+                        $pxs_loading.hide();
+                        //$pxs_slider_wrapper.show();
+                        $("#showRightPush").click();
+                        return;
+                    }
                     $images.each(function () {
                         var $img = $(this);
                         $('<img/>').load(function () {
@@ -353,12 +361,9 @@
 
                             }
                         }).error(function () {
-                            alert('here')
+
                         }).attr('src', $img.attr('src'));
                     });
-
-
-
                 });
             };
 
@@ -468,12 +473,15 @@
             classie.toggle(menuRight, 'cbp-spmenu-open');
             classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
         };
-        hideRightPush.onclick = function () {
-            classie.toggle(this, 'active');
-            classie.toggle(body_upload, 'cbp-spmenu-push-toleft');
-            classie.toggle(menuRight, 'cbp-spmenu-open');
-            classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
-        };
+        if (!null_img) {
+            hideRightPush.onclick = function () {
+                classie.toggle(this, 'active');
+                classie.toggle(body_upload, 'cbp-spmenu-push-toleft');
+                classie.toggle(menuRight, 'cbp-spmenu-open');
+                classie.toggle(menu_upload, 'cbp-spmenu-push-toleft');
+            };
+        }
+
         var err = $(".lbUploadErr").text();
         if (err.length > 0) {
             $("#showRightPush").click();

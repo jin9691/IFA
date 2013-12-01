@@ -7,6 +7,10 @@ namespace InstutiteOfFineArt.Models
 {
     public class Painting
     {
+        public const string MARK_BAD = "Bad";
+        public const string MARK_Normal = "Normal";
+        public const string MARK_GOOD = "Good";
+        public const string MARK_BEST = "BEST";
         public Painting()
         {
             Mark = 1;
