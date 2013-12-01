@@ -252,6 +252,8 @@
     <Content Include="Assets\Css\bootstrap.css" />
     <Content Include="Assets\Css\competitions.css" />
     <Content Include="Assets\Css\custom.css" />
+    <Content Include="Assets\Css\custom2.css" />
+    <Content Include="Assets\Css\demo2.css" />
     <Content Include="Assets\Css\docs.css" />
     <Content Include="Assets\Css\elastislide.css" />
     <Content Include="Assets\Css\exhibitions.css" />
@@ -262,6 +264,7 @@
     <Content Include="Assets\Css\jquery.ui.theme.css" />
     <Content Include="Assets\Css\parallax.css" />
     <Content Include="Assets\Css\thumbnail_slider.css" />
+    <Content Include="Assets\Css\stapel2.css" />
     <Content Include="Assets\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Images\Pages\add.png" />
     <Content Include="Assets\Images\Pages\ajax-loader.gif" />
@@ -314,6 +317,9 @@
     <Content Include="Assets\Js\jquery.contentcarousel.js" />
     <Content Include="Assets\Js\jquery.easing.1.3.js" />
     <Content Include="Assets\Js\jquery.mousewheel.js" />
+    <Content Include="Assets\Js\jquery.min.js" />
+    <Content Include="Assets\Js\jquery.stapel.js" />
+    <Content Include="Assets\Js\modernizr.custom.63321.js" />
     <Content Include="Views\Awards\List.aspx" />
     <Content Include="Views\Competitions\Edit.aspx" />
     <Content Include="Views\Competitions\Index.aspx" />
