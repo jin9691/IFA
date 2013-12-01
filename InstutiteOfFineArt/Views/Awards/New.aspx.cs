@@ -80,6 +80,33 @@ namespace InstutiteOfFineArt.Views.Awards
 
         protected bool Validate_Control()
         {
+            Dictionary<string, object> query = new Dictionary<string, object>();
+            query.Add("CompetitionId", Convert.ToInt32(drlCompetitionId.SelectedValue));
+            DataTable dtAward = AwardDAO.Where(query);
+
+            if(dtAward.Rows.Count == 3){
+                Flash.dictFlash.Add("danger", "This competition has 3 Awards. Can't add any more");
+                return false;
+            }
+
+            string AwardRank = "";
+            if (rdb1st.Checked)
+                AwardRank = "1st";
+            else if (rdb2nd.Checked)
+                AwardRank = "2nd";
+            else
+                AwardRank = "3rd";
+            Dictionary<string, object> query_s = new Dictionary<string, object>();
+            query_s.Add("CompetitionId", Convert.ToInt32(drlCompetitionId.SelectedValue));
+            query_s.Add("AwardRank", AwardRank);
+            DataTable dtAward_s = AwardDAO.Where(query_s);
+
+            if (dtAward_s.Rows.Count >= 1 )
+            {
+                Flash.dictFlash.Add("danger", "This competition has picture with " + AwardRank + ". Please choice another rank");
+                return false;
+            }
+
             if (!ValidateClass.Validate_Require(txtAwardName.Text))
             {
                 lbAwardNameErr.Text = "* Name cannot be blank";

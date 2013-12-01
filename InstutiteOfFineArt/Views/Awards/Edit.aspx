@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
         <h1>
-            Award Management <strong><small>(Edit Award)</small></strong> <a href="/awards"
+            Award Management <strong><small>(Edit Award)</small></strong> <a href="/Index.aspx"
                 class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
                 </span>Back</a>
         </h1>
@@ -18,7 +18,7 @@
                 <thead>
                     <tr>
                         <th colspan="3">
-                            <span style="float: left">Create new award</span>
+                            <span style="float: left">Edit award</span>
                         </th>
                     </tr>
                 </thead>
@@ -124,7 +124,10 @@
                                 Font-Bold="true" />
                         </td>
                         <td class="col-md-6">
-                            <asp:TextBox runat="server" ID="txtAwardDess" CssClass="form-control" TextMode="MultiLine" />
+                            <asp:TextBox runat="server" ID="txtAwardDesc" CssClass="form-control" TextMode="MultiLine" />
+                        </td>
+                        <td class="col-md-4" style="padding: 15px">
+                            <asp:Label ID="lbDescErr" Text="" runat="server" ForeColor="#A73333" />
                         </td>
                     </tr>
                     <tr>

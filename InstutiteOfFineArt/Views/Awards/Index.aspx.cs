@@ -50,7 +50,7 @@ namespace InstutiteOfFineArt.Views.Awards
             {
                 Flash.dictFlash.Add("success", String.Format("Cannot delete award [<b>{0}</b>]", award.AwardName));
             }
-            Response.Redirect("/awards");
+            Response.Redirect("Index.aspx");
         }
 
         public string Competition_Topic(object Id)

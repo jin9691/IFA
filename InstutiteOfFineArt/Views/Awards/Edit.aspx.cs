@@ -15,15 +15,15 @@ namespace InstutiteOfFineArt.Views.Awards
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(RouteData.Values["id"]);
-            if (RouteData.Values["id"] != null)
+            int Id = Convert.ToInt32(Request.QueryString["Id"] != null);
+            if (Request.QueryString["Id"] != null)
             {
                 if (!IsPostBack)
                 {
                     Load_Data();
                     Award a = AwardDAO.Find(Id);
                     txtAwardName.Text = a.AwardName;
-                    txtAwardDess.Text = a.AwardDescription;
+                    txtAwardDesc.Text = a.AwardDescription;
                     if (a.AwardRank == "1st")
                         rdb1st.Checked = true;
                     else if (a.AwardRank == "2nd")
@@ -37,7 +37,7 @@ namespace InstutiteOfFineArt.Views.Awards
             }
             else
             {
-                Response.Redirect("/awards");
+                Response.Redirect("Index.aspx");
             }
         }
 
@@ -83,16 +83,16 @@ namespace InstutiteOfFineArt.Views.Awards
                     a.AwardRank = "2nd";
                 else
                     a.AwardRank = "3rd";
-                a.AwardDescription = txtAwardDess.Text;
+                a.AwardDescription = txtAwardDesc.Text;
                 if (AwardDAO.Update(a))
                 {
                     Flash.dictFlash.Add("success", String.Format("Updated Award [<b>{0}</b>] successfully", a.AwardName));
-                    Response.Redirect("/awards");
+                    Response.Redirect("Index.aspx");
                 }
                 else
                 {
                     Flash.dictFlash.Add("danger", "[<b>Award name</b>] are already used");
-                    Response.Redirect(String.Format("/award/{0}/edit",Id));
+                    Response.Redirect(String.Format("Awards/Edit.aspx?ID={0}", Id));
                 }
 
             }
@@ -100,11 +100,55 @@ namespace InstutiteOfFineArt.Views.Awards
 
         protected bool Validate_Control()
         {
+            Dictionary<string, object> query = new Dictionary<string, object>();
+            query.Add("CompetitionId", Convert.ToInt32(drlCompetitionId.SelectedValue));
+            DataTable dtAward = AwardDAO.Where(query);
+
+            if (dtAward.Rows.Count == 3)
+            {
+                Flash.dictFlash.Add("danger", "This competition has 3 Awards. Can't add any more");
+                return false;
+            }
+
+            string AwardRank = "";
+            if (rdb1st.Checked)
+                AwardRank = "1st";
+            else if (rdb2nd.Checked)
+                AwardRank = "2nd";
+            else
+                AwardRank = "3rd";
+            Dictionary<string, object> query_s = new Dictionary<string, object>();
+            query_s.Add("CompetitionId", Convert.ToInt32(drlCompetitionId.SelectedValue));
+            query_s.Add("AwardRank", AwardRank);
+            DataTable dtAward_s = AwardDAO.Where(query_s);
+
+            if (dtAward_s.Rows.Count >= 1)
+            {
+                Flash.dictFlash.Add("danger", "This competition has picture with " + AwardRank + ". Please choice another rank");
+                return false;
+            }
+
             if (!ValidateClass.Validate_Require(txtAwardName.Text))
             {
                 lbAwardNameErr.Text = "* Name cannot be blank";
                 return false;
             }
+            else
+                lbAwardNameErr.Text = "";
+            if (!ValidateClass.Validate_Require(txtPatingID.Value))
+            {
+                lbPatingIDErr.Text = "You must choice picture";
+                return false;
+            }
+            else
+                lbPatingIDErr.Text = "";
+            if (!ValidateClass.Validate_Length(txtAwardDesc.Text, 50, 100))
+            {
+                lbDescErr.Text = "Description must be leght from 50 to 100 character";
+                return false;
+            }
+            else
+                lbDescErr.Text = "";
             return true;
         }
 
