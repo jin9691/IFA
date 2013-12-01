@@ -50,8 +50,7 @@ namespace InstutiteOfFineArt.Views.Users
         {
             if (Validate_Control())
             {
-                User u = new User();
-                u.Id = Convert.ToInt32(Request.QueryString["ID"]);
+                User u = UserDAO.Find(Convert.ToInt32(Request.QueryString["ID"]));
                 u.Name = txtFullname.Text;
                 u.Username = txtUsername.Text;
                 u.Email = txtEmail.Text;
