@@ -185,6 +185,33 @@ namespace InstutiteOfFineArt.Views.Competitions
             return "";
         }
 
+        public string Btn_Role(object Id)
+        {
+            string btn = "";
+
+            if (Id != null)
+            {
+                int val = Convert.ToInt32(Id.ToString());
+                User u = (User)Session["current_user"];
+                if (Session["current_user"] != null)
+                {
+                    string award = "<a href='#' id='" + Id + "' class='award btn btn-success btn-sm pull-right' style='margin-left: 5px; margin-right: 5px'>Award</a>";
+                    string remark = "<a href='#' class='edit-remark btn btn-warning btn-sm pull-right' style='margin-left: 5px' >Remark</a>";
+                    string edit = "<a href='#' class='edit-desc btn btn-info btn-sm pull-right' style='margin-left: 5px; margin-right: 5px'>Edit</a>";
+
+                    switch (u.Permission)
+                    {
+                        case 1: btn = award + remark;
+                            break;
+                        case 3: btn = edit;
+                            break;
+                    }
+                }
+
+            }
+            return btn;
+        }
+
         protected void lbtDelete_Click(object sender, EventArgs e)
         {
             LinkButton a = sender as LinkButton;

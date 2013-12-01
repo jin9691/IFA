@@ -146,6 +146,34 @@ namespace InstutiteOfFineArt.Views.Competitions
 
         }
 
+        public string Btn_Role(object Id) {
+            string btn = "";
+
+            if (Id != null)
+            {
+                int val = Convert.ToInt32(Id.ToString());
+                User u = (User)Session["current_user"];
+                if (Session["current_user"] != null)
+                {
+                    string all_image = "<li><a href='Show.aspx?ID=" + Id + "' class='btn btn-primary btn-sm'>All images</a></li>";
+                    string remark = "<li><a href='#' class='edit-remark btn btn-success btn-sm' >Remark</a></li>";
+                    string edit = "<li><a href='#' class='edit-desc btn btn-warning btn-sm'>Edit</a></li>";
+                    
+                    switch (u.Permission)
+                    {                        
+                        case 1: btn = all_image + remark + edit;
+                            break;
+                        case 2: btn = all_image;
+                            break;
+                        case 3: btn = all_image;
+                            break;
+                    }
+                }
+                
+            }
+            return btn;       
+        }
+
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             if (Validate_Add())
