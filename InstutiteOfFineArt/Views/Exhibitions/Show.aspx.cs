@@ -25,7 +25,7 @@ namespace InstutiteOfFineArt.Views.Exhibitions
         private void Load_Data()
         {
             int Id = (Request.QueryString["ID"] != null) ? Convert.ToInt32(Request.QueryString["ID"]) : 1;
-            if (Id != null)
+            if (Request.QueryString["ID"] != null)
             {
                 Dictionary<string, object> query = new Dictionary<string, object>();
                 query.Add("ExhibitionId", Id);
