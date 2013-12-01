@@ -23,7 +23,6 @@
     <% } %>
     <% InstutiteOfFineArt.Codes.Flash.dictFlash.Clear(); %>
     <form id="Form1" runat="server" method="post">
-
         <div class="header" style="display: none">
             <div id="pg_scrollWrapper" class="pg_scrollWrapper">
                 <div id="slider" class="slider"></div>
@@ -48,9 +47,8 @@
                                         <%# ((bool)Eval("IsPaid")) ? "Purchared" : (Eval("Price") + "$")%>
                                     </a>
                                     <br />
-                                    <asp:LinkButton OnClick="Destroy_Click" ID="Destroy" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" CssClass="btn btn-danger btn-sm" Width="100px" runat="server">Delete</asp:LinkButton>
+                                    <asp:LinkButton OnClick="Destroy_Click" ID="Destroy" On CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" CssClass="btn btn-danger btn-sm" Width="100px" runat="server">Delete</asp:LinkButton>
                                 </center>
-
                             </li>
                         </ItemTemplate>
                     </asp:ListView>
@@ -309,6 +307,7 @@
                                 .animate({
                                     left: -idx * o.thumb_width + 'px'
                                 }, o.speed, o.easing);
+<<<<<<< HEAD
 
                                 //zoom in the thumb image if zoom is true
                                 if (o.zoom && o.zoomratio > 1) {
@@ -339,6 +338,38 @@
                                 $ts_thumbnails.stop(true)
                                 .hide();
 
+=======
+
+                                //zoom in the thumb image if zoom is true
+                                if (o.zoom && o.zoomratio > 1) {
+                                    var new_width = o.zoomratio * o.thumb_width,
+                                    new_height = o.zoomratio * o.thumb_height;
+
+                                    //increase the $ts_preview width in order to fit the zoomed image
+                                    var ts_preview_w = $ts_preview.width();
+                                    $ts_preview.css('width', (ts_preview_w - o.thumb_width + new_width) + 'px');
+
+                                    $ts_preview.children().eq(idx).find('img').stop().animate({
+                                        width: new_width + 'px',
+                                        height: new_height + 'px'
+                                    }, o.zoomspeed);
+                                }
+
+                            }).bind('mouseleave', function () {
+                                //if zoom set the width and height to defaults
+                                if (o.zoom && o.zoomratio > 1) {
+                                    var $nav_elem = $(this),
+                                    idx = $nav_elem.index();
+                                    $ts_preview.children().eq(idx).find('img').stop().css({
+                                        width: o.thumb_width + 'px',
+                                        height: o.thumb_height + 'px'
+                                    });
+                                }
+
+                                $ts_thumbnails.stop(true)
+                                .hide();
+
+>>>>>>> HieuNN
                             }).bind('click', function (e) {
                                 var $nav_elem = $(this),
                                 idx = $nav_elem.index();
