@@ -24,7 +24,9 @@ namespace InstutiteOfFineArt.Views.Exhibitions
 
         private void Load_Data()
         {
-            DataTable dtExhibition = ExhibitionDAO.All();
+            List<string> query = new List<string>();
+            query.Add("ID != 0");
+            DataTable dtExhibition = ExhibitionDAO.Search(query);
             gdvExhibition.DataSource = dtExhibition;
             gdvExhibition.DataBind();
             lbCountExibition.Text = dtExhibition.Rows.Count.ToString();
@@ -47,7 +49,7 @@ namespace InstutiteOfFineArt.Views.Exhibitions
 
             Exhibition exhibition = ExhibitionDAO.Find(id);
 
-            if (paintTB.Rows.Count < 0)
+            if (paintTB.Rows.Count <= 0)
             {
                 if (ExhibitionDAO.Destroy(exhibition))
                 {

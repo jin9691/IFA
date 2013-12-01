@@ -19,7 +19,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <IISExpressSSLPort  />
+    <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -283,6 +283,7 @@
     <Content Include="Assets\Images\Pages\cross.png" />
     <Content Include="Assets\Images\Pages\dot.png" />
     <Content Include="Assets\Images\Pages\ifa-icon.png" />
+    <Content Include="Assets\Images\Paintings\coming-soon.png" />
     <Content Include="Assets\Images\Paintings\joinnow.png" />
     <Content Include="Assets\Images\Pages\loading.gif" />
     <Content Include="Assets\Images\Pages\logo.png" />
@@ -317,6 +318,7 @@
     <Content Include="Assets\Js\jquery-css-transform.js" />
     <Content Include="Assets\Js\jquery-mousewheel-3.0.4\jquery.mousewheel.js" />
     <Content Include="Assets\Js\jquery-mousewheel-3.0.4\jquery.mousewheel.min.js" />
+    <Content Include="Assets\Js\jquery-mousewheel-3.0.4\LICENSE.txt" />
     <Content Include="Assets\Js\jquery-ui.js" />
     <Content Include="Assets\Js\jquery.ba-hashchange.min.js" />
     <Content Include="Assets\Js\jquery.contentcarousel.js" />
@@ -710,6 +712,8 @@
     <Content Include="ckeditor\skins\moono\readme.md" />
     <Content Include="obj\Debug\build.force" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Assets\Js\jquery-mousewheel-3.0.4\ChangeLog.markdown" />
+    <Content Include="Assets\Js\jquery-mousewheel-3.0.4\README.markdown" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

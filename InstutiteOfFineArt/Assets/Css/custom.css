@@ -457,7 +457,6 @@ h1 .glyphicon
 {
     background-color: #428bca;
     border-color: #357ebd;
-    margin-top: 20px;
 }
 
 .item-danger
@@ -470,6 +469,12 @@ h1 .glyphicon
 {
     background-color: #563d7c;
     border-color: #463265;
+}
+
+.item-search
+{
+    background-color: #5CB8AD;
+    border-color: #4CAEAA;
 }
 
 .item-success
@@ -543,5 +548,4 @@ input[type='file']#ContentSite_fileUploadField
 .alert-small
 {
     width: 500px;
-    margin-top: 10px;
 }
