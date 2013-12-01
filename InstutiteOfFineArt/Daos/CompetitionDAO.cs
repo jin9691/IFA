@@ -15,20 +15,12 @@ namespace InstutiteOfFineArt.Daos
         public static DataTable All()
         {
 
-            try
-            {
-                DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
-                DataTable dt = new DataTable();
-                string sql = "Select * from [Competitions] order by Id desc";
-                SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
-                adap.Fill(dt);
-                return dt;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
+            DataTable dt = new DataTable();
+            string sql = "Select * from [Competitions] order by Id desc";
+            SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+            adap.Fill(dt);
+            return dt;
         }
 
         public static Competition Find(int id)
@@ -62,9 +54,9 @@ namespace InstutiteOfFineArt.Daos
             foreach (var item in query)
             {
                 if (i < query.Count)
-                    sql += String.Format("{0} = @{1} and ", item.Key, i);
+                sql += String.Format("{0} = @{1} and ", item.Key, i);
                 else
-                    sql += String.Format("{0} = @{1}", item.Key, i);
+                sql += String.Format("{0} = @{1}", item.Key, i);
                 i++;
             }
             i = 1;
@@ -86,9 +78,9 @@ namespace InstutiteOfFineArt.Daos
             foreach (var item in query)
             {
                 if (i < query.Count)
-                    sql += String.Format("{0} or ", item);
+                sql += String.Format("{0} or ", item);
                 else
-                    sql += String.Format("{0} order by Id desc", item);
+                sql += String.Format("{0} order by Id desc", item);
                 i++;
             }
             SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
@@ -114,7 +106,7 @@ namespace InstutiteOfFineArt.Daos
                 if(c.Remark != null)
                 cmd.Parameters.AddWithValue("@7", c.Remark);
                 else
-                    cmd.Parameters.AddWithValue("@7", "");
+                cmd.Parameters.AddWithValue("@7", "");
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return true;
@@ -146,9 +138,9 @@ namespace InstutiteOfFineArt.Daos
                     if (propValue != null && prop.Name != "Id")
                     {
                         if (j < props.Count)
-                            sql += String.Format("{0} = @{1} ,", prop.Name, i);
+                        sql += String.Format("{0} = @{1} ,", prop.Name, i);
                         else
-                            sql += String.Format("{0} = @{1} where ID= @{2}", prop.Name, i, i + 1);
+                        sql += String.Format("{0} = @{1} where ID= @{2}", prop.Name, i, i + 1);
                         i++;
                     }
                     j++;
@@ -162,7 +154,7 @@ namespace InstutiteOfFineArt.Daos
                     if (propValue != null && prop.Name != "Id")
                     {
                         if (j < props.Count)
-                            cmd.Parameters.AddWithValue(String.Format("@{0}", i), propValue);
+                        cmd.Parameters.AddWithValue(String.Format("@{0}", i), propValue);
                         else
                         {
                             cmd.Parameters.AddWithValue(String.Format("@{0}", i), propValue);
@@ -178,7 +170,6 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                throw;
                 return false;
             }
             finally

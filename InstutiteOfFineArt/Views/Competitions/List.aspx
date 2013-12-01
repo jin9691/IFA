@@ -25,10 +25,12 @@
                     <div class="modal-body">
                         <asp:HiddenField ID="hdEdit" runat="server" />
                         <asp:HiddenField ID="hdID" runat="server" />
-                        <asp:HiddenField ID="hdStaff" runat="server" />
-                        <asp:TextBox ID="txtEdit" runat="server" TextMode="MultiLine" CssClass="form-control" Height="200px"></asp:TextBox>
+                        <asp:TextBox ID="txtEdit" runat="server" TextMode="MultiLine" CssClass="form-control" Height="100px"></asp:TextBox>
                         <br />
                         <div id="edit-desc" style="display: none">
+                            <b>Conditition:</b>
+                            <asp:TextBox ID="txtEditCon" runat="server" TextMode="MultiLine" CssClass="form-control" Height="100px"></asp:TextBox>
+                            <br />
                             <b>Start Date:</b>
                             <asp:TextBox runat="server" ID="txtEditStart" CssClass="form-control"></asp:TextBox>
                             <br />
@@ -99,13 +101,13 @@
                                     </div>
                                     <ul>
                                         <p id="desc" style="display: none"><%# Eval("CompetitionDescription") %></p>
+                                        <p id="condition" style="display: none"><%# Eval("Condition") %></p>
                                         <p id="remark" style="display: none"><%# Eval("Remark") %></p>
                                         <p id="id-com" style="display: none"><%# Eval("Id") %></p>
                                         <p id="start" style="display: none"><%# String.Format("{0:dd/MM/yyyy}",Eval("StartDate")) %></p>
                                         <p id="due" style="display: none"><%# String.Format("{0:dd/MM/yyyy}",Eval("DueDate")) %></p>
-                                        <p id="staff" style="display: none"><%# Eval("StaffId") %></p>
                                         <li><a href="Show.aspx?ID=<%# Eval("Id") %>" class="btn btn-primary btn-sm">All images</a></li>
-                                        <li><a href="#" class="edit-remark btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Remark</a></li>
+                                        <li><a href="#" class="edit-remark btn btn-success btn-sm" >Remark</a></li>
                                         <li>
                                             <asp:LinkButton ID="Destroy" runat="server" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" OnClick="Destroy_Click" CssClass="delete-competition btn btn-danger btn-sm">
                                             Delete
@@ -160,9 +162,9 @@
             $("#<%= hdID.ClientID %>").val($(this).parent().siblings("#id-com").html())
             $("#edit-desc").css("display", "none");
             $("#<%= hdEdit.ClientID %>").val("remark")
+            $("#<%= txtEditCon.ClientID %>").val($(this).parent().siblings("#condition").html())
             $("#<%= txtEditStart.ClientID %>").val($(this).parent().siblings("#start").html())
             $("#<%= txtEditDue.ClientID %>").val($(this).parent().siblings("#due").html())
-            $("#<%= hdStaff.ClientID %>").val($(this).parent().siblings("#staff").html())
         })
         $('.edit-desc').click(function () {
             $('#myModal').modal({
@@ -174,8 +176,8 @@
             $("#edit-desc").css("display", "inline");
             $("#<%= txtEditStart.ClientID %>").val($(this).parent().siblings("#start").html())
             $("#<%= txtEditDue.ClientID %>").val($(this).parent().siblings("#due").html())
+            $("#<%= txtEditCon.ClientID %>").val($(this).parent().siblings("#condition").html())
             $("#<%= hdEdit.ClientID %>").val("desc")
-            $("#<%= hdStaff.ClientID %>").val($(this).parent().siblings("#staff").html())
         })
         $('#ca-container').contentcarousel();
         $("#btnCancel").click(function () {

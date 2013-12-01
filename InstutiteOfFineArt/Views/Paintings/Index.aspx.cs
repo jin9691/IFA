@@ -34,7 +34,7 @@ namespace InstutiteOfFineArt.Views.Paintings
             }
             else
             {
-                Flash.dictFlash.Add("success", String.Format("Cannot delete painting [<b>{0}</b>]", u.PaintingURL));
+                Flash.dictFlash.Add("danger", String.Format("Cannot delete painting [<b>{0}</b>]", u.PaintingURL));
             }
             Response.Redirect("Index.aspx");
         }

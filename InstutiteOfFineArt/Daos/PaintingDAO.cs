@@ -76,7 +76,7 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
-        public static DataTable Search(List<object> query) 
+        public static DataTable Search(List<object> query)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
             DataTable dt = new DataTable();
@@ -113,7 +113,10 @@ namespace InstutiteOfFineArt.Daos
                 cmd.Parameters.AddWithValue("@7", a.StudentId);
                 cmd.Parameters.AddWithValue("@8", a.ExhibitionId);
                 cmd.Parameters.AddWithValue("@9", a.CustomerId);
-                cmd.Parameters.AddWithValue("@10", a.Comment);
+                if (a.Comment == null)
+                    cmd.Parameters.AddWithValue("@10", "");
+                else
+                    cmd.Parameters.AddWithValue("@10", a.Comment);
                 cmd.Parameters.AddWithValue("@11", a.IsExhibited);
                 cmd.Parameters.AddWithValue("@12", a.Price);
                 cmd.Parameters.AddWithValue("@13", a.IsPaid);
@@ -123,7 +126,7 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                
+
                 return false;
             }
             finally
@@ -181,7 +184,7 @@ namespace InstutiteOfFineArt.Daos
             catch (Exception)
             {
                 return false;
-               
+
             }
             finally
             {

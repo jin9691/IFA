@@ -60,7 +60,7 @@ namespace InstutiteOfFineArt.Views.Exhibitions
             }
             else
             {
-                Flash.dictFlash.Add("success", String.Format("Cannot delete exhibition [<b>{0}</b>]", ex.ExhibitionName));
+                Flash.dictFlash.Add("danger", String.Format("Cannot delete exhibition [<b>{0}</b>]", ex.ExhibitionName));
             }
             Response.Redirect("List.aspx");
         }

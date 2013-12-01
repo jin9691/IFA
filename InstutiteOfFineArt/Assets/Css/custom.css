@@ -27,7 +27,8 @@ hr
 
 /* Overwrite Bootstrap */
 .image-desc .dropdown-menu{
-    min-width: 90px !important;
+    min-width: 70px !important;
+    padding: 2px 0;
 }
 
 .image-desc .dropdown-menu > li > a:hover, .image-desc.dropdown-menu > li > a:focus {

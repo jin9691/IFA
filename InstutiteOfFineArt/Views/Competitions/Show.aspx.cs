@@ -16,31 +16,39 @@ namespace InstutiteOfFineArt.Views.Competitions
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
                 Load_Data();
             }
         }
-        
-        private void Load_Data(){
-            int Id = (Request.QueryString["ID"] != null) ? Convert.ToInt32(Request.QueryString["ID"]) : 1;
-            Dictionary<string, object> query = new Dictionary<string, object>();
-            query.Add("CompetitionId", Id);
-            DataTable dtPainting = PaintingDAO.Where(query);
-            hdID.Value = Id.ToString();
-            lvPxsSliderWrapper.DataSource = dtPainting;
-            lvPxsSliderWrapper.DataBind();
 
-            lvPxsSliderSmall.DataSource = dtPainting;
-            lvPxsSliderSmall.DataBind();
+        private void Load_Data()
+        {
+            if (Request.QueryString["ID"] != null)
+            {
+                int Id = Convert.ToInt32(Request.QueryString["ID"]);
+                Dictionary<string, object> query = new Dictionary<string, object>();
+                query.Add("CompetitionId", Id);
+                DataTable dtPainting = PaintingDAO.Where(query);
+                hdID.Value = Id.ToString();
+                lvPxsSliderWrapper.DataSource = dtPainting;
+                lvPxsSliderWrapper.DataBind();
+                lvPxsSliderSmall.DataSource = dtPainting;
+                lvPxsSliderSmall.DataBind();
+            }
+            else
+            {
+                Response.Redirect("List.aspx");
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             int CompetitionID = Convert.ToInt32(hdID.Value);
-            
+
             if (validateControl())
-            {              
-                User u = (User)Session["current_user"];                    
+            {
+                User u = (User)Session["current_user"];
                 //Check Student unique Competition
                 Dictionary<string, object> query = new Dictionary<string, object>();
                 query.Add("CompetitionId", CompetitionID);
@@ -59,7 +67,7 @@ namespace InstutiteOfFineArt.Views.Competitions
                     if (PaintingDAO.Create(p))
                     {
                         Flash.dictFlash.Add("success", String.Format("Upload painting [<b>{0}</b>] successfully", fileUploadField.FileName));
-                        Response.Redirect("Show.aspx?ID="+hdID.Value);
+                        Response.Redirect("Show.aspx?ID=" + hdID.Value);
                     }
                     else
                     {
@@ -67,10 +75,11 @@ namespace InstutiteOfFineArt.Views.Competitions
                         Response.Redirect("Show.aspx?ID=" + hdID.Value);
                     }
                 }
-                else {
+                else
+                {
                     Flash.dictFlash.Add("warning", String.Format("You have sent picture with this competition"));
                 }
-                
+
             }
         }
 
@@ -85,25 +94,20 @@ namespace InstutiteOfFineArt.Views.Competitions
 
         private bool validateControl()
         {
-            if (Session["current_user"] == null)
-            {
-                Flash.dictFlash.Add("danger", " You must login !!!");
-                return false;
-            }
             if (!ValidateClass.Validate_Image_Require(fileUploadField))
             {
-                lbfileUploadErr.Text = "Image is required !!!";               
+                lbfileUploadErr.Text = "Image is required !!!";
                 return false;
             }
             else if (!ValidateClass.Validate_FileType(fileUploadField))
-            {          
+            {
                 lbfileUploadErr.Text = "File is not image";
                 return false;
             }
             else
                 lbfileUploadErr.Text = "";
             if (!ValidateClass.Validate_Length(txtDesc.Text, 100, 700))
-            {         
+            {
                 lbDescErr.Text = "Description must be lenght from 100 to 700 character";
                 lbfileUploadErr.Text = "Upload try again";
                 return false;
@@ -114,6 +118,27 @@ namespace InstutiteOfFineArt.Views.Competitions
             return true;
         }
 
+        private bool Validate_Edit()
+        {
+            if (hdEdit.Value.Equals("remark"))
+            {
+                if (!ValidateClass.Validate_Length(txtEdit.Text, 100, 300))
+                {
+                    Flash.dictFlash.Add("danger", "Remark must be lenght from 100 to 300 character");
+                    return false;
+                }
+            }
+            else
+            {
+                if (!ValidateClass.Validate_Length(txtEdit.Text, 100, 500))
+                {
+                    Flash.dictFlash.Add("danger", "Description must be lenght from 100 to 300 character");
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public string Student_Name(object Id)
         {
             int val = Convert.ToInt32(Id.ToString());
@@ -121,9 +146,33 @@ namespace InstutiteOfFineArt.Views.Competitions
             return user.Name;
         }
 
-        public string Mark_Equal(object point){
+        public string Check_Painting(bool check)
+        {
+            int Id = Convert.ToInt32(hdID.Value);
+            Dictionary<string, object> query = new Dictionary<string, object>();
+            query.Add("CompetitionId", Id);
+            DataTable dt = PaintingDAO.Where(query);
+            if (check)
+            {
+                if (dt.Rows.Count > 0)
+                    return "inline";
+                else
+                    return "none";
+            }
+            else
+            {
+                if (dt.Rows.Count > 0)
+                    return "none";
+                else
+                    return "inline";
+            }
+        }
+
+        public string Mark_Equal(object point)
+        {
             int val = Convert.ToInt32(point.ToString());
-            switch (val) {
+            switch (val)
+            {
                 case 1: return Painting.MARK_BAD;
                     break;
                 case 2: return Painting.MARK_Normal;
@@ -133,8 +182,165 @@ namespace InstutiteOfFineArt.Views.Competitions
                 case 4: return Painting.MARK_BEST;
                     break;
             }
-            return "Invalid";
-        } 
+            return "";
+        }
+
+        protected void lbtDelete_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            if (PaintingDAO.Destroy(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Delete painting successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot delete this painting! Please check <b>\"Award\"</b>"));
+            }
+            Response.Redirect("Show.aspx?ID=" + hdID.Value);
+        }
+
+        protected void Best_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            p.Mark = 4;
+            if (PaintingDAO.Update(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Set mark successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot set mark this painting"));
+            }
+            Response.Redirect("Show.aspx?ID=" + hdID.Value);
+        }
+
+        protected void Good_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            p.Mark = 3;
+            if (PaintingDAO.Update(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Set mark successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot set mark this painting"));
+            }
+            Response.Redirect("Show.aspx?ID=" + hdID.Value);
+        }
+
+        protected void Normal_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            p.Mark = 2;
+            if (PaintingDAO.Update(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Set mark successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot set mark this painting"));
+            }
+            Response.Redirect("Show.aspx?ID=" + hdID.Value);
+        }
+
+        protected void Bad_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            p.Mark = 1;
+            if (PaintingDAO.Update(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Set mark successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot set mark this painting"));
+            }
+            Response.Redirect("Show.aspx?ID=" + hdID.Value);
+        }
+
+        protected void btnAccept_Click(object sender, EventArgs e)
+        {
+
+            Award a = new Award();
+            a.CompetitionId = Convert.ToInt32(hdID.Value);
+            a.PaintingId = Convert.ToInt32(hdIDPaint.Value);
+            a.AwardName = txtAdName.Text;
+            if (rdb1st.Checked)
+                a.AwardRank = "1st";
+            else if (rdb2nd.Checked)
+                a.AwardRank = "2nd";
+            else
+                a.AwardRank = "3rd";
+            a.AwardDescription = txtAwardDesc.Text;
+            if (Check_Paint_Award(a.CompetitionId, a.PaintingId, a.AwardRank))
+            {
+                if (AwardDAO.Create(a))
+                    Flash.dictFlash.Add("success", "Set award successfully");
+                else
+                    Flash.dictFlash.Add("danger", "Set award error");
+            }
+        }
+
+        private bool Check_Paint_Award(int iD, int pID, string rank)
+        {
+            Dictionary<string, object> query = new Dictionary<string, object>();
+            query.Add("CompetitionID", iD);
+            DataTable dt = AwardDAO.Where(query);
+            if (dt.Rows.Count > 3)
+            {
+                Flash.dictFlash.Add("warning", "One contest only three paintings are awarded");
+                return false;
+            }
+            else
+            {
+                query.Add("AwardRank", rank);
+                dt = AwardDAO.Where(query);
+                if (dt.Rows.Count > 0)
+                {
+                    Flash.dictFlash.Add("warning", String.Format("This competition had award rank {0}", rank));
+                    return false;
+                }
+                else
+                {
+                    query.Add("PaintingID", pID);
+                    dt = AwardDAO.Where(query);
+                    if (dt.Rows.Count > 0)
+                    {
+                        Flash.dictFlash.Add("warning", "This painting are awarded");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            if (Validate_Edit())
+            {
+                Painting p = PaintingDAO.Find(Convert.ToInt32(hdPEdit.Value));
+                if (hdEdit.Value.Equals("desc"))
+                    p.PaintingDescription = txtEdit.Text;
+                else
+                    p.Comment = txtEdit.Text;
+                if (PaintingDAO.Update(p))
+                    Flash.dictFlash.Add("success", "Update successfully");
+                else
+                    Flash.dictFlash.Add("danger", "Update error");
+                Response.Redirect("Show.aspx?Id="+p.CompetitionId);
+            }
+        }
 
     }
 }

@@ -40,15 +40,6 @@ namespace InstutiteOfFineArt.Views.Competitions {
         protected global::System.Web.UI.WebControls.HiddenField hdID;
         
         /// <summary>
-        /// hdStaff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdStaff;
-        
-        /// <summary>
         /// txtEdit control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace InstutiteOfFineArt.Views.Competitions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEdit;
+        
+        /// <summary>
+        /// txtEditCon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditCon;
         
         /// <summary>
         /// txtEditStart control.

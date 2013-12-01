@@ -106,7 +106,6 @@ namespace InstutiteOfFineArt.Daos
             }
             catch (Exception)
             {
-                throw;
                 return false;
             }
             finally

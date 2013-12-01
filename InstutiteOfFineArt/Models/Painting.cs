@@ -10,15 +10,14 @@ namespace InstutiteOfFineArt.Models
         public const string MARK_BAD = "Bad";
         public const string MARK_Normal = "Normal";
         public const string MARK_GOOD = "Good";
-        public const string MARK_BEST = "BEST";
+        public const string MARK_BEST = "Best";
         public Painting()
         {
-            Mark = 1;
+            Mark = 0;
             UploadDate = DateTime.Now;
             IsExhibited = false;
             Price = 0;
             IsPaid = false;
-            Comment = "";
         }
         public int Id { get; set; }
         public string PaintingDescription { get; set; }

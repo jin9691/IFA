@@ -92,8 +92,7 @@ namespace InstutiteOfFineArt.Views.Paintings
         {
             if (validateControl())
             {
-                Painting p = new Painting();
-                p.Id = paintingID;
+                Painting p = PaintingDAO.Find(paintingID);
                 p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
                 //p.Comment = txtComent.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")

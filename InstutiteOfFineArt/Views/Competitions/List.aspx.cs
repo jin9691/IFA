@@ -68,15 +68,14 @@ namespace InstutiteOfFineArt.Views.Competitions
         {
             if (Validate_Control())
             {
-                Competition c = new Competition();
-                c.Id = Convert.ToInt32(hdID.Value);
-                c.StaffId = Convert.ToInt32(hdStaff.Value);
+                Competition c =CompetitionDAO.Find(Convert.ToInt32(hdID.Value));
                 if (hdEdit.Value.Equals("desc"))
                     c.CompetitionDescription = txtEdit.Text;
                 else
                     c.Remark = txtEdit.Text;
                 c.StartDate = DateTime.Parse(txtEditStart.Text);
                 c.DueDate = DateTime.Parse(txtEditDue.Text);
+                c.Condition = txtEditCon.Text;
                 if (CompetitionDAO.Update(c))
                     Flash.dictFlash.Add("success", "Update successfully");
                 else
@@ -101,12 +100,12 @@ namespace InstutiteOfFineArt.Views.Competitions
                     Flash.dictFlash.Add("danger", "Description must be lenght from 100 to 300 character");
                     return false;
                 }
-                if (!ValidateClass.Validate_Datetime(txtDueDate.Text))
+                if (!ValidateClass.Validate_Datetime(txtEditDue.Text))
                 {
                     Flash.dictFlash.Add("danger", "* End date must be valid date");
                     return false;
                 }
-                if (!ValidateClass.Validate_Datetime(txtStartDate.Text))
+                if (!ValidateClass.Validate_Datetime(txtEditStart.Text))
                 {
                     Flash.dictFlash.Add("danger", "* Start date must be valid date");
                     return false;

@@ -13,43 +13,43 @@ namespace InstutiteOfFineArt.Views.Competitions
 {
     public partial class Edit : System.Web.UI.Page
     {
+        private int Id;
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!IsPostBack)
+            Id = Convert.ToInt32(Request.QueryString["ID"]);
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["ID"] != null)
                 {
-                    int Id = Convert.ToInt32(Request.QueryString["ID"]);
-                    if (Request.QueryString["ID"] != null)
-                    {
-                        Competition c = CompetitionDAO.Find(Id);
-                        txtConditition.Text = c.Condition;
-                        txtDescription.Text = c.CompetitionDescription;
-                        txtEndDate.Text = c.DueDate.ToShortDateString();
-                        txtRemark.Text = c.Remark;
-                        txtStartDate.Text = c.StartDate.ToShortDateString();
-                        txtTopic.Text = c.Topic;
+                    Competition c = CompetitionDAO.Find(Id);
+                    txtConditition.Text = c.Condition;
+                    txtDescription.Text = c.CompetitionDescription;
+                    txtEndDate.Text = c.DueDate.ToShortDateString();
+                    txtRemark.Text = c.Remark;
+                    txtStartDate.Text = c.StartDate.ToShortDateString();
+                    txtTopic.Text = c.Topic;
 
-                        Dictionary<string, object> query = new Dictionary<string, object>();
-                        query.Add("Permission", 1);
-                        DataTable dtStudent = UserDAO.Where(query);
-                        cbStaff.DataValueField = "Id";
-                        cbStaff.DataTextField = "Name";
-                        cbStaff.DataSource = dtStudent;
-                        cbStaff.DataBind();
-                        cbStaff.SelectedValue = c.StaffId.ToString();
-                    }
-                    else
-                    {
-                        Response.Redirect("Index.aspx");
-                    }
-
+                    Dictionary<string, object> query = new Dictionary<string, object>();
+                    query.Add("Permission", 1);
+                    DataTable dtStudent = UserDAO.Where(query);
+                    cbStaff.DataValueField = "Id";
+                    cbStaff.DataTextField = "Name";
+                    cbStaff.DataSource = dtStudent;
+                    cbStaff.DataBind();
+                    cbStaff.SelectedValue = c.StaffId.ToString();
                 }
+                else
+                {
+                    Response.Redirect("Index.aspx");
+                }
+
+            }
         }
         protected void btnAccept_Click(object sender, EventArgs e)
         {
             if (validateControl())
             {
-
-                Competition c = new Competition();
+                Competition c = CompetitionDAO.Find(Id);
                 c.Remark = txtRemark.Text;
                 if (cbStaff.SelectedValue != null)
                     c.StaffId = Convert.ToInt32(cbStaff.SelectedValue);
@@ -60,7 +60,7 @@ namespace InstutiteOfFineArt.Views.Competitions
                 c.CompetitionDescription = txtConditition.Text;
                 if (CompetitionDAO.Update(c))
                 {
-                    Flash.dictFlash.Add("success", String.Format("Created competition [<b>{0}</b>] successfully", c.Topic));
+                    Flash.dictFlash.Add("success", String.Format("Edit competition [<b>{0}</b>] successfully", c.Topic));
                     Response.Redirect("Index.aspx");
                 }
                 else
