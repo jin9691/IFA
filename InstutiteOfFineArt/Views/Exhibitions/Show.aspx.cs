@@ -145,6 +145,23 @@ namespace InstutiteOfFineArt.Views.Exhibitions
 
             return true;
         }
+
+        protected void Destroy_Click(object sender, EventArgs e)
+        {
+            LinkButton a = sender as LinkButton;
+            int id = Convert.ToInt32(a.CommandArgument);
+            InstutiteOfFineArt.Models.Painting p = PaintingDAO.Find(id);
+            p.ExhibitionId = 0;
+            if (PaintingDAO.Update(p))
+            {
+                Flash.dictFlash.Add("success", String.Format("Remove painting successfully"));
+            }
+            else
+            {
+                Flash.dictFlash.Add("danger", String.Format("Cannot remove this painting!"));
+            }
+            Response.Redirect("Show.aspx?ID=" + Request.QueryString["ID"]);
+        }
     }
 
 

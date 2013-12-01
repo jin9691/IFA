@@ -60,7 +60,7 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-default btn-lg" role="button">
+                    <a href="../Awards/Index.aspx" class="btn btn-default btn-lg" role="button">
                         <span class="glyphicon glyphicon-certificate"></span>
                         <br>
                         Adwards

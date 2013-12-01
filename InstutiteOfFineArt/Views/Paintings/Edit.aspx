@@ -100,8 +100,8 @@
                                 <asp:Label ID="lbPaintingDescription" Text="Description:" CssClass="pull-right" runat="server" Font-Bold="true" />
                             </td>
                             <td class="col-md-6">
-                                <%--<asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" TextMode="MultiLine" />--%>
-                                <CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" TextMode="MultiLine" />
+                                <%--<CKEditor:CKEditorControl ID="txtDescription" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>--%>
                             </td>
                             <td class="col-md-4" style="padding: 15px">
                                 <asp:Label ID="lbDescriptionErr" Text="*" runat="server" ForeColor="#A73333" />
@@ -112,8 +112,8 @@
                                 <asp:Label ID="lbComment" Text="Comment:" CssClass="pull-right" runat="server" Font-Bold="True" />
                             </td>
                             <td class="col-md-6">
-                                <%--<asp:TextBox runat="server" ID="txtComment" CssClass="form-control" />--%>
-                                <CKEditor:CKEditorControl ID="txtComent" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                <asp:TextBox runat="server" ID="txtComment" TextMode="MultiLine" CssClass="form-control" />
+                                <%--<CKEditor:CKEditorControl ID="txtComent" BasePath="/ckeditor/" runat="server"></CKEditor:CKEditorControl>--%>
                             </td>
                             <td class="col-md-4" style="padding: 15px"></td>
                         </tr>

@@ -3,9 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="BodyClass" runat="server">
-    page
-</asp:Content>
 <%@ Import Namespace="InstutiteOfFineArt.Codes" %>
 <asp:Content ID="Content5" ContentPlaceHolderID="CssJs" runat="server">
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/parallax.css" />
@@ -14,7 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="ContentSite" runat="server">
     <form id="Form1" runat="server" action="Show.aspx" method="post" enctype="multipart/form-data">
-
+        <asp:HiddenField ID="hdImage" runat="server" />
 
         <div class="modal fade" id="modalAward" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -212,14 +209,19 @@
                                 <li class="image-thumbs" id="itemPlaceholder" runat="server"></li>
                             </LayoutTemplate>
                             <ItemTemplate>
-                                <li class="image-thumbs">
+                                <li class="image-thumbs" id='paint_<%# Eval("Id")%>'>
                                     <img style="height: 100px" src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>'
                                         alt='<%# Eval("Id")%> Image' />
                                 </li>
                             </ItemTemplate>
                         </asp:ListView>
-                        <li style="margin-left: 100%" class="img-upload"><a href="#" class="pull-right btn btn-primary btn-lg"
-                            id="showRightPush"><span class="glyphicon glyphicon-upload" style="margin-right: 5px; opacity: 0.8"></span>Upload </a></li>
+                        <li style="margin-left: 100%" class="img-upload">
+                            <a href="#" class="pull-right btn btn-primary btn-lg"
+                            id="showRightPush"><span class="glyphicon glyphicon-upload" style="margin-right: 5px; opacity: 0.8"></span>Upload </a>
+                            <a href="#" style="margin-top:10px" class="pull-right btn btn-warning btn-lg" id="search_image">
+                                <span class="glyphicon glyphicon-search" style="margin-right: 5px; opacity: 0.8"></span>My Painting 
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -234,6 +236,11 @@
             }
         </script>
         <script type="text/javascript">
+            $("#search_image").click(function () {
+                var id = $("#<%= hdImage.ClientID %>").val();
+                $("#paint_"+id).click();
+            })
+
             $('.edit-remark').click(function () {
                 $('#myModal').modal({
                     keyboard: false
@@ -367,10 +374,15 @@
                                         var left = spaces * 1.3 * (i + 1) - $this.width() / 2;
                                         $this.css('left', left + 'px');
                                         $(".img-upload").css('left', left + 'px');
-                                        $(".img-upload").css('top', '30px');
+                                        $(".img-upload").css('top', '-10px');
                                         if (o.thumbRotation) {
                                             var angle = Math.floor(Math.random() * 41) - 20;
                                             $this.css({
+                                                '-moz-transform': 'rotate(' + angle + 'deg)',
+                                                '-webkit-transform': 'rotate(' + angle + 'deg)',
+                                                'transform': 'rotate(' + angle + 'deg)'
+                                            });
+                                            $(".img-upload").css({
                                                 '-moz-transform': 'rotate(' + angle + 'deg)',
                                                 '-webkit-transform': 'rotate(' + angle + 'deg)',
                                                 'transform': 'rotate(' + angle + 'deg)'

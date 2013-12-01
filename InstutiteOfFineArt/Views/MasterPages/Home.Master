@@ -23,8 +23,7 @@
     <asp:ContentPlaceHolder ID="CssJS" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="<asp:ContentPlaceHolder ID='BodyClass' runat='server'>
-        </asp:ContentPlaceHolder>">
+<body class="page">
     <% if (current_user != null)
        { %>
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2">

@@ -57,7 +57,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                     cbStudent.DataBind();
                     cbStudent.SelectedValue = p.StudentId.ToString();
                     txtPrice.Text = p.Price.ToString();
-                    txtComent.Text = p.Comment == null ? "" : p.Comment;
+                    txtComment.Text = p.Comment == null ? "" : p.Comment;
                     txtDescription.Text = p.Comment == null ? "" : p.PaintingDescription;
                     previewImage.ImageUrl = Painting_show(p.PaintingURL);
                     if (p.Mark == 1)
@@ -93,7 +93,8 @@ namespace InstutiteOfFineArt.Views.Paintings
             if (validateControl())
             {
                 Painting p = PaintingDAO.Find(paintingID);
-                p.Comment = string.IsNullOrWhiteSpace(txtComent.Text) ? null : txtComent.Text;
+                int oldComID = p.CompetitionId;
+                p.Comment = string.IsNullOrWhiteSpace(txtComment.Text) ? null : txtComment.Text;
                 //p.Comment = txtComent.Text;
                 if (cbCompetition.SelectedValue != null && cbCompetition.SelectedValue != "")
                     p.CompetitionId = Convert.ToInt32(cbCompetition.SelectedValue);
@@ -122,7 +123,7 @@ namespace InstutiteOfFineArt.Views.Paintings
                 
                 p.UploadDate = uploadDate;
                 p.LastModify = DateTime.Now;
-                if (!Validate_Image_ONCE())
+                if (!Validate_Image_ONCE(oldComID))
                 {
                     Flash.dictFlash.Add("danger", "This student had painting in this competition !!!");
                     Response.Redirect("Edit.aspx?ID=" + paintingID);
@@ -145,16 +146,19 @@ namespace InstutiteOfFineArt.Views.Paintings
 
         }
 
-        private bool Validate_Image_ONCE()
+        private bool Validate_Image_ONCE(int old_id)
         {
-            int competitionID = Convert.ToInt32(cbCompetition.SelectedValue);
-            int studentID = Convert.ToInt32(cbStudent.SelectedValue);
-            Dictionary<string, object> query = new Dictionary<string, object>();
-            query.Add("CompetitionID", competitionID);
-            query.Add("StudentID", studentID);
-            DataTable dt = PaintingDAO.Where(query);
-            if (dt.Rows.Count > 1)
-                return false;
+            if (old_id != Convert.ToInt32(cbCompetition.SelectedValue))
+            {
+                int competitionID = Convert.ToInt32(cbCompetition.SelectedValue);
+                int studentID = Convert.ToInt32(cbStudent.SelectedValue);
+                Dictionary<string, object> query = new Dictionary<string, object>();
+                query.Add("CompetitionID", competitionID);
+                query.Add("StudentID", studentID);
+                DataTable dt = PaintingDAO.Where(query);
+                if (dt.Rows.Count > 1)
+                    return false;
+            }
             return true;
         }
 

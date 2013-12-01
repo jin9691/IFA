@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CKEditor.NET">
-      <HintPath>.\CKEditor.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -223,13 +220,6 @@
     </Compile>
     <Compile Include="Views\Paintings\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Paintings\List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Paintings\List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Paintings\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
@@ -609,7 +599,6 @@
     <Content Include="Views\Exhibitions\Show.aspx" />
     <Content Include="Views\Paintings\Edit.aspx" />
     <Content Include="Views\Paintings\Index.aspx" />
-    <Content Include="Views\Paintings\List.aspx" />
     <Content Include="Views\Paintings\New.aspx" />
     <Content Include="Views\Paintings\Search.aspx" />
     <Content Include="Views\Sessions\New.aspx" />

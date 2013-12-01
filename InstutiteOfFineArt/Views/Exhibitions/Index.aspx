@@ -37,7 +37,6 @@
                         <asp:BoundField DataField="ExhibitionName" HeaderText="ExhibitionName" />
                         <asp:BoundField DataField="StartDate" HeaderText="StartDate" DataFormatString="{0:MM/dd/yyyy}" />
                         <asp:BoundField DataField="EndDate" HeaderText="EndDate" DataFormatString="{0:MM/dd/yyyy}" />
-                        <asp:BoundField DataField="ExhibitionDescription" HeaderText="ExhibitionDescription" />
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
                                 <div class="btn-group">

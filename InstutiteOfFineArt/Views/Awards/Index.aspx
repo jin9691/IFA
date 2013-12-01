@@ -42,7 +42,6 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="AwardName" HeaderText="Award Name" />
                     <asp:BoundField DataField="AwardRank" HeaderText="Award Rank" />
-                    <asp:BoundField DataField="AwardDescription" HeaderText="Award Description" />
                     <asp:TemplateField HeaderText="Painting">
                         <ItemTemplate>
                             <img id='img_<%# Eval("Id")%>' src='../../Assets/Images/Paintings/<%# Painting_Image(Eval("PaintingId"))%>'
