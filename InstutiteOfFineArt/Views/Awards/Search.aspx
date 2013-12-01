@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSite" runat="server">
     <div class="management-main container">
         <div class="row">
-            <form method="Post" action="/awards/search">
+            <form method="Post" action="Search.aspx">
             <div class="col-md-8 pull-left">
                 <div class="input-group">
                     <input type="text" name="txtSearch" class="form-control input-lg" placeholder="Insert award name here...">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             </form>
-            <a href="/awards" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
+            <a href="Index.aspx" class="btn btn-danger btn-lg pull-right"><span class="glyphicon glyphicon-arrow-left">
             </span>Back</a>
         </div>
         <hr>
@@ -53,7 +53,7 @@
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <div class="btn-group">
-                                <a href='/award/<%# Eval("Id")%>/edit' class="btn btn-default"><span class="glyphicon glyphicon-pencil">
+                                <a href='Edit.aspx?Id=<%# Eval("Id")%>' class="btn btn-default"><span class="glyphicon glyphicon-pencil">
                                 </span></a>
                                 <asp:LinkButton ID="Destroy" runat="server" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();"
                                     OnClick="Destroy_Click" CssClass="btn btn-default">

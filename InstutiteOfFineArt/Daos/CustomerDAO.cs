@@ -94,7 +94,7 @@ namespace InstutiteOfFineArt.Daos
             DBUtilities.Connection();
             try
             {
-                string sql = "Insert into Customers (Email,Name,Address,Gender,Birthday,Phone)";
+                string sql = "Insert into Customers (CustomerEmail,CustomerName,CustomerAddress,CustomerGender,CustomerBirthday,CustomerPhone)";
                 sql += " values (@1,@2,@3,@4,@5,@6)";
                 SqlCommand cmd = new SqlCommand(sql, DBUtilities.objConnection);
                 cmd.Parameters.AddWithValue("@1", u.CustomerEmail);

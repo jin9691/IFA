@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master" AutoEventWireup="true" CodeBehind="Show.aspx.cs" Inherits="InstutiteOfFineArt.Views.Exhibitions.Show" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPages/Home.Master"
+    AutoEventWireup="true" CodeBehind="Show.aspx.cs" Inherits="InstutiteOfFineArt.Views.Exhibitions.Show" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BodyClass" runat="server">
     page
 </asp:Content>
+<%@ Import Namespace="InstutiteOfFineArt.Codes" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="CssJS" runat="server">
     <link rel="stylesheet" href="../../Assets/Css/jquery.ui.theme.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../../Assets/Css/jquery.ui.core.css" type="text/css" media="all" />
@@ -21,58 +23,158 @@
     <div class="wall">
         <div id="pg_container" class="pg_container">
             <ul id="pg_photos" class="pg_photos">
+                <asp:ListView ID="lvPgPhotos" runat="server">
+                    <LayoutTemplate>
+                        <li id="itemPlaceholder" runat="server"></li>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <li><a href='#<%# Eval("Id")%>'>
+                            <img src='../../Assets/Images/Paintings/<%# Eval("PaintingURL")%>' alt='<b>Author:</b> <%# Student_Name(Eval("StudentId"))%><br><b>Description:</b> <%# Eval("PaintingDescription")%><%# ((bool)Eval("IsPaid") ) ? "<br><b>Purchase by:</b> " + Purchase_By(Eval("CustomerId")) : "" %>' /></a>
+                            <br>
+                            <center>
+                                <a href="#" id='paint_<%# Eval("Id")%>' class='btn <%# ((bool)Eval("IsPaid") ) ? "btn-danger" : "btn-primary btn-order" %>'
+                                    <%# ((bool)Eval("IsPaid") ) ? "" : "data-toggle='modal' data-target='#myModal'" %>
+                                    style="width: 200px">
+                                    <%# ((bool)Eval("IsPaid")) ? "Purchared" : (Eval("Price") + "$")%>
+                                </a>
+                            </center>
+                        </li>
+                    </ItemTemplate>
+                </asp:ListView>
                 <!-- calculate top-->
-                <li><a href="#1">
-                    <img src="../../Assets/Images/Paintings/1.jpg" alt="<b>Author:</b> Dung VT<br><b>Description:</b> Test desc Test desc Test desc Test desc Test desc Test desc Test desc" /></a>
-                    <br>
-                    <center>
-                    <a href="#" class="btn btn-primary" style="width:200px">1000 $</a>
-                    </center>
-                </li>
-                <li><a href="#2">
-                    <img src="../../Assets/Images/Paintings/2.jpg" alt="<b>Author:</b> Dung VT<br><b>Description:</b> Test desc Test desc Test desc Test desc Test desc Test desc Test desc" /></a>
-                    <br>
-                    <center><a href="#" class="btn btn-primary" style="width:200px">1000 $</a>
-                    	</center>
-                </li>
-                <li><a href="#3">
-                    <img src="../../Assets/Images/Paintings/3.jpg" alt="Another descritpion of the image" /></a></li>
-                <li><a href="#4">
-                    <img src="../../Assets/Images/Paintings/4.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#5">
-                    <img src="../../Assets/Images/Paintings/5.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#6">
-                    <img src="../../Assets/Images/Paintings/6.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#7">
-                    <img src="../../Assets/Images/Paintings/7.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#8">
-                    <img src="../../Assets/Images/Paintings/8.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#9">
-                    <img src="../../Assets/Images/Paintings/9.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#10">
-                    <img src="../../Assets/Images/Paintings/10.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#11">
-                    <img src="../../Assets/Images/Paintings/11.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#12">
-                    <img src="../../Assets/Images/Paintings/12.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#13">
-                    <img src="../../Assets/Images/Paintings/13.jpg" alt="Here comes a description" /></a></li>
-                <li><a href="#14">
-                    <img src="../../Assets/Images/Paintings/14.jpg" alt="Here comes a description" /></a></li>
             </ul>
         </div>
     </div>
-
-    <div class="co-footer">
-        <center>
-                    <h1>Exhibition of West</h1>
-            </center>
+    <div class="modal fade modal-order" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Customer infomation
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form runat="server" method="post">
+                    <table class="table table-striped customer-order-form">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbFullname" Text="Full Name:" CssClass="form-laybel" runat="server"
+                                        Font-Bold="true" />
+                                </td>
+                                <td class="col-md-6">
+                                    <asp:TextBox runat="server" ID="txtFullname" CssClass="form-control" />
+                                </td>
+                                <td class="col-md-4" style="padding: 15px">
+                                    <asp:Label ID="lbFullnameErr" Text="*" runat="server" ForeColor="#A73333" CssClass="lbOrderFormErr" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbEmail" Text="Email Address:" CssClass="form-laybel" runat="server"
+                                        Font-Bold="true" />
+                                </td>
+                                <td class="col-md-6">
+                                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                                </td>
+                                <td class="col-md-4" style="padding: 15px">
+                                    <asp:Label ID="lbEmailErr" Text="*" runat="server" ForeColor="#A73333" CssClass="lbOrderFormErr" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbGender" Text="Gender:" CssClass="form-laybel" runat="server" Font-Bold="true" />
+                                </td>
+                                <td colspan="2" style="padding: 15px">
+                                    <asp:RadioButton ID="rdbMale" runat="server" Checked="true" GroupName="Gender" />
+                                    Male<span style="padding-right: 10px"></span>
+                                    <asp:RadioButton ID="rdbFemale" runat="server" GroupName="Gender" />
+                                    Female
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbBirthday" Text="Birthday:" CssClass="form-laybel" runat="server"
+                                        Font-Bold="true" />
+                                </td>
+                                <td class="col-md-6">
+                                    <asp:TextBox runat="server" ID="txtBirthday" CssClass="form-control" />
+                                </td>
+                                <td class="col-md-4" style="padding: 15px">
+                                    <asp:Label ID="lbBirthdayErr" Text="*" runat="server" ForeColor="#A73333" CssClass="lbOrderFormErr" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbAddress" Text="Address:" CssClass="form-laybel" runat="server" Font-Bold="true" />
+                                </td>
+                                <td class="col-md-6">
+                                    <asp:TextBox runat="server" ID="txtAddress" CssClass="form-control" />
+                                </td>
+                                <td class="col-md-4" style="padding: 15px">
+                                    <asp:Label ID="lbAddressErr" Text="*" runat="server" ForeColor="#A73333" CssClass="lbOrderFormErr" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2" style="padding: 15px">
+                                    <asp:Label ID="lbPhone" Text="Phone:" CssClass="form-laybel" runat="server" Font-Bold="true" />
+                                </td>
+                                <td class="col-md-6">
+                                    <asp:TextBox runat="server" ID="txtPhone" CssClass="form-control" />
+                                </td>
+                                <td class="col-md-4" style="padding: 15px">
+                                    <asp:Label ID="lbPhoneErr" Text="*" runat="server" ForeColor="#A73333" CssClass="lbOrderFormErr" />
+                                </td>
+                            </tr>
+                            <asp:HiddenField ID="PaintingId" runat="server" />
+                            <tr>
+                                <td class="col-md-2">
+                                </td>
+                                <td colspan="2" style="padding-top: 20px; padding-bottom: 20px">
+                                    <asp:Button ID="btnAccept" Text="Accept" runat="server" CssClass="btn btn-danger"
+                                        OnClick="btnAccept_Click" /><span style="padding-right: 5px"></span>
+                                    <asp:Button ID="btnReset" Text="Reset" runat="server" CssClass="btn btn-default "
+                                        CausesValidation="False" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal -->
+    <script type="text/javascript">        \
+    $('#myModal').modal(options) </script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery.ba-hashchange.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-mousewheel-3.0.4/jquery.mousewheel.min.js"></script>
-
+    <script type="text/javascript">
+        $(function () {
+            $("#<%= txtBirthday.ClientID %>").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+        var err = $(".lbOrderFormErr").text();
+        console.log(err.length);
+        if (err.length > 5) {
+            $('#myModal').modal("show");
+        }
+        $(".btn-order").click(function () {
+            var elm = (this.id).split("_");
+            console.log(elm[1]);
+            $('#<%=PaintingId.ClientID %>').val(elm[1]);
+        });
+        $('#myModal').modal(options);
+    </script>
     <script type="text/javascript">
         /*
         the images preload plugin
@@ -118,14 +220,14 @@
                         $ts_preview = $ts_preview_wrapper.children('.ts_preview');
 
                         /*
-						calculate sizes for $ts_thumbnails:
-						width 	-> width thumbnail + border (2*5)
-						height 	-> height thumbnail + border + triangle height(6)
-						top		-> -(height plus margin of 5)
-						left	-> leftDot - 0.5*width + 0.5*widthNavDot
-							this will be set when hovering the nav,
-							and the default value will correspond to the first nav dot
-							*/
+                        calculate sizes for $ts_thumbnails:
+                        width 	-> width thumbnail + border (2*5)
+                        height 	-> height thumbnail + border + triangle height(6)
+                        top		-> -(height plus margin of 5)
+                        left	-> leftDot - 0.5*width + 0.5*widthNavDot
+                        this will be set when hovering the nav,
+                        and the default value will correspond to the first nav dot
+                        */
                         var w_ts_thumbnails = o.thumb_width + 2 * 5,
                         h_ts_thumbnails = o.thumb_height + 2 * 5 + 6,
                         t_ts_thumbnails = -(h_ts_thumbnails + 5),
@@ -140,10 +242,10 @@
                         });
 
                         /*
-						calculate the top and left for the arrow of the tooltip
-						top		-> thumb height + border(2*5)
-						left	-> (thumb width + border)/2 -width/2
-						*/
+                        calculate the top and left for the arrow of the tooltip
+                        top		-> thumb height + border(2*5)
+                        left	-> (thumb width + border)/2 -width/2
+                        */
                         var t_arrow = o.thumb_height + 2 * 5,
 						l_arrow = (o.thumb_width + 2 * 5) / 2 - $arrow.width() / 2;
                         $arrow.css({
@@ -152,13 +254,13 @@
                         });
 
                         /*
-						calculate the $ts_preview width -> thumb width times number of thumbs
-						*/
+                        calculate the $ts_preview width -> thumb width times number of thumbs
+                        */
                         $ts_preview.css('width', total_elems * o.thumb_width + 'px');
 
                         /*
-						set the $ts_preview_wrapper width and height -> thumb width / thumb height
-						*/
+                        set the $ts_preview_wrapper width and height -> thumb width / thumb height
+                        */
                         $ts_preview_wrapper.css({
                             width: o.thumb_width + 'px',
                             height: o.thumb_height + 'px'
@@ -170,9 +272,9 @@
 							idx = $nav_elem.index();
 
                             /*
-							calculate the new left
-							for $ts_thumbnails
-								*/
+                            calculate the new left
+                            for $ts_thumbnails
+                            */
                             var new_left = $nav_elem.position().left - 0.5 * w_ts_thumbnails + 0.5 * $nav_elem.width();
 
                             $ts_thumbnails.stop(true)
@@ -182,8 +284,8 @@
 							}, o.speed, o.easing);
 
                             /*
-							animate the left of the $ts_preview to show the right thumb
-							*/
+                            animate the left of the $ts_preview to show the right thumb
+                            */
                             $ts_preview.stop(true)
 							.animate({
 							    left: -idx * o.thumb_width + 'px'
@@ -248,14 +350,14 @@
                 }
             };
             $.fn.thumbnailSlider.defaults = {
-                speed: 100,//speed of each slide animation
-                easing: 'jswing',//easing effect for the slide animation
-                thumb_width: 75,//your photos width
-                thumb_height: 75,//your photos height
-                zoom: false,//zoom animation for the thumbs
-                zoomratio: 1.3,//multiplicator for zoom (must be > 1)
-                zoomspeed: 15000,//speed of zoom animation
-                onClick: function () { return false; }//click callback
+                speed: 100, //speed of each slide animation
+                easing: 'jswing', //easing effect for the slide animation
+                thumb_width: 75, //your photos width
+                thumb_height: 75, //your photos height
+                zoom: false, //zoom animation for the thumbs
+                zoomratio: 1.3, //multiplicator for zoom (must be > 1)
+                zoomspeed: 15000, //speed of zoom animation
+                onClick: function () { return false; } //click callback
             };
         })(jQuery);
     </script>

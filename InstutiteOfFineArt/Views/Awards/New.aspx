@@ -78,10 +78,10 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                                 &times;</button>
                                             <h4 class="modal-title" id="myModalLabel">
-                                                Painting list</h4>
+                                                Painting list</h4> <asp:Label ID="lbChoiceImgErr" Text="" runat="server" ForeColor="#A73333" />
                                         </div>
                                         <div class="modal-body">
-                                            <asp:Label ID="lbChoiceImgErr" Text="" runat="server" ForeColor="#A73333" />
+                                            
                                             <asp:ListView ID="ListView1" runat="server">
                                                 <LayoutTemplate>
                                                     <table border="0" cellpadding="1">
