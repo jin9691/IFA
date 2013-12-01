@@ -15,7 +15,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
      <div class="container">
             <div class="row show-image">
-                <div class="col-md-5" style="margin-left:50px;">
+                <div class="col-md-5" style="margin-left:80px;">
                     <center>
                     <img class="image"  src="../../Assets/Images/Paintings/1.jpg" alt="image01" />
                     </center>

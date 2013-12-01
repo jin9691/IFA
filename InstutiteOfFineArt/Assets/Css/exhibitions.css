@@ -91,7 +91,7 @@ ul.pg_photos{
 	list-style-type:none;
 }
 ul.pg_photos li{
-	padding-top: 100px;
+	padding-top: 50px;
 	padding-left: 50px;
 	float: left;
 	position:relative;
@@ -114,9 +114,6 @@ font-size: 13px;
 bottom: 0px;
 right: 0px;
 color: #3C3C3C;
--moz-box-shadow: 1px 0px 2px #000 inset;
--webkit-box-shadow: 1px 0px 2px #000 inset;
-box-shadow: 1px 0px 2px #000 inset;
 }
 ul.pg_photos li img{
 	height: 350px;

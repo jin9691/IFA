@@ -3,18 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BodyClass" runat="server">
-page
+    page
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CssJS" runat="server">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery.ui.theme.css" type="text/css" media="all" />
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery.ui.core.css" type="text/css" media="all" />
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery.ui.slider.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../Assets/Css/jquery.ui.theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../Assets/Css/jquery.ui.core.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../Assets/Css/jquery.ui.slider.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../../Assets/Css/thumbnail_slider.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../../Assets/Css/exhibitions.css" type="text/css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
-    <div class="header" style="display:none">
-        <div id="pg_scrollWrapper" class="pg_scrollWrapper" >
+    <div class="header" style="display: none">
+        <div id="pg_scrollWrapper" class="pg_scrollWrapper">
             <div id="slider" class="slider"></div>
         </div>
     </div>
@@ -31,7 +31,7 @@ page
                 </li>
                 <li><a href="#2">
                     <img src="../../Assets/Images/Paintings/2.jpg" alt="<b>Author:</b> Dung VT<br><b>Description:</b> Test desc Test desc Test desc Test desc Test desc Test desc Test desc" /></a>
-                     <br>
+                    <br>
                     <center><a href="#" class="btn btn-primary" style="width:200px">1000 $</a>
                     	</center>
                 </li>
@@ -62,7 +62,13 @@ page
             </ul>
         </div>
     </div>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+    <div class="co-footer">
+        <center>
+                    <h1>Exhibition of West</h1>
+            </center>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery.ba-hashchange.min.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-mousewheel-3.0.4/jquery.mousewheel.min.js"></script>
@@ -349,7 +355,7 @@ page
                 //slide as we scroll with the mouse
                 $pg_container.mousewheel(function (e) {
                     var speed = 450,
-                    inc = -e.originalEvent.wheelDelta/120 * speed,
+                    inc = -e.originalEvent.wheelDelta / 120 * speed,
                     min = $slider.slider('option', 'min'),
                     max = $slider.slider('option', 'max');
 
@@ -369,10 +375,10 @@ page
                         }
                     });
                     if (is_safari) {
-                        if (e.originalEvent.wheelDelta/120 < 0 && !$pg_container.hasClass('turnLeft'))
+                        if (e.originalEvent.wheelDelta / 120 < 0 && !$pg_container.hasClass('turnLeft'))
                             $pg_container.addClass('turnLeft')
                         .removeClass('turnRight flat');
-                        else if (e.originalEvent.wheelDelta/120 > 0 && !$pg_container.hasClass('turnRight'))
+                        else if (e.originalEvent.wheelDelta / 120 > 0 && !$pg_container.hasClass('turnRight'))
                             $pg_container.addClass('turnRight')
                         .removeClass('turnLeft flat');
                     }
