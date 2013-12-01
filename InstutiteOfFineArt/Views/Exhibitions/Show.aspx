@@ -12,7 +12,18 @@
     <link rel="stylesheet" href="../../Assets/Css/exhibitions.css" type="text/css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentSite" runat="server">
+    <% if (InstutiteOfFineArt.Codes.Flash.dictFlash != null) %>
+    <% foreach (var key in InstutiteOfFineArt.Codes.Flash.dictFlash.Keys)
+       { %>
+    <center>
+                        <div class="alert alert-<%= key %> alert-small" style="margin-top:30px;margin-left:60px">
+                            <%= InstutiteOfFineArt.Codes.Flash.dictFlash[key] %>
+                        </div>
+                    </center>
+    <% } %>
+    <% InstutiteOfFineArt.Codes.Flash.dictFlash.Clear(); %>
     <form id="Form1" runat="server" method="post">
+
         <div class="header" style="display: none">
             <div id="pg_scrollWrapper" class="pg_scrollWrapper">
                 <div id="slider" class="slider"></div>
@@ -37,9 +48,9 @@
                                         <%# ((bool)Eval("IsPaid")) ? "Purchared" : (Eval("Price") + "$")%>
                                     </a>
                                     <br />
-                                    <asp:LinkButton OnClick="Destroy_Click" ID="Destroy" On CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" CssClass="btn btn-danger btn-sm" Width="100px" runat="server">Delete</asp:LinkButton>
+                                    <asp:LinkButton OnClick="Destroy_Click" ID="Destroy" CommandArgument='<%# Eval("Id")%>' OnClientClick="return processConfirm();" CssClass="btn btn-danger btn-sm" Width="100px" runat="server">Delete</asp:LinkButton>
                                 </center>
-                                
+
                             </li>
                         </ItemTemplate>
                     </asp:ListView>

@@ -13,10 +13,6 @@
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/docs.css" />
     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/jquery-ui.css" />
-     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/custom2.css" />
-     <link rel="Stylesheet" type="text/css" href="../../Assets/Css/demo2.css" />
-   <link rel="Stylesheet" type="text/css" href="../../Assets/Css/stapel2.css" />
-   
     <script type="text/javascript" src="../../Assets/Js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../../Assets/Js/jquery-ui.js"></script>
     <script type="text/javascript" src="../../Assets/Js/bootstrap.js"></script>
@@ -67,7 +63,7 @@
             </div>
         </div>
         <div class="item item-rotate item-success">
-            <a class="link" href="#">
+            <a class="link" href="../Awards/List.aspx">
                 <center><span class="glyphicon glyphicon-certificate"></span></center>
             </a>
             <div class="item_content">

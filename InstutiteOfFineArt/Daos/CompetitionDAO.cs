@@ -23,6 +23,17 @@ namespace InstutiteOfFineArt.Daos
             return dt;
         }
 
+        public static DataTable Join()
+        {
+
+            DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);
+            DataTable dt = new DataTable();
+            string sql = "Select * from Competitions c, Paintings p, Awards a where c.Id = p.CompetitionId and p.Id = a.PaintingId";
+            SqlDataAdapter adap = new SqlDataAdapter(sql, DBUtilities.objConnection);
+            adap.Fill(dt);
+            return dt;
+        }
+
         public static Competition Find(int id)
         {
             DBUtilities.objConnection = new SqlConnection(DBUtilities.connStr);

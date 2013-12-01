@@ -5,6 +5,8 @@
 }
 
 .tp-grid li {
+	background-color: #fff;
+	margin-left: 100px;
 	position: absolute;
 	cursor: pointer;
 	border: 10px solid #fff;
@@ -23,14 +25,21 @@
 	display: inline-block;
 }
 
-.tp-grid li a {
+.tp-grid li .a {
 	display: block;
 	outline: none;
+}
+
+
+.tp-grid li .delete {
+	display: none;
+	outline: 
 }
 
 .tp-grid li img {
 	display: block;
 	border: none;
+	width: 150px;
 }
 
 .tp-info,
@@ -73,6 +82,12 @@
 
 .no-touch .tp-open li:hover .tp-info {
 	left: 0px;
+}
+
+.tp-open .delete
+{
+	margin-top: 10px;
+	display: block !important;
 }
 
 .tp-title {
