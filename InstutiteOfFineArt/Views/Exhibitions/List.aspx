@@ -76,7 +76,7 @@
                                 </div>
                                 <h3><%# Eval("ExhibitionName") %></h3>
                                 <h4>
-                                    <span><%#  Eval("ExhibitionDescription").ToString().Substring(0, 50) %>...</span><br>
+                                    <span><%# Truncate(Eval("ExhibitionDescription").ToString()) %></span><br>
                                     <span><b>Start Date:</b> <%# String.Format("{0: dd/MM/yyyy}",Eval("StartDate")) %></span>
                                     <span><b>End Date:</b> <%# String.Format("{0: dd/MM/yyyy}",Eval("EndDate")) %></span>
                                 </h4>

@@ -152,5 +152,12 @@ namespace InstutiteOfFineArt.Views.Exhibitions
                 }
             }
         }
+
+        public string Truncate(string txt)
+        {
+            if (txt.Length > 50)
+                return txt.Substring(0, 40) + " ...";
+            return txt;
+        }
     }
 }
