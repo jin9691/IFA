@@ -120,5 +120,21 @@ namespace InstutiteOfFineArt.Views.Competitions
             User user = UserDAO.Find(val);
             return user.Name;
         }
+
+        public string Mark_Equal(object point){
+            int val = Convert.ToInt32(point.ToString());
+            switch (val) {
+                case 1: return Painting.MARK_BAD;
+                    break;
+                case 2: return Painting.MARK_Normal;
+                    break;
+                case 3: return Painting.MARK_GOOD;
+                    break;
+                case 4: return Painting.MARK_BEST;
+                    break;
+            }
+            return "Invalid";
+        } 
+
     }
 }
